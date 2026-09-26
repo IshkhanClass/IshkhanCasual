@@ -179,6 +179,25 @@ a.card p {
   color: var(--ink-soft);
 }
 
+a.card.dl h3::before {
+  content: "↓";
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-weight: 700;
+}
+
+a.card.dl .ext {
+  display: inline-block;
+  margin-left: 8px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
 /* ---------- prose ---------- */
 
 .prose h2 {
@@ -347,6 +366,8 @@ code {
   font: inherit; font-size: 16px; line-height: 1.4; cursor: pointer;
   transition: background 160ms ease, color 160ms ease, border-color 160ms ease; }
 .navbtn:hover { background: var(--paper); color: var(--ink); border-color: var(--line); }
+a.navlink { display: flex; align-items: center; box-sizing: border-box; text-decoration: none; color: var(--accent); font-weight: 600; }
+a.navlink:hover { color: var(--accent); }
 .navbtn.on { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); font-weight: 600; }
 .content { flex: 1 1 auto; min-width: 0; }
 .pane { display: none; }
@@ -383,6 +404,9 @@ code {
 <div class="layout">
 <nav class="sidenav no-print">
   <button class="navbtn on" data-go="start">Обзор</button>
+  <div class="grp">Скачать PDF</div>
+  <a class="navbtn navlink" href="Ishkhan_Khchoian_Product_Manager_Conversational_AI.pdf" download>↓ CV · Product (EN)</a>
+  <a class="navbtn navlink" href="Ishkhan_Khchoian_Cover_Letter_Conversational_AI.pdf" download>↓ Letter · Product (EN)</a>
   <div class="grp">Резюме — английский</div>
   <button class="navbtn" data-go="cv-legaltech">LegalTech</button>
   <button class="navbtn" data-go="cv-delivery">IT Delivery</button>
@@ -413,6 +437,11 @@ code {
 <div class="hero"><h1>Резюме и сопроводительные письма</h1>
 <p>Семь версий резюме и пять сопроводительных писем под разные типы компаний. Выберите документ слева или ниже, затем — «Копировать текст», чтобы вставить в форму отклика, или «Печать / PDF», чтобы сохранить файл.</p>
 <p><b>Главное правило: одно резюме на все вакансии не работает.</b> Выбирайте версию под нишу компании — первые три строки должны совпадать с тем, что человек ищет.</p></div>
+<h2 class="section-title">Под конкретную вакансию — скачать PDF</h2>
+<div class="cards">
+<a class="card dl" href="Ishkhan_Khchoian_Product_Manager_Conversational_AI.pdf" download><span class="tag">Junior PM · Conversational AI</span><h3>CV · Product (EN) <span class="ext">PDF · 2 стр.</span></h3><p>Под вакансию junior product в chat-центричном AI-продукте: discovery, спеки, эксперименты, метрики, 0-to-1. Наверху — свой концепт AI-агентов и RAG.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_Conversational_AI.pdf" download><span class="tag">Junior PM · Conversational AI</span><h3>Cover letter · Product (EN) <span class="ext">PDF · 1 стр.</span></h3><p>Письмо основателю: честно про старт карьеры в продукте, шесть лет discovery без этого названия и пересечение с его бэкграундом.</p></a>
+</div>
 <h2 class="section-title">Резюме — английский</h2>
 <div class="cards">
 <a class="card" href="#cv-legaltech" data-go="cv-legaltech"><span class="tag">Главная ставка</span><h3>LegalTech</h3><p>Продукты для юрфирм, иммиграционные платформы, legal ops. Ваш домен здесь — квалификация, а не прошлое.</p></a>
