@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ishkhan Khchoian — резюме и сопроводительные письма</title>
+<style>
+/* IshkhanCasual — resume & cover letter site
+   Type scale: 14 / 16 / 20 / 24 / 32
+   Spacing scale: 4 / 8 / 12 / 16 / 24 / 32 / 48 */
+
+:root {
+  --ink: #14181f;
+  --ink-soft: #444d5c;
+  --ink-faint: #6b7480;
+  --line: #dfe3e9;
+  --line-soft: #eceff3;
+  --bg: #f6f7f9;
+  --paper: #ffffff;
+  --accent: #1b4d8f;
+  --accent-soft: #eef3fa;
+  --radius: 10px;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ---------- top bar ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar a.home {
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.topbar a.home:hover { color: var(--accent); }
+
+.topbar .spacer { flex: 1 1 auto; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.btn:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.btn:active { transform: translateY(1px); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary:hover { background: #16407a; color: #fff; }
+
+/* ---------- layout ---------- */
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+}
+
+.paper {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+
+/* ---------- hub ---------- */
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: 32px;
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
+
+.hero p {
+  margin: 0 0 8px;
+  max-width: 62ch;
+  color: var(--ink-soft);
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.3;
+  margin: 48px 0 4px;
+}
+
+.section-note {
+  margin: 0 0 16px;
+  color: var(--ink-faint);
+  font-size: 14px;
+  max-width: 62ch;
+}
+
+.cards {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+a.card {
+  display: block;
+  padding: 16px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+a.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(20, 24, 31, 0.07);
+}
+
+a.card .tag {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+a.card h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 0 0 4px;
+}
+
+a.card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+/* ---------- prose ---------- */
+
+.prose h2 {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.3;
+  margin: 32px 0 8px;
+}
+
+.prose h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 24px 0 4px;
+}
+
+.prose p, .prose li { max-width: 66ch; }
+.prose p { margin: 0 0 12px; }
+.prose ul, .prose ol { margin: 0 0 12px; padding-left: 24px; }
+.prose li { margin-bottom: 4px; }
+
+.callout {
+  margin: 16px 0;
+  padding: 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.callout p:last-child { margin-bottom: 0; }
+
+/* ---------- document (CV / letter) ---------- */
+
+.doc {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 40px;
+  color: var(--ink);
+}
+
+.doc h1 {
+  font-family: var(--serif);
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 0 0 4px;
+  letter-spacing: 0.01em;
+}
+
+.doc .role {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 8px;
+}
+
+.doc .contact {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.doc h2 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 24px 0 12px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.doc p { margin: 0 0 12px; max-width: 72ch; }
+
+.job { margin-bottom: 16px; }
+
+.job-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin-bottom: 4px;
+}
+
+.job-top .who { font-weight: 600; font-size: 16px; }
+.job-top .when { margin-left: auto; font-size: 14px; color: var(--ink-faint); white-space: nowrap; }
+.job .sub { font-size: 14px; color: var(--ink-soft); margin: 0 0 4px; }
+
+.doc ul { margin: 0 0 4px; padding-left: 20px; }
+.doc li { margin-bottom: 4px; max-width: 72ch; }
+
+.skills { font-size: 16px; margin: 0 0 8px; max-width: 72ch; }
+.skills b { font-weight: 600; }
+
+.letter p { margin: 0 0 16px; max-width: 68ch; }
+.letter .meta { font-size: 14px; color: var(--ink-faint); margin-bottom: 24px; }
+
+.docnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.docnav a {
+  font-size: 14px;
+  padding: 4px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.docnav a:hover, .docnav a.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+code {
+  font-family: var(--sans);
+  font-size: 14px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  background: var(--line-soft);
+}
+
+.todo {
+  background: #fff5d6;
+  border-bottom: 1px dashed #b3891f;
+  padding: 0 2px;
+}
+
+/* ---------- mobile ---------- */
+
+@media (max-width: 640px) {
+  .wrap { padding: 24px 16px 32px; }
+  .paper, .doc { padding: 24px 16px; }
+  .topbar { padding: 8px 16px; gap: 8px; }
+  .doc h1, .hero h1 { font-size: 24px; }
+  .job-top .when { margin-left: 0; width: 100%; }
+}
+
+/* ---------- print ---------- */
+
+@media print {
+  :root { --line: #cfd4dc; --line-soft: #e2e6eb; }
+  body { background: #fff; font-size: 10.5pt; line-height: 1.45; }
+  .topbar, .docnav, .no-print { display: none !important; }
+  .wrap { max-width: none; padding: 0; }
+  .doc, .paper { border: 0; border-radius: 0; padding: 0; }
+  .doc h1 { font-size: 20pt; }
+  .doc h2 { margin: 14pt 0 6pt; }
+  .job { margin-bottom: 10pt; page-break-inside: avoid; }
+  a { color: inherit; text-decoration: none; }
+}
+
+/* ---------- single-file layout ---------- */
+.layout { max-width: 1180px; margin: 0 auto; padding: 24px; display: flex; gap: 24px; align-items: flex-start; }
+.sidenav { flex: 0 0 260px; position: sticky; top: 72px; }
+.sidenav .grp { font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ink-faint); margin: 16px 0 8px; }
+.sidenav .grp:first-child { margin-top: 0; }
+.navbtn { display: block; width: 100%; text-align: left; min-height: 44px; padding: 8px 12px; margin-bottom: 4px;
+  border: 1px solid transparent; border-radius: var(--radius); background: transparent; color: var(--ink-soft);
+  font: inherit; font-size: 16px; line-height: 1.4; cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease; }
+.navbtn:hover { background: var(--paper); color: var(--ink); border-color: var(--line); }
+.navbtn.on { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); font-weight: 600; }
+.content { flex: 1 1 auto; min-width: 0; }
+.pane { display: none; }
+.pane.active { display: block; animation: fade 220ms ease both; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.pane > .doc, .pane > .paper { background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 40px; }
+.pane > .doc.letter { padding: 40px; }
+.letter + .letter { margin-top: 24px; }
+@media (max-width: 860px) {
+  .layout { display: block; padding: 16px; }
+  .sidenav { position: static; margin-bottom: 24px; }
+  .pane > .doc, .pane > .paper { padding: 24px 16px; }
+}
+@media print {
+  .layout { display: block; padding: 0; max-width: none; }
+  .sidenav { display: none !important; }
+  .pane { display: none !important; }
+  .pane.active { display: block !important; animation: none; }
+  .pane > .doc, .pane > .paper { border: 0; padding: 0; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="home">Ishkhan Khchoian</span>
+  <span class="spacer"></span>
+  <button class="btn" id="copyBtn">Копировать текст</button>
+  <button class="btn primary" id="printBtn">Печать / PDF</button>
+</div>
+
+<div class="layout">
+<nav class="sidenav no-print">
+  <button class="navbtn on" data-go="start">Обзор</button>
+  <div class="grp">Резюме — английский</div>
+  <button class="navbtn" data-go="cv-legaltech">LegalTech</button>
+  <button class="navbtn" data-go="cv-delivery">IT Delivery</button>
+  <button class="navbtn" data-go="cv-contech">Construction / PropTech</button>
+  <button class="navbtn" data-go="cv-ops">Operations & Delivery</button>
+  <button class="navbtn" data-go="cv-startup">Startup / AI</button>
+  <div class="grp">Резюме — русский</div>
+  <button class="navbtn" data-go="cv-ru-it">Проектный менеджер в IT</button>
+  <button class="navbtn" data-go="cv-ru-stroy">Строительство и ремонт</button>
+  <div class="grp">Сопроводительные письма</div>
+  <button class="navbtn" data-go="let-insider">«The Insider» · EN</button>
+  <button class="navbtn" data-go="let-operator">«The Operator» · EN</button>
+  <button class="navbtn" data-go="let-builder">«The Builder» · EN</button>
+  <button class="navbtn" data-go="let-perehod">«Переход» · RU</button>
+  <button class="navbtn" data-go="let-stroyka">«Стройка» · RU</button>
+  <div class="grp">Стратегия</div>
+  <button class="navbtn" data-go="strategy">Career break, ниши, LinkedIn</button>
+  <div class="grp">Геймдев</div>
+  <button class="navbtn" data-go="cv-gd-en">CV · Games (EN)</button>
+  <button class="navbtn" data-go="cv-gd-ru">Резюме · Геймдев (RU)</button>
+  <button class="navbtn" data-go="let-gd-en">Letter · Games (EN)</button>
+  <button class="navbtn" data-go="let-gd-ru">Письмо · Геймдев (RU)</button>
+</nav>
+
+<div class="content">
+<section class="pane active" id="pane-start">
+<div class="paper">
+<div class="hero"><h1>Резюме и сопроводительные письма</h1>
+<p>Семь версий резюме и пять сопроводительных писем под разные типы компаний. Выберите документ слева или ниже, затем — «Копировать текст», чтобы вставить в форму отклика, или «Печать / PDF», чтобы сохранить файл.</p>
+<p><b>Главное правило: одно резюме на все вакансии не работает.</b> Выбирайте версию под нишу компании — первые три строки должны совпадать с тем, что человек ищет.</p></div>
+<h2 class="section-title">Резюме — английский</h2>
+<div class="cards">
+<a class="card" href="#cv-legaltech" data-go="cv-legaltech"><span class="tag">Главная ставка</span><h3>LegalTech</h3><p>Продукты для юрфирм, иммиграционные платформы, legal ops. Ваш домен здесь — квалификация, а не прошлое.</p></a>
+<a class="card" href="#cv-delivery" data-go="cv-delivery"><span class="tag">Массовые отклики</span><h3>IT Delivery</h3><p>Junior PM / Project Coordinator. Нейтральное, с ключевыми словами — для ATS, LinkedIn Easy Apply и аутсорса.</p></a>
+<a class="card" href="#cv-contech" data-go="cv-contech"><span class="tag">Мало конкурентов</span><h3>Construction / PropTech</h3><p>15+ объектов, тендеры, подрядчики, Ганты плюс договорное право. Стройка вынесена наверх.</p></a>
+<a class="card" href="#cv-ops" data-go="cv-ops"><span class="tag">Operations</span><h3>Operations & Delivery</h3><p>Про объём и надёжность: 200+ дел, 30+ заседаний в неделю, события на 3000 человек, Highload++.</p></a>
+<a class="card" href="#cv-startup" data-go="cv-startup"><span class="tag">Ранние команды</span><h3>Startup / AI</h3><p>Живой тон от первого лица. HackNation, 42, Startup Seaside Summit и продуктовая идея — наверху.</p></a>
+</div>
+<h2 class="section-title">Резюме — русский</h2>
+<div class="cards">
+<a class="card" href="#cv-ru-it" data-go="cv-ru-it"><span class="tag">Универсальное</span><h3>Проектный менеджер в IT</h3><p>Сбалансированная версия: операционный опыт, процессы, инструменты, career break как аргумент.</p></a>
+<a class="card" href="#cv-ru-stroy" data-go="cv-ru-stroy"><span class="tag">Ниша</span><h3>Строительство и ремонт</h3><p>Объекты, подрядчики, закупки, тендеры, графики — и договорное право сверху.</p></a>
+</div>
+<h2 class="section-title">Сопроводительные письма</h2>
+<div class="cards">
+<a class="card" href="#let-insider" data-go="let-insider"><span class="tag">LegalTech</span><h3>«The Insider» · EN</h3><p>Для legaltech и продуктов для юристов. Козырь — вы шесть лет были пользователем такого софта.</p></a>
+<a class="card" href="#let-operator" data-go="let-operator"><span class="tag">Аутсорс</span><h3>«The Operator» · EN</h3><p>Для IT-аутсорса и сервисных компаний. Спокойный тон: объём, сроки, порядок.</p></a>
+<a class="card" href="#let-builder" data-go="let-builder"><span class="tag">Стартапы</span><h3>«The Builder» · EN</h3><p>Для стартапов и AI-команд. Короткое и живое — длинное письмо туда не читают.</p></a>
+<a class="card" href="#let-perehod" data-go="let-perehod"><span class="tag">Универсальное</span><h3>«Переход» · RU</h3><p>Для русскоязычных IT-компаний. Строится вокруг честного объяснения career transition.</p></a>
+<a class="card" href="#let-stroyka" data-go="let-stroyka"><span class="tag">Стройка</span><h3>«Стройка» · RU</h3><p>Для строительных, ремонтных и девелоперских компаний и proptech-сервисов.</p></a>
+</div>
+<h2 class="section-title">Стратегия</h2>
+<div class="cards">
+<a class="card" href="#strategy" data-go="strategy"><span class="tag">Прочитать первым</span><h3>Career break, ниши, LinkedIn</h3><p>Оценка career break и как его оформить, приоритет ниш, названия вакансий, настройка LinkedIn и чек-лист.</p></a>
+</div>
+<h2 class="section-title">Геймдев</h2>
+<div class="cards">
+<a class="card" href="#cv-gd-en" data-go="cv-gd-en"><span class="tag">Геймдев</span><h3>CV · Games (EN)</h3><p>Продакшн-дисциплина плюс 20 лет реального игрового опыта и соревновательные результаты.</p></a>
+<a class="card" href="#cv-gd-ru" data-go="cv-gd-ru"><span class="tag">Геймдев</span><h3>Резюме · Геймдев (RU)</h3><p>Та же версия по-русски, для русскоязычных студий.</p></a>
+<a class="card" href="#let-gd-en" data-go="let-gd-en"><span class="tag">Письмо</span><h3>Letter · Games (EN)</h3><p>Честно про отсутствие шипнутой игры — и сильно про всё остальное.</p></a>
+<a class="card" href="#let-gd-ru" data-go="let-gd-ru"><span class="tag">Письмо</span><h3>Письмо · Геймдев (RU)</h3><p>Русская версия того же письма.</p></a>
+</div>
+</div>
+</section>
+
+<section class="pane" id="pane-cv-legaltech">
+<div class="copyzone doc"><h1>Ishkhan Khchoian</h1>
+  <p class="role">Project Manager — LegalTech &amp; Legal Operations</p>
+  <p class="contact">
+    Yerevan, Armenia · open to remote · relocation possible<br>
+    +374 98 60 34 64 · ishxanxchoyan@gmail.com · linkedin.com/in/ishkhan-khchoian-2419182b3<br>
+    Armenian (native) · English (C1) · Russian (C2)
+  </p>
+
+  <h2>Profile</h2>
+  <p>Project and operations professional with 6+ years inside legal delivery — from paralegal to Senior Case Manager owning a firm's most complex U.S. immigration filings (O-1B, EB-3, E-2). I am the person who redesigns the pipeline: intake scripts, evidence checklists, document templates, hand-offs between paralegals and attorneys. At Shamayev Business Law Corp. I designed and ran an internal Paralegal Academy that trained the team.</p>
+  <p>I have now moved that operational depth into IT project management on purpose — a full-time career transition backed by PM training, a month of programming at 42 Yerevan, and a hackathon prize. For a legaltech product I offer something a generic junior PM cannot: I have been the end user of this software for six years, and I can translate between legal customers and an engineering backlog without a middleman.</p>
+
+  <h2>Core Skills</h2>
+  <p class="skills"><b>Delivery:</b> project coordination · scope &amp; timelines · Gantt charts · Agile/Scrum ceremonies · backlog grooming · stakeholder communication · risk tracking</p>
+  <p class="skills"><b>Legal operations:</b> end-to-end case management · SOP and checklist design · document workflow · intake and client communication · legal research &amp; evidence analysis · quality review</p>
+  <p class="skills"><b>Tools:</b> Jira · Confluence · Notion · Trello · Monday · Bitrix24 · AmoCRM · Google Workspace · MS Office</p>
+
+  <h2>Experience</h2>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Career Break — transition into IT project management</span><span class="when">Feb 2026 – Present</span></div>
+    <p class="sub">Yerevan, Armenia · full-time retraining</p>
+    <ul>
+      <li>Project management programme, Yerevan American Corner (2026); PM Club course, 52 academic hours (2023).</li>
+      <li>HackNation — 2nd place in the local pitches, followed by the on-site final at TUMO Labs, Yerevan (July 2026); participant, Startup Seaside Summit.</li>
+      <li>Currently prototyping a product concept around AI voice/text agents and RAG systems for B2B verticals.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Senior Case Manager — M&amp;M Document Preparation</span><span class="when">Jun 2025 – Feb 2026</span></div>
+    <ul>
+      <li>Owned end-to-end delivery of the company's most complex filings — O-1B, EB-3, E-2 and secondary petitions — from intake interview through evidence assembly to submission, running up to <b>12 cases in parallel</b>.</li>
+      <li>Coordinated and supported a team of <b>8 paralegals</b>: reviewed their evidence packages, resolved escalations, and acted as the reference point on difficult case strategy.</li>
+      <li>Rebuilt internal workflows, templates and best-practice checklists; the standards I wrote became the team's default way of working and cut rework on document preparation.</li>
+      <li>Ran client communication across every stage of the case — expectation setting, status updates, and evidence chasing against hard filing deadlines.</li>
+      <li>Performed legal research and analysed evidence to shape case strategy on high-value matters.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Event / Project Manager — Hosq Corp.</span><span class="when">Jan 2025 – Jun 2025</span></div>
+    <ul>
+      <li>Coordinated large-scale concerts and shows for audiences of 100–3,000, running several projects in parallel under fixed, unmovable dates.</li>
+      <li>Handled vendor communication, scheduling, logistics and on-site operations from setup to closing.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Project Manager — Qanon Construction</span><span class="when">Aug 2024 – Dec 2024</span></div>
+    <ul>
+      <li>Managed client communication and sales coordination; maintained project timelines, follow-ups and internal hand-offs across the daily operation.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Paralegal — Bloomrich Law Firm</span><span class="when">Nov 2023 – Aug 2024</span></div>
+    <ul>
+      <li>Given full autonomy over an independent caseload on the strength of prior results — set my own priorities and case approach rather than working to assigned tasks.</li>
+      <li>Prepared immigration and non-immigration filings, tracked case progress, and supported attorneys with research and submissions.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Senior Paralegal — Shamayev Business Law Corp.</span><span class="when">Feb 2023 – Oct 2023</span></div>
+    <ul>
+      <li>Designed and led the firm's <b>Paralegal Academy</b> — an internal training track on business and talent immigration. The materials I wrote went on to serve <b>50+ paralegals</b>.</li>
+      <li>Trusted to deputise for the team lead and to carry the firm's key cases.</li>
+      <li>Managed case documentation, client communication and workflow coordination across multiple active matters.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Judge's Associate — Arbitration Court of the Magadan Region</span><span class="when">Nov 2021 – Dec 2022</span></div>
+    <ul>
+      <li>Ran 200+ parallel cases and 30+ hearings per week in a strictly deadline-driven environment.</li>
+      <li>Simultaneously covered three roles — judge's associate, court specialist and court secretary — normally held by three people.</li>
+      <li>Drafted judicial acts and managed case materials and document flow. Written reference available.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Assistant Lawyer — Bar Association</span><span class="when">Dec 2019 – Aug 2021</span></div>
+    <ul>
+      <li>Analysed civil-law contracts, prepared statements of claim and supporting filings; provided legal support to a trade and construction business.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Administrator / Legal Counsel — LLC "SIS"</span><span class="when">Jun 2015 – Sep 2019</span></div>
+    <ul>
+      <li>Ran day-to-day operations of a construction and retail business: 15+ construction projects, contractors, procurement, tenders, hiring and sales support.</li>
+    </ul>
+  </div>
+
+  <h2>Education &amp; Training</h2>
+  <ul>
+    <li><b>Project Management</b> — Yerevan American Corner, 2026 (10 academic hours, in person)</li>
+    <li><b>Project Management</b> — PM Club, 2023 (52 academic hours, online)</li>
+    <li><b>Piscine intensive (C programming)</b> — 42 Yerevan, Nov–Dec 2025 (passed selection; completed alongside full-time work)</li>
+    <li><b>Bachelor of Law</b> — North-Eastern State University, 2021</li>
+    <li><b>Civil Law, Faculty of Law</b> — St. Petersburg State University, 2016</li>
+  </ul>
+
+  <h2>Beyond Work</h2>
+  <ul>
+    <li><b>Ethos Foundation</b> — headquarters coordinator, Sep 2023 – Oct 2024. Coordinated humanitarian distribution reaching ~100 families per day. Written commendation available.</li>
+    <li><b>Highload++ conference</b> (700 attendees) — part of the organising team, led a crew of 12, given special assignments by the organisers and awarded a performance bonus. Certificate available.</li>
+    <li><b>HackNation</b> — 2nd place, local pitches. <b>Startup Seaside Summit</b> — participant.</li>
+  </ul></div>
+</section>
+
+<section class="pane" id="pane-cv-delivery">
+<div class="copyzone doc"><h1>Ishkhan Khchoian</h1>
+  <p class="role">Junior Project Manager / Project Coordinator</p>
+  <p class="contact">
+    Yerevan, Armenia · open to remote and hybrid<br>
+    +374 98 60 34 64 · ishxanxchoyan@gmail.com · linkedin.com/in/ishkhan-khchoian-2419182b3<br>
+    Armenian (native) · English (C1) · Russian (C2)
+  </p>
+
+  <h2>Professional Summary</h2>
+  <p>Project coordinator and operations professional with 6+ years of managing parallel workstreams, deadlines and stakeholders in international companies. Experience spans project management in construction, event delivery, and end-to-end case management in U.S. immigration law, including leading teams of up to 20 people and coordinating cross-functional groups. Trained in project management (PM Club, 52 hours; Yerevan American Corner), practical with Jira, Confluence, Notion and Trello, and comfortable in Agile/Scrum ceremonies. Strong documentation, process-optimisation and client-communication skills. Seeking a junior project manager or project coordinator role in IT.</p>
+
+  <h2>Key Skills</h2>
+  <p class="skills"><b>Project management:</b> Project Coordination · Scope Management · Scheduling &amp; Timelines · Gantt Charts · Agile · Scrum · Kanban · Backlog Management · Risk Tracking · Status Reporting · Stakeholder Management</p>
+  <p class="skills"><b>Operations:</b> Workflow Management · Process Optimisation · SOPs &amp; Checklists · Documentation · Requirements Gathering · Vendor Management · Quality Control · Cross-functional Coordination</p>
+  <p class="skills"><b>Tools:</b> Jira · Confluence · Notion · Trello · Monday.com · Bitrix24 · AmoCRM · Google Workspace · Google Analytics · MS Office</p>
+  <p class="skills"><b>Languages:</b> Armenian (Native) · English (C1) · Russian (C2)</p>
+
+  <h2>Professional Experience</h2>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Senior Case Manager — M&amp;M Document Preparation</span><span class="when">Jun 2025 – Feb 2026</span></div>
+    <ul>
+      <li>Managed end-to-end delivery of complex, high-value client cases from intake through completion, running up to <b>12 projects in parallel</b> against fixed external deadlines.</li>
+      <li>Coordinated a team of <b>8 case handlers</b>: reviewed deliverables, resolved escalations and served as the escalation point on difficult work.</li>
+      <li>Designed and rolled out internal workflows, templates and checklists that became the team's operating standard and reduced rework.</li>
+      <li>Owned client communication at every stage — status reporting, expectation management and requirement gathering.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Project Manager — Hosq Corp.</span><span class="when">Jan 2025 – Jun 2025</span></div>
+    <ul>
+      <li>Coordinated multiple concurrent live events for audiences of 100–3,000 people under non-movable launch dates.</li>
+      <li>Managed logistics, scheduling, vendor communication and on-site operations across concerts, festivals and shows.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Project Manager — Qanon Construction</span><span class="when">Aug 2024 – Dec 2024</span></div>
+    <ul>
+      <li>Coordinated project timelines, follow-up tasks and internal hand-offs; managed client communication and sales coordination.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Paralegal — Bloomrich Law Firm</span><span class="when">Nov 2023 – Aug 2024</span></div>
+    <ul>
+      <li>Ran an independent caseload with full autonomy over prioritisation and approach; tracked progress and communicated with clients.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Senior Paralegal — Shamayev Business Law Corp.</span><span class="when">Feb 2023 – Oct 2023</span></div>
+    <ul>
+      <li>Designed and led an internal training programme ("Paralegal Academy"); the materials I produced went on to serve <b>50+ specialists</b>.</li>
+      <li>Deputised for the team lead and carried the company's key accounts; coordinated documentation and workflow across active projects.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Judge's Associate — Arbitration Court of the Magadan Region</span><span class="when">Nov 2021 – Dec 2022</span></div>
+    <ul>
+      <li>Handled 200+ parallel cases and 30+ hearings per week in a strictly deadline-driven environment.</li>
+      <li>Covered three roles simultaneously (judge's associate, court specialist, court secretary) normally staffed by three people.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Assistant Lawyer — Bar Association</span><span class="when">Dec 2019 – Aug 2021</span></div>
+    <ul>
+      <li>Analysed contracts, prepared claims and documentation, and supported a trade and construction organisation.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Administrator / Legal Counsel — LLC "SIS"</span><span class="when">Jun 2015 – Sep 2019</span></div>
+    <ul>
+      <li>Coordinated 15+ construction and retail projects, teams of 2–20, contractors, procurement and tenders; managed recruitment and daily operations.</li>
+    </ul>
+  </div>
+
+  <h2>Career Break — Professional Development</h2>
+  <div class="job">
+    <div class="job-top"><span class="who">Career transition into IT project management</span><span class="when">Feb 2026 – Present</span></div>
+    <ul>
+      <li>Project management programme, Yerevan American Corner (2026).</li>
+      <li>HackNation — 2nd place in the local pitches, followed by the on-site final at TUMO Labs, Yerevan (July 2026); participant, Startup Seaside Summit.</li>
+    </ul>
+  </div>
+
+  <h2>Education</h2>
+  <ul>
+    <li><b>Project Management</b> — Yerevan American Corner, 2026 (10 academic hours)</li>
+    <li><b>Project Management</b> — PM Club, 2023 (52 academic hours)</li>
+    <li><b>Piscine intensive (C programming)</b> — 42 Yerevan, Nov–Dec 2025 (passed selection; completed alongside full-time work)</li>
+    <li><b>Bachelor of Law</b> — North-Eastern State University, 2021</li>
+    <li><b>Civil Law, Faculty of Law</b> — St. Petersburg State University, 2016</li>
+  </ul>
+
+  <h2>Additional</h2>
+  <ul>
+    <li><b>Highload++ conference</b> (700 attendees) — organising team; led a crew of 12; performance bonus awarded.</li>
+    <li><b>Ethos Foundation</b> — headquarters coordinator (Sep 2023 – Oct 2024); humanitarian operations reaching ~100 families per day.</li>
+  </ul></div>
+</section>
+
+<section class="pane" id="pane-cv-contech">
+<div class="copyzone doc"><h1>Ishkhan Khchoian</h1>
+  <p class="role">Project Manager — Construction, Renovation &amp; PropTech</p>
+  <p class="contact">
+    Yerevan, Armenia · open to remote · relocation possible<br>
+    +374 98 60 34 64 · ishxanxchoyan@gmail.com · linkedin.com/in/ishkhan-khchoian-2419182b3<br>
+    Armenian (native) · English (C1) · Russian (C2)
+  </p>
+
+  <h2>Profile</h2>
+  <p>Project manager with hands-on delivery experience across 15+ construction and retail fit-out projects — running crews of 2 to 20, selecting and chasing contractors, handling procurement, transport and tenders, and holding the schedule together when a supplier misses a date. This is where I first worked with Gantt charts and where I learned to own an outcome rather than a task list.</p>
+  <p>The rest of my background is law: civil-contract analysis, claims, and six years in international legal operations. For a construction or proptech company that combination is unusual and practical — the same person reads the contract, runs the site schedule, and writes the process down so it survives after the project ends. I am now applying that to IT project management, with formal PM training and a deliberate, full-time transition behind me.</p>
+
+  <h2>Core Skills</h2>
+  <p class="skills"><b>Project delivery:</b> multi-site scheduling · Gantt charts · contractor and vendor management · procurement &amp; materials · tenders · budget tracking · site coordination · team leadership (up to 20)</p>
+  <p class="skills"><b>Commercial &amp; legal:</b> contract analysis · negotiation · client communication · claims and disputes · documentation and regulations</p>
+  <p class="skills"><b>Tools:</b> Jira · Confluence · Notion · Trello · Monday · Bitrix24 · AmoCRM · MS Office · Google Workspace</p>
+
+  <h2>Construction &amp; Delivery Experience</h2>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Project Manager — Qanon Construction</span><span class="when">Aug 2024 – Dec 2024</span></div>
+    <ul>
+      <li>Managed client communication and sales coordination for construction work, from first enquiry to agreed scope.</li>
+      <li>Maintained project timelines, follow-up tasks and internal hand-offs; kept daily operations orderly and assignments on schedule.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Project Manager — LLC "SIS" (construction &amp; retail group)</span><span class="when">Jun 2015 – Sep 2019</span></div>
+    <p class="sub">Also Administrator / Legal Counsel · construction projects continued through 2022</p>
+    <ul>
+      <li>Delivered <b>15+ construction and retail projects</b>, at times running <b>three sites in parallel</b> with teams ranging from 2 to 20 people.</li>
+      <li>Coordinated contractors, building-supply vendors, materials and transport logistics end to end; prepared and participated in <b>tenders</b>.</li>
+      <li>Built the first schedules and Gantt charts used across the projects, and tracked progress against them.</li>
+      <li>Recruited and onboarded workers; handled sales, administration and legal support for the business.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Event / Project Manager — Hosq Corp.</span><span class="when">Jan 2025 – Jun 2025</span></div>
+    <ul>
+      <li>Coordinated concerts and live shows for audiences of 100–3,000 — logistics, vendors, scheduling and on-site operations, several projects at once against dates that could not move.</li>
+    </ul>
+  </div>
+
+  <h2>Legal &amp; Operations Experience</h2>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Senior Case Manager — M&amp;M Document Preparation</span><span class="when">Jun 2025 – Feb 2026</span></div>
+    <ul>
+      <li>Owned the company's most complex U.S. immigration filings end to end (O-1B, EB-3, E-2), running up to <b>12 in parallel</b>, and coordinated a team of <b>8 paralegals</b>.</li>
+      <li>Rebuilt internal workflows, templates and checklists that became the team's working standard.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Paralegal → Senior Paralegal — Bloomrich Law Firm · Shamayev Business Law Corp.</span><span class="when">Feb 2023 – Aug 2024</span></div>
+    <ul>
+      <li>Designed and led an internal <b>Paralegal Academy</b> at Shamayev; the training materials I wrote went on to serve <b>50+ paralegals</b>.</li>
+      <li>Carried key cases with full autonomy over caseload, documentation and client communication.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Judge's Associate — Arbitration Court of the Magadan Region</span><span class="when">Nov 2021 – Dec 2022</span></div>
+    <ul>
+      <li>200+ parallel cases and 30+ hearings per week; simultaneously covered three roles normally held by three people. Written reference available.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Assistant Lawyer — Bar Association</span><span class="when">Dec 2019 – Aug 2021</span></div>
+    <ul>
+      <li>Analysed civil-law contracts and prepared claims; provided legal support to a trade and construction organisation.</li>
+    </ul>
+  </div>
+
+  <h2>Career Break — transition into project management</h2>
+  <p>Feb 2026 – Present, Yerevan. Full-time retraining: project management programme at the Yerevan American Corner; 2nd place at HackNation local pitches, followed by the on-site final at TUMO Labs (July 2026); Startup Seaside Summit. Earlier, in Nov–Dec 2025, I completed the 42 Yerevan "Piscine" intensive alongside a full-time job.</p>
+
+  <h2>Education &amp; Training</h2>
+  <ul>
+    <li><b>Project Management</b> — Yerevan American Corner, 2026 (10 academic hours, in person)</li>
+    <li><b>Project Management</b> — PM Club, 2023 (52 academic hours, online)</li>
+    <li><b>Piscine intensive (C programming)</b> — 42 Yerevan, Nov–Dec 2025 (passed selection; completed alongside full-time work)</li>
+    <li><b>Bachelor of Law</b> — North-Eastern State University, 2021</li>
+    <li><b>Civil Law, Faculty of Law</b> — St. Petersburg State University, 2016</li>
+  </ul>
+
+  <h2>Beyond Work</h2>
+  <ul>
+    <li><b>Ethos Foundation</b> — headquarters coordinator, Sep 2023 – Oct 2024; humanitarian distribution reaching ~100 families per day. Commendation available.</li>
+    <li><b>Highload++ conference</b> (700 attendees) — organising team, led a crew of 12, performance bonus awarded. Certificate available.</li>
+  </ul></div>
+</section>
+
+<section class="pane" id="pane-cv-ops">
+<div class="copyzone doc"><h1>Ishkhan Khchoian</h1>
+  <p class="role">Operations &amp; Delivery Manager — high-volume, deadline-driven work</p>
+  <p class="contact">
+    Yerevan, Armenia · open to remote<br>
+    +374 98 60 34 64 · ishxanxchoyan@gmail.com · linkedin.com/in/ishkhan-khchoian-2419182b3<br>
+    Armenian (native) · English (C1) · Russian (C2)
+  </p>
+
+  <h2>Profile</h2>
+  <p>Operations manager who runs high-volume work without letting it fall apart: 200+ parallel court cases and 30+ hearings a week, live events for up to 3,000 people, a 700-person tech conference with a crew of 12 under me, and humanitarian distribution reaching around 100 families a day. Across every one of those, the same job — hold many moving parts, keep the schedule honest, and leave behind a process that works after I stop watching it.</p>
+  <p>Six years of that in international legal and business operations, plus construction and events. Now applying it to IT delivery and operations, with formal project-management training and a deliberate full-time transition behind me.</p>
+
+  <h2>Core Skills</h2>
+  <p class="skills"><b>Operations:</b> workflow design · SOPs, regulations and checklists · process optimisation · capacity and queue management · quality control · escalation handling · reporting</p>
+  <p class="skills"><b>People &amp; delivery:</b> leading teams up to 20 · training and onboarding · vendor and contractor management · cross-functional coordination · client and stakeholder communication · negotiation</p>
+  <p class="skills"><b>Tools:</b> Jira · Confluence · Notion · Trello · Monday · Bitrix24 · AmoCRM · Google Workspace · MS Office · Gantt charts</p>
+
+  <h2>Experience</h2>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Senior Case Manager — M&amp;M Document Preparation</span><span class="when">Jun 2025 – Feb 2026</span></div>
+    <ul>
+      <li>Ran end-to-end delivery on the company's most complex and highest-value cases — up to <b>12 in parallel</b>, against immovable external deadlines.</li>
+      <li>Coordinated and supported a team of <b>8 specialists</b> — reviewed their output, unblocked escalations, and set the quality bar.</li>
+      <li>Redesigned internal workflows, templates and checklists; my standards became the team's default operating procedure.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Event / Project Manager — Hosq Corp.</span><span class="when">Jan 2025 – Jun 2025</span></div>
+    <ul>
+      <li>Coordinated large-scale entertainment events for audiences of <b>100 to 3,000</b> — concerts, festivals, stand-up and theatre productions, and a live TV show.</li>
+      <li>Owned logistics, scheduling, vendor communication and on-site operations across several concurrent productions.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Judge's Associate — Arbitration Court of the Magadan Region</span><span class="when">Nov 2021 – Dec 2022</span></div>
+    <ul>
+      <li>Managed <b>200+ parallel cases</b> and <b>30+ hearings per week</b> under fixed statutory deadlines.</li>
+      <li>Covered <b>three roles at once</b> — judge's associate, court specialist and court secretary — positions normally held by three separate people.</li>
+      <li>Drafted judicial acts, managed case materials and kept document flow moving. Written reference available.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Senior Paralegal — Shamayev Business Law Corp.</span><span class="when">Feb 2023 – Oct 2023</span></div>
+    <ul>
+      <li>Built and delivered the <b>Paralegal Academy</b>, the firm's internal training programme — curriculum, materials and teaching. The materials went on to serve <b>50+ paralegals</b>.</li>
+      <li>Deputised for the team lead and carried the firm's key accounts.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Paralegal — Bloomrich Law Firm</span><span class="when">Nov 2023 – Aug 2024</span></div>
+    <ul>
+      <li>Held an autonomous caseload with full ownership of prioritisation, documentation and client communication.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Project Manager — Qanon Construction</span><span class="when">Aug 2024 – Dec 2024</span></div>
+    <ul>
+      <li>Client communication, sales coordination, timelines and internal follow-through in a construction operation.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Assistant Lawyer — Bar Association</span><span class="when">Dec 2019 – Aug 2021</span></div>
+    <ul>
+      <li>Contract analysis, claims and legal support for a trade and construction organisation.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Administrator / Project Manager — LLC "SIS"</span><span class="when">Jun 2015 – Sep 2019</span></div>
+    <ul>
+      <li>Ran operations across a construction and retail group: 15+ projects, teams of 2–20, contractors, procurement, transport, tenders, recruitment and sales.</li>
+    </ul>
+  </div>
+
+  <h2>Career Break — Professional Development</h2>
+  <p><b>Feb 2026 – Present.</b> Full-time career transition into IT project management: PM programme at the Yerevan American Corner; 2nd place at HackNation local pitches, followed by the on-site final at TUMO Labs (July 2026); Startup Seaside Summit. Earlier, in Nov–Dec 2025, I completed the 42 Yerevan "Piscine" intensive alongside a full-time job.</p>
+
+  <h2>Selected Volunteer &amp; Community Work</h2>
+  <ul>
+    <li><b>Ethos Foundation</b> — headquarters coordinator, Sep 2023 – Oct 2024. Coordinated humanitarian distribution reaching <b>~100 families per day</b>. Written commendation available.</li>
+    <li><b>Highload++ conference</b> (700 attendees) — organising team; <b>led a crew of 12</b>; trusted with special assignments by the organisers and awarded a performance bonus. Certificate available.</li>
+  </ul>
+
+  <h2>Education &amp; Training</h2>
+  <ul>
+    <li><b>Project Management</b> — Yerevan American Corner, 2026 (10 academic hours)</li>
+    <li><b>Project Management</b> — PM Club, 2023 (52 academic hours)</li>
+    <li><b>Piscine intensive (C programming)</b> — 42 Yerevan, Nov–Dec 2025 (passed selection; completed alongside full-time work)</li>
+    <li><b>Bachelor of Law</b> — North-Eastern State University, 2021</li>
+    <li><b>Civil Law, Faculty of Law</b> — St. Petersburg State University, 2016</li>
+  </ul></div>
+</section>
+
+<section class="pane" id="pane-cv-startup">
+<div class="copyzone doc"><h1>Ishkhan Khchoian</h1>
+  <p class="role">Project / Product Manager — early-stage teams, AI &amp; automation</p>
+  <p class="contact">
+    Yerevan, Armenia · open to remote<br>
+    +374 98 60 34 64 · ishxanxchoyan@gmail.com · linkedin.com/in/ishkhan-khchoian-2419182b3<br>
+    Armenian (native) · English (C1) · Russian (C2)
+  </p>
+
+  <h2>What I bring</h2>
+  <p>I want to join ambitious IT projects where I can add value through project management and operations. My background combines legaltech and business operations: I have spent six years organising workflows, managing processes, and turning vague requests into structured execution — most recently as Senior Case Manager owning the hardest cases at a U.S. immigration company, and before that building an internal training academy for paralegals at a larger firm.</p>
+  <p>What I actually like doing is finding the broken part of a process and rebuilding it so a team stops losing time. I started while still employed — a month of C at 42 Yerevan's Piscine in late 2025, fitted around a full-time job — and in February 2026 I left a stable legal career to do it properly: PM training, hackathons, startup events. This is not a side interest I am testing; it is the thing I reorganised my life around.</p>
+
+  <h2>Tech &amp; startup track</h2>
+  <ul>
+    <li><b>HackNation — 2nd place, local pitches.</b> Competed in the on-site final at TUMO Labs, Yerevan (July 2026).</li>
+    <li><b>42 Yerevan — Piscine, Nov–Dec 2025.</b> Passed the selection process; one month of C programming and peer-reviewed projects, done while holding a full-time job.</li>
+    <li><b>Startup Seaside Summit — participant.</b></li>
+    <li><b>Own product concept in progress:</b> AI voice/text agents and RAG systems for B2B — targeting enterprise clients and tenders, with separate verticals built for specific industries and trade-show audiences.</li>
+    <li><b>Project management training:</b> Yerevan American Corner (2026); PM Club, 52 academic hours (2023).</li>
+  </ul>
+
+  <h2>Skills</h2>
+  <p class="skills"><b>Delivery:</b> project coordination · scope &amp; timelines · Agile/Scrum · backlog and task tracking · Gantt charts · risk tracking · writing SOPs and checklists that people actually follow</p>
+  <p class="skills"><b>Team &amp; client:</b> leading teams up to 20 · cross-functional coordination · stakeholder communication · negotiation · onboarding and training · research and analysis</p>
+  <p class="skills"><b>Tools:</b> Jira · Confluence · Notion · Trello · Monday · Bitrix24 · AmoCRM · Google Workspace · Google Analytics</p>
+
+  <h2>Experience</h2>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Senior Case Manager — M&amp;M Document Preparation</span><span class="when">Jun 2025 – Feb 2026</span></div>
+    <ul>
+      <li>Owned the company's most complex and highest-value cases end to end (O-1B, EB-3, E-2) — intake, strategy, evidence, submission — up to <b>12 running at once</b>.</li>
+      <li>Coordinated <b>8 paralegals</b> on their parallel caseloads and acted as the escalation point on hard problems.</li>
+      <li>Rewrote the internal workflow — templates, checklists, hand-offs — and the result became how the team works by default.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Event / Project Manager — Hosq Corp.</span><span class="when">Jan 2025 – Jun 2025</span></div>
+    <ul>
+      <li>Shipped live events for 100–3,000 people — concerts, festivals, a touring TV show — several in parallel, on dates that could not slip.</li>
+      <li>Ran vendors, logistics, scheduling and the day-of operation.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Project Manager — Qanon Construction</span><span class="when">Aug 2024 – Dec 2024</span></div>
+    <ul>
+      <li>Client communication, sales coordination, timelines and follow-through across daily construction operations.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Paralegal (autonomous caseload) — Bloomrich Law Firm</span><span class="when">Nov 2023 – Aug 2024</span></div>
+    <ul>
+      <li>Hired on the strength of previous results and given a free hand: no junior/senior label, just full ownership of how my cases were run.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Senior Paralegal — Shamayev Business Law Corp.</span><span class="when">Feb 2023 – Oct 2023</span></div>
+    <ul>
+      <li>Built and ran the <b>Paralegal Academy</b> — an internal training programme for the firm's paralegals, from curriculum to delivery. The materials went on to serve <b>50+ people</b>.</li>
+      <li>Trusted with the firm's key cases and to stand in for the team lead.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Judge's Associate — Arbitration Court of the Magadan Region</span><span class="when">Nov 2021 – Dec 2022</span></div>
+    <ul>
+      <li>200+ live cases, 30+ hearings a week, three roles at once. If you want to know whether I can hold a lot of parallel state without dropping it — this is the answer.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Earlier — Bar Association (Assistant Lawyer) · LLC "SIS" (Administrator / Project Manager)</span><span class="when">2015 – 2021</span></div>
+    <ul>
+      <li>Contract analysis and claims work; and before that, 15+ construction and retail projects in a family business — teams of 2–20, contractors, procurement, tenders. Where I learned to care about the result rather than the task.</li>
+    </ul>
+  </div>
+
+  <h2>Education</h2>
+  <ul>
+    <li><b>Bachelor of Law</b> — North-Eastern State University, 2021</li>
+    <li><b>Civil Law, Faculty of Law</b> — St. Petersburg State University, 2016</li>
+  </ul>
+
+  <h2>Also</h2>
+  <ul>
+    <li><b>Highload++</b> (700 attendees) — organising team, led 12 people, given special assignments and a performance bonus.</li>
+    <li><b>Ethos Foundation</b> — HQ coordinator, Sep 2023 – Oct 2024; humanitarian distribution to ~100 families per day.</li>
+  </ul></div>
+</section>
+
+<section class="pane" id="pane-cv-ru-it">
+<div class="copyzone doc"><h1>Ишхан Хчоян</h1>
+  <p class="role">Младший проектный менеджер / координатор проектов в IT</p>
+  <p class="contact">
+    Ереван, Армения · готов к удалённой работе и релокации<br>
+    +374 98 60 34 64 · ishxanxchoyan@gmail.com · linkedin.com/in/ishkhan-khchoian-2419182b3<br>
+    Армянский — родной · Английский — C1 · Русский — C2
+  </p>
+
+  <h2>О себе</h2>
+  <p>Проектный менеджер и специалист по операционным процессам: 6+ лет веду параллельные потоки задач, сроки и коммуникацию с заказчиками в международных компаниях. Опыт включает управление строительными проектами, организацию мероприятий и полное ведение клиентских кейсов в американском иммиграционном праве — от старшего паралигала до senior case manager, отвечавшего за самые сложные дела компании и координировавшего остальную команду.</p>
+  <p>Моя сильная сторона — навести порядок там, где процесс сыпется: описать регламент, собрать чек-листы, развести зоны ответственности. В феврале 2026 года я осознанно вышел из стабильной юридической карьеры, чтобы перейти в IT-проектный менеджмент, и занимаюсь этим переходом полноценно, а не «между делом».</p>
+
+  <h2>Ключевые навыки</h2>
+  <p class="skills"><b>Управление проектами:</b> координация проектов · планирование и сроки · диаграммы Ганта · Agile / Scrum / Kanban · ведение бэклога · управление рисками · отчётность перед заказчиком</p>
+  <p class="skills"><b>Операционные процессы:</b> разработка регламентов и чек-листов · оптимизация процессов · документооборот · сбор требований · контроль качества · кросс-функциональная координация</p>
+  <p class="skills"><b>Инструменты:</b> Jira · Confluence · Notion · Trello · Monday · Bitrix24 · AmoCRM · Google Workspace · Google Analytics · MS Office</p>
+  <p class="skills"><b>Soft skills:</b> управление командами до 20 человек · системное мышление · инициативность и лидерство · эмпатия · полная ответственность за результат</p>
+
+  <h2>Опыт работы</h2>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Senior Case Manager — M&amp;M Document Preparation</span><span class="when">июнь 2025 – февраль 2026</span></div>
+    <ul>
+      <li>Вёл под полную ответственность ключевые и самые сложные кейсы компании (O-1B, EB-3, E-2 и вторичные подачи) — от первичного интервью до финальной подачи — до <b>12 кейсов одновременно</b>, в условиях жёстких внешних дедлайнов.</li>
+      <li>Курировал и координировал работу <b>восьми паралигалов</b>: проверял их пакеты документов, разбирал сложные ситуации, был точкой эскалации по спорным вопросам.</li>
+      <li>Переработал внутренние процессы, шаблоны и чек-листы — написанные мной стандарты стали рабочим стандартом команды и снизили количество переделок.</li>
+      <li>Вёл всю коммуникацию с клиентами: постановка ожиданий, статусы, сбор недостающих материалов.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Event / Project Manager — Hosq Corp.</span><span class="when">январь 2025 – июнь 2025</span></div>
+    <ul>
+      <li>Координировал крупные концерты и шоу с аудиторией от 100 до 3 000 человек — несколько проектов одновременно, с датами, которые нельзя сдвинуть.</li>
+      <li>Отвечал за логистику, расписание, коммуникацию с подрядчиками и операционную работу на площадке.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Проектный менеджер — Qanon Construction</span><span class="when">август 2024 – декабрь 2024</span></div>
+    <ul>
+      <li>Вёл коммуникацию с клиентами и координацию продаж; поддерживал сроки проектов, контроль задач и внутренние передачи работы.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Паралигал (самостоятельное ведение дел) — Bloomrich Law Firm</span><span class="when">ноябрь 2023 – август 2024</span></div>
+    <ul>
+      <li>Получил полную самостоятельность в работе на основании предыдущих результатов: сам определял приоритеты и подход по своим делам.</li>
+      <li>Готовил документы, вёл прогресс по кейсам и коммуникацию с клиентами, поддерживал юристов в исследованиях и подачах.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Старший паралигал — Shamayev Business Law Corp.</span><span class="when">февраль 2023 – октябрь 2023</span></div>
+    <ul>
+      <li>Разработал и вёл внутренний проект <b>Paralegal Academy</b> — программу обучения паралигалов компании: от программы курса до самих занятий. Разработанные мною материалы послужили <b>50+ паралигалам</b>.</li>
+      <li>Замещал тимлида и вёл ключевые дела компании; координировал документооборот по нескольким активным направлениям.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Помощник арбитражного судьи — Арбитражный суд Магаданской области</span><span class="when">ноябрь 2021 – декабрь 2022</span></div>
+    <ul>
+      <li>Вёл <b>200+ дел параллельно</b> и <b>30+ заседаний в неделю</b> в условиях жёстких процессуальных сроков.</li>
+      <li>Совмещал <b>три должности одновременно</b> — помощник судьи, специалист суда и секретарь судебного заседания. Есть характеристика.</li>
+      <li>Готовил проекты судебных актов, работал с материалами дел и документооборотом суда.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Помощник адвоката — Коллегия адвокатов</span><span class="when">декабрь 2019 – август 2021</span></div>
+    <ul>
+      <li>Анализировал гражданско-правовые договоры, готовил исковые заявления и сопроводительные документы; вёл правовое сопровождение торгово-строительной организации.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Администратор / юрисконсульт / менеджер проектов — ООО «СИС»</span><span class="when">июнь 2015 – сентябрь 2019</span></div>
+    <ul>
+      <li>Операционное управление в строительно-розничном бизнесе: <b>15+ строительных проектов</b>, команды от 2 до 20 человек, подрядчики, закупки, транспорт, тендеры.</li>
+      <li>Нанимал сотрудников, вёл продажи и повседневные бизнес-процессы компании.</li>
+    </ul>
+  </div>
+
+  <h2>Career break — профессиональное развитие</h2>
+  <div class="job">
+    <div class="job-top"><span class="who">Career transition: переход из юриспруденции в проектный менеджмент в IT</span><span class="when">февраль 2026 – настоящее время</span></div>
+    <ul>
+      <li>Курс проектного менеджмента, Yerevan American Corner (2026).</li>
+      <li>2-е место на HackNation (local pitches) и участие в очном финале в TUMO Labs, Ереван (июль 2026); участник Startup Seaside Summit.</li>
+      <li>Прорабатываю собственную продуктовую идею: AI voice/text-агенты и RAG-системы для B2B.</li>
+    </ul>
+  </div>
+
+  <h2>Образование и обучение</h2>
+  <ul>
+    <li><b>Проектный менеджмент</b> — Yerevan American Corner, 2026 (10 академических часов, очно)</li>
+    <li><b>Проектный менеджмент</b> — PM Club, 2023 (52 академических часа, онлайн)</li>
+    <li><b>Интенсив Piscine (программирование на C)</b> — школа 42, Ереван, ноябрь–декабрь 2025 (прошёл отбор; совмещал с полной занятостью)</li>
+    <li><b>Бакалавр юриспруденции</b> — Северо-Восточный государственный университет, 2021</li>
+    <li><b>Юридический факультет, гражданское право</b> — Санкт-Петербургский государственный университет, 2016</li>
+  </ul>
+
+  <h2>Дополнительно</h2>
+  <ul>
+    <li><b>Фонд Ethos</b> — координатор штаба, сентябрь 2023 – октябрь 2024. Координация выдачи гуманитарных наборов ~100 семьям в день. Есть свидетельство-характеристика.</li>
+    <li><b>Конференция Highload++</b> (700 участников) — в команде организаторов, руководил группой из 12 человек, получал спецзадачи от организаторов и бонус за результат. Есть сертификат.</li>
+  </ul></div>
+</section>
+
+<section class="pane" id="pane-cv-ru-stroy">
+<div class="copyzone doc"><h1>Ишхан Хчоян</h1>
+  <p class="role">Менеджер проектов — строительство, ремонт, PropTech</p>
+  <p class="contact">
+    Ереван, Армения · готов к удалённой работе и релокации<br>
+    +374 98 60 34 64 · ishxanxchoyan@gmail.com · linkedin.com/in/ishkhan-khchoian-2419182b3<br>
+    Армянский — родной · Английский — C1 · Русский — C2
+  </p>
+
+  <h2>О себе</h2>
+  <p>Менеджер проектов с практическим опытом на <b>15+ строительных и торговых объектах</b>: команды от 2 до 20 человек, подрядчики, закупка материалов, транспорт, тендеры, сроки. До трёх объектов одновременно. Здесь я впервые работал с диаграммами Ганта и здесь же научился отвечать за результат, а не за «выполнено по задаче».</p>
+  <p>Вторая половина опыта — юридическая: анализ договоров подряда и поставки, претензионная работа, арбитражный суд, шесть лет операционной работы в международных компаниях. Для строительной или proptech-компании это редкое сочетание: один человек читает договор, ведёт график объекта и описывает процесс так, чтобы он работал и после сдачи проекта. Сейчас развиваю это в сторону проектного менеджмента в IT — с профильным обучением и осознанным полноценным переходом.</p>
+
+  <h2>Ключевые навыки</h2>
+  <p class="skills"><b>Проекты и стройка:</b> ведение нескольких объектов параллельно · графики работ и диаграммы Ганта · подбор и контроль подрядчиков · закупки и материалы · логистика · тендеры · контроль бюджета и сроков · приёмка работ</p>
+  <p class="skills"><b>Коммерция и право:</b> анализ договоров · переговоры · работа с заказчиком · претензии и споры · документация и регламенты</p>
+  <p class="skills"><b>Инструменты:</b> Jira · Confluence · Notion · Trello · Monday · Bitrix24 · AmoCRM · MS Office · Google Workspace</p>
+  <p class="skills"><b>Soft skills:</b> управление командами до 20 человек · системное мышление и оптимизация процессов · инициативность и лидерство · полная ответственность за результат</p>
+
+  <h2>Опыт в строительстве и проектах</h2>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Проектный менеджер — Qanon Construction</span><span class="when">август 2024 – декабрь 2024</span></div>
+    <ul>
+      <li>Вёл коммуникацию с заказчиками и координацию продаж по строительным работам — от первичного запроса до согласованного объёма работ.</li>
+      <li>Поддерживал сроки проектов, контроль задач и внутренние передачи работы; отвечал за порядок в ежедневных операциях.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Менеджер проектов — ООО «СИС» (строительство и ритейл)</span><span class="when">июнь 2015 – сентябрь 2019</span></div>
+    <p class="sub">Также администратор и юрисконсульт компании; работа по строительным проектам продолжалась до 2022 года</p>
+    <ul>
+      <li>Реализовал <b>15+ строительных и торговых проектов</b>, в отдельные периоды вёл <b>три объекта одновременно</b> с командами от 2 до 20 человек.</li>
+      <li>Координировал подрядчиков, строительные магазины, поставку материалов и транспортную логистику; готовил и вёл <b>тендеры</b>.</li>
+      <li>Составлял графики работ и первые диаграммы Ганта, отслеживал по ним фактический прогресс.</li>
+      <li>Нанимал и вводил в работу сотрудников; вёл продажи, административные и юридические вопросы компании.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Event / Project Manager — Hosq Corp.</span><span class="when">январь 2025 – июнь 2025</span></div>
+    <ul>
+      <li>Координировал концерты и шоу с аудиторией 100–3 000 человек: логистика, подрядчики, расписание, работа на площадке. Несколько проектов одновременно с несдвигаемыми датами.</li>
+    </ul>
+  </div>
+
+  <h2>Юридический и операционный опыт</h2>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Senior Case Manager — M&amp;M Document Preparation</span><span class="when">июнь 2025 – февраль 2026</span></div>
+    <ul>
+      <li>Вёл ключевые и самые сложные кейсы компании — до <b>12 одновременно</b> — и координировал работу <b>восьми паралигалов</b>.</li>
+      <li>Переработал внутренние процессы, шаблоны и чек-листы — они стали рабочим стандартом команды.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Паралигал → старший паралигал — Bloomrich Law Firm · Shamayev Business Law Corp.</span><span class="when">февраль 2023 – август 2024</span></div>
+    <ul>
+      <li>Разработал и вёл внутренний проект <b>Paralegal Academy</b> — программу обучения паралигалов в крупной компании; разработанные мною материалы послужили <b>50+ паралигалам</b>.</li>
+      <li>Вёл ключевые дела с полной самостоятельностью в документообороте и коммуникации с клиентами.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Помощник арбитражного судьи — Арбитражный суд Магаданской области</span><span class="when">ноябрь 2021 – декабрь 2022</span></div>
+    <ul>
+      <li><b>200+ дел параллельно</b>, <b>30+ заседаний в неделю</b>; совмещал три должности одновременно. Есть характеристика.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><span class="who">Помощник адвоката — Коллегия адвокатов</span><span class="when">декабрь 2019 – август 2021</span></div>
+    <ul>
+      <li>Анализ гражданско-правовых договоров, подготовка исков; правовое сопровождение торгово-строительной организации.</li>
+    </ul>
+  </div>
+
+  <h2>Career break — профессиональное развитие</h2>
+  <p><b>Февраль 2026 – настоящее время, Ереван.</b> Осознанный переход в проектный менеджмент: курс проектного менеджмента в Yerevan American Corner; 2-е место на HackNation (local pitches) и участие в очном финале в TUMO Labs (июль 2026); участие в Startup Seaside Summit. Ранее, в ноябре–декабре 2025 года, прошёл месячный интенсив Piscine в школе 42, совмещая его с полной занятостью.</p>
+
+  <h2>Образование и обучение</h2>
+  <ul>
+    <li><b>Проектный менеджмент</b> — Yerevan American Corner, 2026 (10 академических часов, очно)</li>
+    <li><b>Проектный менеджмент</b> — PM Club, 2023 (52 академических часа, онлайн)</li>
+    <li><b>Интенсив Piscine (программирование на C)</b> — школа 42, Ереван, ноябрь–декабрь 2025 (прошёл отбор; совмещал с полной занятостью)</li>
+    <li><b>Бакалавр юриспруденции</b> — Северо-Восточный государственный университет, 2021</li>
+    <li><b>Юридический факультет, гражданское право</b> — Санкт-Петербургский государственный университет, 2016</li>
+  </ul>
+
+  <h2>Дополнительно</h2>
+  <ul>
+    <li><b>Фонд Ethos</b> — координатор штаба, сентябрь 2023 – октябрь 2024; выдача гуманитарных наборов ~100 семьям в день. Есть свидетельство-характеристика.</li>
+    <li><b>Конференция Highload++</b> (700 участников) — в команде организаторов, руководил группой из 12 человек, бонус за результат. Есть сертификат.</li>
+  </ul></div>
+</section>
+
+<section class="pane" id="pane-let-insider">
+<div class="doc letter"><h2 style="margin-top:0">Письмо №1 — «The Insider»</h2>
+    <p class="meta no-print">Для legaltech и продуктов для юристов: Docketwise, Boundless, Clio-подобные, иммиграционные CRM, юридические аутсорс-компании. Главный козырь — вы шесть лет были пользователем такого софта.</p>
+
+    <div class="copyzone">
+    <p>Dear <span class="todo">[Hiring Manager's name]</span>,</p>
+
+    <p>For six years I was the person your product is built for. As a paralegal and then Senior Case Manager in U.S. immigration law, I lived inside case pipelines, intake forms, evidence checklists and filing deadlines — at Shamayev Business Law Corp., where I designed and ran an internal Paralegal Academy that trained the team, and most recently at M&amp;M Document Preparation, where I owned the firm's most complex filings from first interview to submission — up to twelve running at once, with eight paralegals reporting to me on their own caseloads.</p>
+
+    <p>Somewhere in that work I noticed the part I actually enjoyed was never the law. It was redesigning the workflow so that a team of people would stop losing documents and stop redoing work. I began the move while still employed — a month of C programming at 42 Yerevan's Piscine in late 2025, fitted around a full-time job — and in February I left a stable legal career to retrain properly: a PM programme at the Yerevan American Corner, second place at HackNation, and daily work in Jira, Confluence and Notion. I did not drift into this; I reorganised my life around it.</p>
+
+    <p>I am writing about the <span class="todo">[role]</span> position because <span class="todo">[company]</span> sits exactly where my two halves meet. I can speak to your legal customers in their own vocabulary — I have been on their side of the screen — and translate what they say into tickets, acceptance criteria and a realistic schedule. Domain knowledge like this usually takes a new PM a year to absorb; I already have it.</p>
+
+    <p>I would be glad to walk you through how I would approach <span class="todo">[a specific product area or problem from the job posting]</span>. Thank you for your time and consideration.</p>
+
+    <p>Sincerely,<br>
+    Ishkhan Khchoian<br>
+    +374 98 60 34 64 · ishxanxchoyan@gmail.com</p>
+
+    </div>
+    </div>
+</section>
+
+<section class="pane" id="pane-let-operator">
+<div class="doc letter"><h2 style="margin-top:0">Письмо №2 — «The Operator»</h2>
+    <p class="meta no-print">Для IT-аутсорса и сервисных компаний (в Ереване их много), где нужен project coordinator / delivery coordinator. Спокойный, надёжный тон: акцент на объёме, сроках и порядке.</p>
+
+    <div class="copyzone">
+    <p>Dear <span class="todo">[Hiring Manager's name]</span>,</p>
+
+    <p>I am applying for the <span class="todo">[role]</span> position at <span class="todo">[company]</span>. My case for the role is simple: for six years my job has been to hold a large number of moving parts at once and not drop any of them.</p>
+
+    <p>At the Arbitration Court of the Magadan Region I ran 200+ parallel cases and 30+ hearings a week, covering three roles at the same time — positions normally held by three separate people. At Hosq Corp. I coordinated concerts and festivals for audiences of 100 to 3,000, several in parallel, on dates that could not move. As Senior Case Manager at M&amp;M Document Preparation I ran up to twelve complex client cases at once, coordinated eight specialists, and rebuilt the internal workflow — the templates and checklists I wrote became the team's default way of working. I have also led teams of up to 20 people across 15+ construction projects, including contractors, procurement and tenders.</p>
+
+    <p>What is consistent across all of it: clear status, honest deadlines, written process, and no surprises for the client. That is the job of a delivery coordinator, and I have been doing the substance of it under other titles.</p>
+
+    <p>In February 2026 I made the move into IT deliberate and full-time — project management training at the Yerevan American Corner and PM Club (52 hours), and hands-on work in Jira, Confluence, Trello and Notion — after completing a month of programming at 42 Yerevan alongside a full-time job in late 2025. I am applying for a junior title on purpose: I would rather learn your delivery process properly from the inside than overstate what I already know.</p>
+
+    <p>I work in English (C1), Russian (C2) and Armenian, and I am available <span class="todo">[immediately / from date]</span>. I would welcome the chance to talk.</p>
+
+    <p>Best regards,<br>
+    Ishkhan Khchoian<br>
+    +374 98 60 34 64 · ishxanxchoyan@gmail.com</p>
+
+    </div>
+    </div>
+</section>
+
+<section class="pane" id="pane-let-builder">
+<div class="doc letter"><h2 style="margin-top:0">Письмо №3 — «The Builder»</h2>
+    <p class="meta no-print">Для стартапов, AI-продуктов, ранних команд и вакансий, где важнее энергия и инициатива, чем формальный опыт. Короткое и живое — длинное письмо в стартап не читают.</p>
+
+    <div class="copyzone">
+    <p>Hi <span class="todo">[name]</span>,</p>
+
+    <p>I want to join ambitious IT projects where I can add value through project management and operations — and <span class="todo">[company]</span> is the kind of team I have been aiming at.</p>
+
+    <p>Short version of me: six years of legaltech and business operations. I organise workflows, manage processes, and help teams turn ideas into structured execution. At my last company I ran up to twelve of the hardest client cases at once, coordinated eight specialists, and rewrote the internal process the whole team now runs on. Before that I built an internal training academy for paralegals at a larger firm, and earlier I ran construction projects with crews of up to 20.</p>
+
+    <p>Then I made a decision. I did a month of C at 42 Yerevan's Piscine while still working full-time, and in February I left law entirely: a PM course at the Yerevan American Corner, second place at HackNation, Startup Seaside Summit, and a product concept of my own that I keep pushing forward — AI voice and text agents plus RAG systems for B2B verticals. I enjoy turning ideas into products, improving processes, and helping teams deliver things that actually matter. That is not a phrase for a cover letter; it is what I spent this year doing at my own expense.</p>
+
+    <p>I would love 20 minutes to hear what you are building and where a hands-on PM would take work off your plate.</p>
+
+    <p>Ishkhan Khchoian<br>
+    +374 98 60 34 64 · ishxanxchoyan@gmail.com · linkedin.com/in/ishkhan-khchoian-2419182b3</p>
+
+    </div>
+    </div>
+</section>
+
+<section class="pane" id="pane-let-perehod">
+<div class="doc letter"><h2 style="margin-top:0">Письмо №1 — «Переход»</h2>
+    <p class="meta no-print">Универсальное, для русскоязычных IT-компаний. Строится вокруг честного объяснения career transition — это ваша сильная сторона, а не то, что нужно прятать.</p>
+
+    <div class="copyzone">
+    <p>Здравствуйте, <span class="todo">[имя]</span>!</p>
+
+    <p>Пишу по вакансии <span class="todo">[должность]</span> в <span class="todo">[компания]</span>. Сразу скажу главное, чтобы вы не гадали, читая резюме: я перехожу в IT-проектный менеджмент из юриспруденции, и это осознанное решение, а не вынужденная пауза.</p>
+
+    <p>Шесть лет я работал в операционной части юридического бизнеса — от паралигала до senior case manager. В арбитражном суде вёл 200+ дел параллельно и 30+ заседаний в неделю, совмещая три должности сразу. В американских юридических компаниях вёл ключевые кейсы — до 12 одновременно, курируя работу восьми паралигалов, — замещал тимлида и построил внутреннюю программу обучения Paralegal Academy, материалы которой послужили более чем 50 специалистам. На последнем месте переписал внутренние процессы, шаблоны и чек-листы, и они стали рабочим стандартом всей команды.</p>
+
+    <p>За все эти годы я понял простую вещь: мне нравилось не право. Мне нравилось разбирать сломанный процесс и собирать его так, чтобы люди перестали терять документы и переделывать работу дважды. Начал я ещё работая: в ноябре–декабре 2025-го прошёл отбор и месячный интенсив Piscine в школе 42 в Ереване, совмещая его с полной занятостью. А в феврале 2026 года вышел из стабильной юридической карьеры и занялся переходом всерьёз: курс проектного менеджмента в Yerevan American Corner, PM Club на 52 часа, 2-е место на HackNation, участие в Startup Seaside Summit. Всё это — за свой счёт и своим временем.</p>
+
+    <p>Я откликаюсь на джуниорскую позицию сознательно. У меня есть управленческий опыт и есть чем его подтвердить, но правила разработки я хочу выучить изнутри вашей команды, а не изображать, что уже всё знаю. Работаю на английском (C1), русском (C2) и армянском.</p>
+
+    <p>Буду рад короткому разговору. Готов приступить <span class="todo">[сразу / с даты]</span>.</p>
+
+    <p>С уважением,<br>
+    Ишхан Хчоян<br>
+    +374 98 60 34 64 · ishxanxchoyan@gmail.com</p>
+
+    </div>
+    </div>
+</section>
+
+<section class="pane" id="pane-let-stroyka">
+<div class="doc letter"><h2 style="margin-top:0">Письмо №2 — «Стройка»</h2>
+    <p class="meta no-print">Для строительных, ремонтных и девелоперских компаний, а также proptech-сервисов. Здесь вы не «юрист, который хочет в IT», а человек, который реально вёл объекты.</p>
+
+    <div class="copyzone">
+    <p>Здравствуйте, <span class="todo">[имя]</span>!</p>
+
+    <p>Меня заинтересовала вакансия <span class="todo">[должность]</span> в <span class="todo">[компания]</span>. Коротко о том, что я умею на объекте.</p>
+
+    <p>Я вёл более 15 строительных и торговых проектов, в отдельные периоды — три объекта одновременно, с командами от 2 до 20 человек. Это подрядчики и их сроки, закупка материалов, стройматериальные магазины, транспорт, тендеры, графики работ и диаграммы Ганта, по которым я реально сверял факт, а не рисовал для отчёта. В Qanon Construction отвечал за коммуникацию с заказчиками, координацию продаж и сроки проектов.</p>
+
+    <p>Вторая часть моего опыта — юридическая: помощник адвоката с правовым сопровождением торгово-строительной организации, анализ договоров подряда и поставки, претензионная работа, помощник судьи в арбитражном суде. На практике это значит, что я читаю договор до того, как объект уйдёт в минус, и понимаю, чем закончится спор с подрядчиком, если его не решить на месте.</p>
+
+    <p>Отдельно скажу про мотивацию, потому что это важно. Первые проекты я вёл в семейном бизнесе — там невозможно сделать «на отвяжись», потому что результат твой. Оттуда у меня привычка брать ответственность на себя, не бояться ошибок и доводить объект до сдачи, а не до отчёта. Сейчас я усиливаю это системной стороной: прошёл курсы проектного менеджмента (PM Club, 52 часа; Yerevan American Corner) и работаю в Jira, Confluence, Notion и Bitrix24 — чтобы процессы жили в системе, а не в голове у одного человека.</p>
+
+    <p>Буду рад обсудить задачи подробнее. Языки: армянский — родной, русский — C2, английский — C1.</p>
+
+    <p>С уважением,<br>
+    Ишхан Хчоян<br>
+    +374 98 60 34 64 · ishxanxchoyan@gmail.com</p>
+
+    </div>
+    </div>
+</section>
+
+<section class="pane" id="pane-strategy">
+<div class="paper prose"><h1 style="font-family:var(--serif);font-size:32px;line-height:1.25;margin:0 0 8px">Стратегия поиска</h1>
+  <p style="color:var(--ink-faint);margin-bottom:32px">Career break, выбор ниши, LinkedIn и что доделать перед откликами.</p>
+
+  <h2>1. Career break с февраля 2026 — делать</h2>
+
+  <p>Ответ: <b>да, добавляйте — и в резюме, и в LinkedIn</b>. Разбор по существу.</p>
+
+  <h3>Почему это выигрыш</h3>
+  <ul>
+    <li><b>Пробел всё равно виден.</b> M&amp;M закончился в феврале 2026, сейчас август. Полгода пустоты в ленте опыта рекрутёр увидит в любом случае. Вопрос только один: заполните вы это поле сами или рекрутёр заполнит его своей догадкой. Его догадка почти всегда хуже правды.</li>
+    <li><b>У вас редкий случай: перерыв реально наполнен.</b> Курс в American Corner, второе место на HackNation и очный финал в TUMO Labs, Startup Seaside Summit. Большинство career break'ов пустые — «занимался саморазвитием» без единого доказательства. У вас проверяемые факты. Это превращает пробел из минуса в аргумент.</li>
+    <li><b>Это снимает главное подозрение при смене профессии.</b> Наниматель боится не отсутствия опыта, а того, что вы попробуете IT три месяца и вернётесь в юристы. Оплаченный своим временем и деньгами полугодовой переход — самое сильное опровержение этого страха. Сильнее любых слов о мотивации.</li>
+    <li><b>LinkedIn поддерживает это официально.</b> С 2022 года career break — штатный тип записи в разделе Experience, с готовыми причинами. Рекрутёры видят такие записи каждый день, никакого стигматизирующего эффекта нет.</li>
+  </ul>
+
+  <h3>Как оформить в LinkedIn — по шагам</h3>
+  <ol>
+    <li>Профиль → <b>Add profile section</b> → <b>Core</b> → <b>Add career break</b>.</li>
+    <li>Тип: <b>Professional Development</b>. Не «Personal Goal», не «Career Transition» (такого типа в списке нет) — именно Professional Development, он точно описывает то, чем вы занимались.</li>
+    <li>Даты: <b>февраль 2026 — по настоящее время</b>, а не «февраль — июль». Если закрыть перерыв июлем, у вас образуется новый ничем не объяснённый пробел с августа. Закроете запись в день выхода на работу.</li>
+    <li>Location: Yerevan, Armenia.</li>
+    <li>Описание — коротко и только фактами:
+      <div class="callout"><p>Full-time career transition from law into IT project management.<br>
+      · Project management programme — Yerevan American Corner (2026)<br>
+      · 2nd place — HackNation local pitches; on-site final at TUMO Labs, Yerevan (July 2026)<br>
+      · Participant — Startup Seaside Summit<br>
+      · Developing a product concept around AI voice/text agents and RAG systems for B2B</p></div>
+    </li>
+    <li>В <b>Skills</b> этой записи добавьте: Project Management, Jira, Confluence, Agile, Scrum. Тогда перерыв начинает работать на поиск, а не просто закрывать дыру.</li>
+  </ol>
+
+  <h3>Три ошибки, которых надо избежать</h3>
+  <ul>
+    <li><b>Не оправдывайтесь.</b> Полгода — это короткий и абсолютно нормальный срок. Одного абзаца фактов достаточно. Длинное объяснение читается как чувство вины.</li>
+    <li><b>Не оставляйте запись пустой.</b> Career break без содержимого хуже, чем его отсутствие: он подсвечивает пробел, ничем его не закрывая.</li>
+    <li><b>Не растягивайте задним числом.</b> Указывайте февраль 2026 — ту дату, когда реально закончился M&amp;M. Даты в резюме и LinkedIn должны совпадать до месяца: расхождения проверяют.</li>
+  </ul>
+
+  <h3>Что отвечать на собеседовании</h3>
+  <p>Вопрос «почему перерыв» прозвучит почти наверняка. Ответ на 20 секунд, без извинений:</p>
+  <div class="callout">
+    <p>«Я не выгорел и меня не уволили — я закрыл юридическую карьеру сознательно. Мне последние годы было интереснее строить процесс, чем вести дела. Пробовать начал ещё работая: осенью 2025-го прошёл месячный интенсив Piscine в школе 42 параллельно с фултаймом. Когда понял, что это моё, — не стал совмещать дальше, а перешёл нормально: PM-курсы, второе место на HackNation и очный финал в TUMO Labs. Полгода я потратил на то, чтобы прийти к вам подготовленным, а не пробовать на ходу.»</p>
+  </div>
+
+  <h2>2. Ниши: legaltech и стройка — правильная ставка</h2>
+
+  <p>Да, и это, пожалуй, самое ценное решение во всём вашем поиске. Объясню механику.</p>
+
+  <p>На вакансию junior PM в обычную продуктовую компанию приходят сотни откликов, и вы там — «юрист без IT-опыта», то есть в нижней половине стопки. На вакансию PM в legaltech-продукт приходят те же сотни, но <b>вы там единственный, кто шесть лет работал внутри процесса, который этот продукт автоматизирует</b>. Это переворачивает вашу позицию: домен становится не биографией, а квалификацией. Слабость превращается в дефицитное преимущество ровно в тот момент, когда вы меняете тип компании, — при том же резюме.</p>
+
+  <h3>Приоритеты, по убыванию шансов</h3>
+  <ol>
+    <li><b>LegalTech и иммиграционный tech.</b> Максимальный фит. Продукты для юрфирм, иммиграционные CRM и платформы, визовые сервисы, компании вокруг US immigration (их много, они удалённые и англоязычные). Вы знаете O-1B, EB-3, E-2 не по статье в блоге. Сюда — резюме «LegalTech» и письмо «The Insider».</li>
+    <li><b>IT-аутсорс и сервисные компании Еревана.</b> Не самый интересный, зато самый ёмкий рынок: у них постоянно открыты project coordinator и delivery coordinator, и они привыкли брать людей с сильными процессными навыками. Английский C1 здесь — прямое конкурентное преимущество, потому что клиент американский. Сюда — резюме «IT Delivery» и письмо «The Operator».</li>
+    <li><b>ConTech / PropTech / ремонтные маркетплейсы.</b> 15+ объектов, тендеры, подрядчики, Ганты — плюс умение читать договор подряда. Для такой компании это очень редкое сочетание. Рынок меньше legaltech, но и конкурентов почти нет. Сюда — резюме «Construction» и письмо «Стройка».</li>
+    <li><b>Стартапы и AI-продукты.</b> Ваша личная тяга и HackNation работают, но честно: junior PM в стартап берут редко — там ищут либо готового senior, либо основателя. Отклик сюда стоит дёшево, поэтому делать стоит, но не считайте это основным каналом. Сюда — резюме «Startup» и письмо «The Builder».</li>
+    <li><b>Обычные продуктовые SaaS без домена.</b> Самая высокая конкуренция и самый слабый ваш аргумент. Откликайтесь по остаточному принципу.</li>
+  </ol>
+
+  <h3>Важная поправка про названия вакансий</h3>
+  <p>Не ищите только «Project Manager». Ваш реальный профиль сейчас точнее ложится на эти названия, и там конкуренция ниже:</p>
+  <p><b>Project Coordinator · Delivery Coordinator · Operations Manager · Legal Operations Manager · Business Operations Specialist · Implementation Manager · Customer Onboarding Manager · Account/Client Manager (в legaltech)</b></p>
+  <p>Отдельно обратите внимание на <b>Implementation / Onboarding Manager в legaltech</b> — это, вероятно, лучшая точка входа во всём списке. Работа состоит из внедрения продукта в юрфирмы: нужно знать и юридический процесс, и уметь вести проект внедрения. Вы почти идеальный кандидат, а формально это не «junior PM», где вы конкурируете со вчерашними выпускниками.</p>
+
+  <h2>3. LinkedIn</h2>
+
+  <h3>Headline</h3>
+  <p>Не пишите «Career Transition» в заголовке — это описывает ваше состояние, а не пользу для нанимателя, и не даёт рекрутёрскому поиску ключевых слов. Career break уже стоит в опыте, этого достаточно. Варианты заголовка под нишу:</p>
+  <div class="callout">
+    <p><b>LegalTech:</b> Project Manager | LegalTech &amp; Legal Operations | ex-Senior Case Manager, US Immigration Law | Jira · Agile</p>
+    <p><b>Общий IT:</b> Junior Project Manager / Project Coordinator | Operations &amp; Process Optimization | Jira · Confluence · Scrum | EN C1 · RU C2</p>
+    <p><b>Стройка:</b> Project Manager | Construction &amp; PropTech | 15+ projects, teams up to 20 | Contracts · Tenders · Scheduling</p>
+  </div>
+
+  <h3>Остальное</h3>
+  <ul>
+    <li><b>Open to Work</b> включить обязательно — это отдельная настройка, и именно она влияет на выдачу в рекрутёрском поиске, в отличие от текста заголовка. Укажите: Project Manager, Project Coordinator, Operations Manager; Yerevan + Remote.</li>
+    <li><b>About</b> — возьмите второй абзац из резюме «Startup», он живой и звучит как человек, а не как шаблон.</li>
+    <li><b>Кастомный URL — поправьте.</b> Сейчас у вас <code>linkedin.com/in/ishkhan-khchoian-2419182b3</code>: хвост «2419182b3» выглядит как техническая заглушка и слегка портит впечатление в резюме. В настройках профиля (Edit public profile &amp; URL) попробуйте занять чистый <code>ishkhan-khchoian</code> или, если занят, <code>ishkhan-khchoian-pm</code>. Если поменяете — скажите, я обновлю адрес во всех документах.</li>
+    <li><b>Featured</b> — вынесите пост про Startup Seaside Summit и HackNation наверх. У вас есть фото и посты, это живое доказательство, которого нет у конкурентов.</li>
+    <li><b>Рекомендации.</b> У вас есть характеристика из суда, свидетельство от Ethos и сертификат Highload++. Попросите двух-трёх человек оттуда написать recommendation прямо в LinkedIn — для кандидата со сменой профессии внешнее подтверждение стоит дороже ещё одного курса.</li>
+  </ul>
+
+  <h2>4. Что доделать перед откликами</h2>
+  <ul>
+    <li><b>HackNation — скажите результат финала.</b> Очный финал в TUMO Labs прошёл 18–19 июля 2026. Сейчас везде написано нейтрально: «2-е место в local pitches, участие в очном финале». Если в финале заняли место или получили что-то ещё — скажите, добавлю: конкретный результат работает сильнее факта участия.</li>
+    <li><b>42 Piscine стоит вне career break — так и надо.</b> Интенсив был 15 ноября – 15 декабря 2025, то есть во время работы в M&amp;M. Это сильнее, чем внутри перерыва: месячный интенсив параллельно с фултаймом — само по себе доказательство мотивации. Во всех документах он теперь в блоке образования с пометкой «совмещал с полной занятостью».</li>
+    <li><b>Держите одну версию биографии.</b> Digital Caramel и ATM Group мы убрали — правильно, они пересекаются по времени с юридическими позициями и вызвали бы лишние вопросы. Но тогда их не должно быть и в LinkedIn. Резюме и профиль должны сходиться месяц в месяц.</li>
+    <li><b>Соберите папку с доказательствами.</b> Характеристика из арбитражного суда, свидетельство Ethos, сертификат Highload++, диплом. Одна ссылка на облако — прикладывать по запросу.</li>
+    <li><b>Цифры вписаны — проверьте, что готовы их защищать.</b> Везде стоит: до 12 кейсов одновременно, координация 8 паралигалов, материалы Paralegal Academy для 50+ человек. На собеседовании про любую из этих цифр спросят «а как именно» — держите наготове один конкретный пример на каждую.</li>
+    <li><b>Сделайте один публичный артефакт.</b> Самый быстрый способ перестать быть «юристом без IT-опыта»: опишите в посте или в Notion регламент, который вы построили в M&amp;M, — какая была проблема, что изменили, что стало лучше. Это ровно то, что PM делает на работе, и это можно показать до найма.</li>
+  </ul>
+
+  <h2>5. Как пользоваться комплектом</h2>
+  <ul>
+    <li><b>Никогда не отправляйте одно резюме во все места.</b> Смысл семи версий в том, чтобы первые три строки совпадали с вакансией. Рекрутёр решает за 7 секунд.</li>
+    <li><b>Письмо без подстановки не отправлять.</b> Жёлтые места — это не украшение: письмо без названия компании и конкретной детали из вакансии читается как рассылка и убивает эффект.</li>
+    <li><b>Про мотивацию.</b> Во всех текстах она показана действием, а не прилагательным: ушёл из стабильной карьеры, оплатил обучение сам, занял второе место, месяц Piscine параллельно с работой. Это работает. Фразы вроде «я очень мотивирован» я сознательно не использовал — они снижают доверие, потому что их пишут все и ничем не подтверждают.</li>
+  </ul></div>
+</section>
+
+<section class="pane" id="pane-cv-gd-en">
+<div class="copyzone doc">
+<h1>Ishkhan Khchoian</h1>
+<p class="role">Project Manager — Games Production &amp; Live Operations</p>
+<p class="contact">Yerevan, Armenia · open to remote · relocation possible<br>+374 98 60 34 64 · ishxanxchoyan@gmail.com · linkedin.com/in/ishkhan-khchoian-2419182b3<br>Armenian (native) · English (C1) · Russian (C2)</p>
+
+<h2>Profile</h2>
+<p>Project manager with six years of running parallel workstreams against dates that cannot move, and a player since 2003 who has lived inside the systems games are built on. I have produced live events for audiences up to 3,000, carried up to 12 complex client projects at once, and led teams of up to 20. On the other side of the screen I have raided mythic, held a 4,000+ Raider.IO score and 2,400 arena rating in WoW, and 5,000 MMR in Dota 2 — so progression curves, matchmaking, patch metas and live-service economies are not vocabulary I had to learn for this application.</p>
+<p>I am moving into games production deliberately: project management training, a month of programming at 42 Yerevan, and self-taught study of game design and QA fundamentals. I have not shipped a title yet. What I bring is the unglamorous half of production — scope, schedules, dependencies, written process and follow-through — paired with genuine fluency in the product.</p>
+
+<h2>Core Skills</h2>
+<p class="skills"><b>Production:</b> project coordination · scope and milestone planning · Gantt charts and schedules · Agile/Scrum ceremonies · backlog and task tracking · risk and dependency tracking · release and event coordination against fixed dates</p>
+<p class="skills"><b>Team &amp; process:</b> cross-functional coordination · leading teams up to 20 · vendor and contractor management · writing specs, checklists and process documentation · onboarding and training · acceptance criteria and quality review · stakeholder communication</p>
+<p class="skills"><b>Games:</b> self-taught game design and QA fundamentals · bug reporting and reproduction steps · systems and economy literacy across MMO, MOBA, FPS, RTS and F2P mobile</p>
+<p class="skills"><b>Tools:</b> Jira · Confluence · Notion · Trello · Monday · Bitrix24 · Google Workspace · Google Analytics · MS Office</p>
+
+<h2>Games — Domain Credibility</h2>
+<ul>
+<li><b>20+ years across genres:</b> WoW (since 2006, through WotLK and Cataclysm), Dota 2, CS 1.6 → CS2, Warcraft III, League of Legends, Battlerite, Terraria; console (The Last of Us, Mortal Kombat, Skate); F2P mobile (Clash of Clans, Clash Royale, Rush Royale, Boom Beach, Asphalt).</li>
+<li><b>Competitive results:</b> mythic raiding and 4,000+ Raider.IO score, 2,400 arena rating (WoW); 5,000 MMR (Dota 2); Big Star status (CS:GO). Top fragger on my team at a local CS 1.6 tournament.</li>
+<li><b>Live-service literacy from the player side:</b> seasons and battle passes, matchmaking and rating systems, balance patches and meta shifts, retention and monetisation loops in F2P titles — the levers a live game is actually steered with.</li>
+</ul>
+
+<h2>Experience</h2>
+
+<div class="job">
+<div class="job-top"><span class="who">Senior Case Manager — M&amp;M Document Preparation</span><span class="when">Jun 2025 – Feb 2026</span></div>
+<ul>
+<li>Ran up to <b>12 complex client projects in parallel</b> end to end — requirements, planning, execution and delivery against immovable external deadlines.</li>
+<li>Coordinated <b>8 specialists</b>, reviewed their deliverables against defined acceptance criteria, and acted as escalation point on hard problems.</li>
+<li>Rewrote the team's process documentation — workflows, templates, checklists — which became the operating standard and cut rework.</li>
+</ul>
+</div>
+
+<div class="job">
+<div class="job-top"><span class="who">Event / Project Manager — Hosq Corp.</span><span class="when">Jan 2025 – Jun 2025</span></div>
+<ul>
+<li>Produced live events for audiences of <b>100 to 3,000</b> — concerts, festivals, a touring TV show — several running in parallel on dates that could not slip. The closest thing to a launch date outside software.</li>
+<li>Owned vendors, scheduling, logistics and the day-of operation from setup to teardown.</li>
+</ul>
+</div>
+
+<div class="job">
+<div class="job-top"><span class="who">Project Manager — Qanon Construction</span><span class="when">Aug 2024 – Dec 2024</span></div>
+<ul>
+<li>Client communication, timelines, follow-up tasks and internal hand-offs across daily operations.</li>
+</ul>
+</div>
+
+<div class="job">
+<div class="job-top"><span class="who">Senior Paralegal — Shamayev Business Law Corp. · Paralegal — Bloomrich Law Firm</span><span class="when">Feb 2023 – Aug 2024</span></div>
+<ul>
+<li>Designed and delivered an internal training programme from curriculum to teaching; the materials I produced went on to serve <b>50+ specialists</b>.</li>
+<li>Deputised for the team lead, carried key accounts, and later ran a fully autonomous caseload.</li>
+</ul>
+</div>
+
+<div class="job">
+<div class="job-top"><span class="who">Judge's Associate — Arbitration Court of the Magadan Region</span><span class="when">Nov 2021 – Dec 2022</span></div>
+<ul>
+<li><b>200+ parallel cases</b> and <b>30+ hearings per week</b> under strict deadlines, covering three roles normally held by three people.</li>
+</ul>
+</div>
+
+<div class="job">
+<div class="job-top"><span class="who">Assistant Lawyer — Bar Association · Administrator / Project Manager — LLC "SIS"</span><span class="when">2015 – 2021</span></div>
+<ul>
+<li>Contract analysis and claims; earlier, <b>15+ construction and retail projects</b> with teams of 2–20, procurement, logistics and tenders in a family business — where I learned to own an outcome rather than a task.</li>
+</ul>
+</div>
+
+<h2>Career Break — Professional Development (Feb 2026 – Present)</h2>
+<ul>
+<li>Project management programme — Yerevan American Corner (2026); PM Club, 52 academic hours (2023).</li>
+<li>Self-taught study of game design and QA fundamentals: systems design, bug reporting and reproduction, test scenarios.</li>
+<li>42 Yerevan "Piscine", Nov–Dec 2025 — passed selection, one month of C programming, completed alongside a full-time job.</li>
+<li>HackNation — 2nd place in the local pitches; on-site final at TUMO Labs, Yerevan (July 2026). Startup Seaside Summit participant.</li>
+</ul>
+
+<h2>Education</h2>
+<ul>
+<li><b>Bachelor of Law (with honours)</b> — North-Eastern State University, 2021</li>
+<li><b>Civil Law, Faculty of Law</b> — St. Petersburg State University, 2016</li>
+</ul>
+
+<h2>Additional</h2>
+<ul>
+<li><b>Highload++ conference</b> (700 attendees) — organising team; led a crew of 12; bonus awarded for results.</li>
+<li><b>Ethos Foundation</b> — HQ coordinator (Sep 2023 – Oct 2024); humanitarian operations reaching ~100 families per day.</li>
+</ul>
+</div>
+</section>
+
+<section class="pane" id="pane-cv-gd-ru">
+<div class="copyzone doc">
+<h1>Ишхан Хчоян</h1>
+<p class="role">Проектный менеджер — производство игр и live-операции</p>
+<p class="contact">Ереван, Армения · готов к удалённой работе и релокации<br>+374 98 60 34 64 · ishxanxchoyan@gmail.com · linkedin.com/in/ishkhan-khchoian-2419182b3<br>Армянский — родной · Английский — C1 · Русский — C2</p>
+
+<h2>О себе</h2>
+<p>Проектный менеджер с шестилетним опытом ведения параллельных потоков работы в условиях несдвигаемых дат — и игрок с 2003 года, который прожил изнутри те системы, на которых игры построены. Производил мероприятия на аудиторию до 3 000 человек, вёл до 12 сложных клиентских проектов одновременно, руководил командами до 20 человек. С другой стороны экрана: мифический рейдинг, 4000+ Raider.IO и 2400 рейтинга арены в WoW, 5000 MMR в Dota 2. Кривые прогрессии, матчмейкинг, метовые сдвиги после патчей и экономика live-сервиса — не словарь, выученный ради этого отклика.</p>
+<p>В геймдев-продакшн я иду осознанно: курсы проектного управления, месяц программирования в школе 42, самостоятельное изучение геймдизайна и основ QA. Изданной игры за плечами у меня пока нет. Я приношу непарадную половину продакшна — скоуп, графики, зависимости, письменные процессы и доведение до конца — вместе с настоящим пониманием продукта.</p>
+
+<h2>Ключевые навыки</h2>
+<p class="skills"><b>Продакшн:</b> координация проектов · планирование скоупа и вех · графики и диаграммы Ганта · Agile / Scrum · ведение бэклога · управление рисками и зависимостями · координация релизов и событий под фиксированные даты</p>
+<p class="skills"><b>Команда и процессы:</b> кросс-функциональная координация · управление командами до 20 человек · работа с подрядчиками · написание спецификаций, чек-листов и регламентов · онбординг и обучение · критерии приёмки и контроль качества</p>
+<p class="skills"><b>Игры:</b> самостоятельно изученные геймдизайн и основы QA · оформление баг-репортов и шагов воспроизведения · понимание систем и экономики в MMO, MOBA, FPS, RTS и F2P-мобайле</p>
+<p class="skills"><b>Инструменты:</b> Jira · Confluence · Notion · Trello · Monday · Bitrix24 · Google Workspace · Google Analytics · MS Office</p>
+
+<h2>Игровой бэкграунд</h2>
+<ul>
+<li><b>20+ лет по жанрам:</b> WoW (с 2006 года, через WotLK и Cataclysm), Dota 2, CS 1.6 → CS2, Warcraft III, League of Legends, Battlerite, Terraria; консоли (The Last of Us, Mortal Kombat, Skate); F2P-мобайл (Clash of Clans, Clash Royale, Rush Royale, Boom Beach, Asphalt).</li>
+<li><b>Соревновательные результаты:</b> мифический рейдинг и 4000+ Raider.IO, 2400 рейтинга арены (WoW); 5000 MMR (Dota 2); статус Big Star (CS:GO). Первое место по фрагам в своей команде на городском турнире по CS 1.6.</li>
+<li><b>Понимание live-сервиса со стороны игрока:</b> сезоны и боевые пропуска, матчмейкинг и рейтинговые системы, балансные патчи и смена меты, механики удержания и монетизации в F2P — то, чем живую игру реально управляют.</li>
+</ul>
+
+<h2>Опыт работы</h2>
+
+<div class="job">
+<div class="job-top"><span class="who">Senior Case Manager — M&amp;M Document Preparation</span><span class="when">июнь 2025 – февраль 2026</span></div>
+<ul>
+<li>Вёл до <b>12 сложных клиентских проектов одновременно</b> — от требований и планирования до сдачи, в условиях несдвигаемых внешних дедлайнов.</li>
+<li>Координировал <b>восьмерых специалистов</b>, проверял их работу по заданным критериям приёмки, был точкой эскалации по сложным вопросам.</li>
+<li>Переписал процессную документацию команды — регламенты, шаблоны, чек-листы, — и она стала рабочим стандартом, снизив количество переделок.</li>
+</ul>
+</div>
+
+<div class="job">
+<div class="job-top"><span class="who">Event / Project Manager — Hosq Corp.</span><span class="when">январь 2025 – июнь 2025</span></div>
+<ul>
+<li>Производил мероприятия на аудиторию <b>от 100 до 3 000 человек</b> — концерты, фестивали, гастрольное шоу — по нескольку параллельно, с датами, которые нельзя сдвинуть. Ближайший аналог релизной даты вне разработки.</li>
+<li>Отвечал за подрядчиков, расписание, логистику и работу на площадке от монтажа до демонтажа.</li>
+</ul>
+</div>
+
+<div class="job">
+<div class="job-top"><span class="who">Проектный менеджер — Qanon Construction</span><span class="when">август 2024 – декабрь 2024</span></div>
+<ul>
+<li>Коммуникация с заказчиками, сроки проектов, контроль задач и внутренние передачи работы.</li>
+</ul>
+</div>
+
+<div class="job">
+<div class="job-top"><span class="who">Старший паралигал — Shamayev Business Law Corp. · Паралигал — Bloomrich Law Firm</span><span class="when">февраль 2023 – август 2024</span></div>
+<ul>
+<li>Разработал и вёл внутреннюю программу обучения — от учебного плана до занятий; материалы послужили <b>50+ специалистам</b>.</li>
+<li>Замещал тимлида, вёл ключевые дела, затем работал с полной самостоятельностью по своему портфелю.</li>
+</ul>
+</div>
+
+<div class="job">
+<div class="job-top"><span class="who">Помощник арбитражного судьи — Арбитражный суд Магаданской области</span><span class="when">ноябрь 2021 – декабрь 2022</span></div>
+<ul>
+<li><b>200+ дел параллельно</b> и <b>30+ заседаний в неделю</b> в жёстких процессуальных сроках; совмещал три должности одновременно.</li>
+</ul>
+</div>
+
+<div class="job">
+<div class="job-top"><span class="who">Помощник адвоката — Коллегия адвокатов · Администратор / менеджер проектов — ООО «СИС»</span><span class="when">2015 – 2021</span></div>
+<ul>
+<li>Анализ договоров и претензионная работа; ранее — <b>15+ строительных и торговых проектов</b>, команды от 2 до 20 человек, закупки, логистика и тендеры в семейном бизнесе, где я научился отвечать за результат, а не за задачу.</li>
+</ul>
+</div>
+
+<h2>Career break — профессиональное развитие (февраль 2026 – настоящее время)</h2>
+<ul>
+<li>Курс проектного менеджмента — Yerevan American Corner (2026); PM Club, 52 академических часа (2023).</li>
+<li>Самостоятельное изучение геймдизайна и основ QA: проектирование систем, оформление баг-репортов и шагов воспроизведения, тестовые сценарии.</li>
+<li>Интенсив Piscine в школе 42, ноябрь–декабрь 2025 — прошёл отбор, месяц программирования на C, совмещая с полной занятостью.</li>
+<li>HackNation — 2-е место в local pitches, участие в очном финале в TUMO Labs (июль 2026). Участник Startup Seaside Summit.</li>
+</ul>
+
+<h2>Образование</h2>
+<ul>
+<li><b>Бакалавр юриспруденции (диплом с отличием)</b> — Северо-Восточный государственный университет, 2021</li>
+<li><b>Юридический факультет, гражданское право</b> — Санкт-Петербургский государственный университет, 2016</li>
+</ul>
+
+<h2>Дополнительно</h2>
+<ul>
+<li><b>Конференция Highload++</b> (700 участников) — в команде организаторов, руководил группой из 12 человек, бонус за результат.</li>
+<li><b>Фонд Ethos</b> — координатор штаба (сентябрь 2023 – октябрь 2024), выдача гуманитарных наборов ~100 семьям в день.</li>
+</ul>
+</div>
+</section>
+
+<section class="pane" id="pane-let-gd-en">
+<div class="doc letter">
+<h2 style="margin-top:0">Cover letter — Games · EN</h2>
+<p class="meta no-print">Для геймдев-студий на английском. Ставка: настоящая продакшн-дисциплина плюс подлинное знание продукта, без притворства, что игра уже издана.</p>
+<div class="copyzone">
+<p>Dear <span class="todo">[name]</span>,</p>
+
+<p>I am applying for the <span class="todo">[role]</span> position at <span class="todo">[studio]</span>. Let me be straight with you about what I do and do not have.</p>
+
+<p>What I do not have is a shipped title. What I do have is six years of the part of production that goes wrong first: scope, schedules, dependencies and the written process a team actually runs on. As Senior Case Manager I carried up to twelve complex projects in parallel, coordinated eight specialists, reviewed their work against defined acceptance criteria, and rewrote the process documentation the team now works from. At Hosq I produced live events for audiences of 100 to 3,000 — several at once, on dates that could not move, with vendors and a crew who all needed the schedule to be honest. That is the closest thing to a launch date outside software, and it taught me the same lesson: the plan is worthless the moment it stops matching reality, so you keep it matching reality.</p>
+
+<p>The other half is the product. I have played since 2003 and competitively for most of it — mythic raiding and a 4,000+ Raider.IO score, 2,400 arena rating in WoW, 5,000 MMR in Dota 2, CS since 1.6. I have watched a balance patch reshape a meta and felt a progression curve go wrong from the inside. When your designers argue about retention, pacing or matchmaking, I will follow the argument on the merits rather than nodding along and asking for a glossary afterwards.</p>
+
+<p>I moved into this deliberately: I left a stable legal career in February 2026, took project management training, completed a month of C programming at 42 Yerevan alongside a full-time job, placed second in the HackNation local pitches, and have been teaching myself game design and QA fundamentals since. I am applying at a junior level on purpose — I would rather learn your pipeline properly than overstate what I know about making games.</p>
+
+<p>I would welcome twenty minutes to hear what you are building and where an organised pair of hands would take work off your producers.</p>
+
+<p>Sincerely,<br>Ishkhan Khchoian<br>+374 98 60 34 64 · ishxanxchoyan@gmail.com</p>
+</div>
+</div>
+</section>
+
+<section class="pane" id="pane-let-gd-ru">
+<div class="doc letter">
+<h2 style="margin-top:0">Сопроводительное письмо — Геймдев · RU</h2>
+<p class="meta no-print">Для русскоязычных студий. Та же логика: честно про отсутствие изданной игры, сильно — про продакшн-дисциплину и знание продукта.</p>
+<div class="copyzone">
+<p>Здравствуйте, <span class="todo">[имя]</span>!</p>
+
+<p>Пишу по вакансии <span class="todo">[должность]</span> в <span class="todo">[студия]</span>. Скажу сразу, что у меня есть, а чего нет.</p>
+
+<p>Изданной игры за плечами у меня нет. Есть шесть лет работы с той частью продакшна, которая ломается первой: скоуп, сроки, зависимости и письменный процесс, по которому реально живёт команда. На последнем месте я вёл до двенадцати сложных проектов одновременно, координировал восьмерых специалистов, проверял их работу по заданным критериям приёмки и переписал процессную документацию, по которой команда работает до сих пор. В Hosq производил мероприятия на 100–3 000 человек — по нескольку параллельно, с датами, которые нельзя сдвинуть, с подрядчиками и командой, которым нужен был честный график. Это ближайший аналог релизной даты вне разработки, и урок тот же: план бесполезен в ту секунду, когда перестаёт совпадать с реальностью.</p>
+
+<p>Вторая половина — сам продукт. Я играю с 2003 года и большую часть этого времени соревновательно: мифический рейдинг и 4000+ Raider.IO, 2400 рейтинга арены в WoW, 5000 MMR в Dota 2, CS начиная с 1.6. Я видел, как балансный патч разворачивает мету, и чувствовал изнутри, когда кривая прогрессии сделана неудачно. Когда ваши дизайнеры спорят про удержание, темп выдачи контента или матчмейкинг, я буду следить за сутью спора, а не кивать и потом искать значения слов.</p>
+
+<p>В эту сторону я пошёл осознанно: в феврале 2026 года ушёл из стабильной юридической карьеры, прошёл курсы проектного управления, месяц интенсива по программированию в школе 42 параллельно с работой, занял 2-е место в local pitches на HackNation и с тех пор самостоятельно изучаю геймдизайн и основы QA.</p>
+
+<p>Откликаюсь на джуниорскую позицию сознательно: мне важнее нормально выучить ваш пайплайн, чем изображать, будто я уже всё знаю про разработку игр. Буду рад короткому разговору.</p>
+
+<p>С уважением,<br>Ишхан Хчоян<br>+374 98 60 34 64 · ishxanxchoyan@gmail.com</p>
+</div>
+</div>
+</section>
+
+</div>
+</div>
+
+<script>
+(function () {
+  var panes = document.querySelectorAll('.pane');
+  var btns  = document.querySelectorAll('.navbtn');
+
+  function show(id) {
+    var found = false;
+    panes.forEach(function (p) {
+      var on = (p.id === 'pane-' + id);
+      p.classList.toggle('active', on);
+      if (on) found = true;
+    });
+    if (!found) { show('start'); return; }
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-go') === id); });
+    if (history.replaceState) history.replaceState(null, '', '#' + id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-go]');
+    if (t) { e.preventDefault(); show(t.getAttribute('data-go')); }
+  });
+
+  document.getElementById('printBtn').addEventListener('click', function () { window.print(); });
+
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var pane = document.querySelector('.pane.active');
+    if (!pane) return;
+    var zone = pane.querySelector('.copyzone') || pane;
+    var text = zone.innerText.replace(/\n{3,}/g, '\n\n').trim();
+    var btn = this;
+    var done = function () {
+      var old = btn.textContent;
+      btn.textContent = 'Скопировано ✓';
+      setTimeout(function () { btn.textContent = old; }, 1600);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (err) {}
+      document.body.removeChild(ta);
+    }
+  });
+
+  show((location.hash || '#start').slice(1));
+})();
+</script>
+</body>
+</html>
