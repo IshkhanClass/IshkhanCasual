@@ -124,6 +124,28 @@ body {
   margin: 48px 0 4px;
 }
 
+.lead-note {
+  margin: 0 0 16px;
+  max-width: 62ch;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.nav-note {
+  margin: 8px 12px 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-faint);
+}
+
+.sub-title {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 32px 0 12px;
+}
+
 .section-note {
   margin: 0 0 16px;
   color: var(--ink-faint);
@@ -404,22 +426,15 @@ a.navlink:hover { color: var(--accent); }
 <div class="layout">
 <nav class="sidenav no-print">
   <button class="navbtn on" data-go="start">Обзор</button>
-  <div class="grp">Скачать PDF</div>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_Product_Manager_Conversational_AI.pdf" download>↓ CV · Product (EN)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_Cover_Letter_Conversational_AI.pdf" download>↓ Letter · Product (EN)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_Sales_Manager.pdf" download>↓ CV · Sales Manager (EN)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_Legal_Counsel_Armenia.pdf" download>↓ CV · Legal Counsel (EN)</a>
+  <div class="grp">Скачать PDF — по приоритету</div>
+  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_IT_EN.pdf" download>↓ 1. CV · PM IT (EN)</a>
+  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_IT_RU.pdf" download>↓ 1. Резюме · ПМ IT (RU)</a>
+  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_Gamedev_EN.pdf" download>↓ 2. CV · Games (EN)</a>
+  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_PropTech_EN.pdf" download>↓ 3. CV · PropTech (EN)</a>
+  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_LegalTech_EN.pdf" download>↓ 4. CV · LegalTech (EN)</a>
+  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_iGaming_EN.pdf" download>↓ 5. CV · iGaming (EN)</a>
   <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_Certificate_US_Perspective.pdf" download>↓ Сертификат PM (US)</a>
-  <div class="grp">Геймдев · PDF</div>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_Gamedev_EN.pdf" download>↓ CV · Games (EN)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_Cover_Letter_Gamedev_EN.pdf" download>↓ Letter · Games (EN)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_Gamedev_RU.pdf" download>↓ Резюме · Геймдев (RU)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_Cover_Letter_Gamedev_RU.pdf" download>↓ Письмо · Геймдев (RU)</a>
-  <div class="grp">iGaming · PDF</div>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_iGaming_EN.pdf" download>↓ CV · iGaming (EN)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_Cover_Letter_iGaming_EN.pdf" download>↓ Letter · iGaming (EN)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_iGaming_RU.pdf" download>↓ Резюме · iGaming (RU)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_Cover_Letter_iGaming_RU.pdf" download>↓ Письмо · iGaming (RU)</a>
+  <p class="nav-note">Письма, русские версии, продакт и бизнес-аналитик — все 33 файла в «Обзоре».</p>
   <div class="grp">Резюме — английский</div>
   <button class="navbtn" data-go="cv-legaltech">LegalTech</button>
   <button class="navbtn" data-go="cv-delivery">IT Delivery</button>
@@ -448,44 +463,79 @@ a.navlink:hover { color: var(--accent); }
 <section class="pane active" id="pane-start">
 <div class="paper">
 <div class="hero"><h1>Резюме и сопроводительные письма</h1>
-<p>Семь версий резюме и пять сопроводительных писем под разные типы компаний. Выберите документ слева или ниже, затем — «Копировать текст», чтобы вставить в форму отклика, или «Печать / PDF», чтобы сохранить файл.</p>
+<p>Резюме и сопроводительные письма под конкретные роли и отрасли — готовыми PDF, можно скачать и приложить к отклику. Разделы идут в порядке приоритета поиска: цель — проектный менеджер, смежные варианты — продакт и бизнес-аналитик.</p>
 <p><b>Главное правило: одно резюме на все вакансии не работает.</b> Выбирайте версию под нишу компании — первые три строки должны совпадать с тем, что человек ищет.</p></div>
-<h2 class="section-title">Под конкретную вакансию — скачать PDF</h2>
+<h2 class="section-title">Приоритет 1 — IT и разработка ПО</h2>
+<p class="lead-note">Основная ставка. Проджект-менеджер — главная цель, продакт и бизнес-аналитик — смежные варианты.</p>
 <div class="cards">
-<a class="card dl" href="Ishkhan_Khchoian_Product_Manager_Conversational_AI.pdf" download><span class="tag">Junior PM · Conversational AI</span><h3>CV · Product (EN) <span class="ext">PDF · 2 стр.</span></h3><p>Под вакансию junior product в chat-центричном AI-продукте: discovery, спеки, эксперименты, метрики, 0-to-1. Наверху — свой концепт AI-агентов и RAG.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_Conversational_AI.pdf" download><span class="tag">Junior PM · Conversational AI</span><h3>Cover letter · Product (EN) <span class="ext">PDF · 1 стр.</span></h3><p>Письмо основателю: честно про старт карьеры в продукте, шесть лет discovery без этого названия и пересечение с его бэкграундом.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Sales_Manager.pdf" download><span class="tag">Продажи</span><h3>CV · Sales Manager (EN) <span class="ext">PDF · 2 стр.</span></h3><p>B2B-продажи, ключевые клиенты и тендеры. Собрано вокруг реального: продажи в SIS, «sales coordination» в Qanon, ключевые клиенты в Shamayev, CRM и три языка.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Legal_Counsel_Armenia.pdf" download><span class="tag">Юрист · in-house</span><h3>CV · Legal Counsel (EN) <span class="ext">PDF · 2 стр.</span></h3><p>Для международной компании в Армении: договоры, споры, иммиграция и релокация сотрудников. Арбитражный суд изнутри плюс практика в двух американских фирмах.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_PM_Certificate_US_Perspective.pdf" download><span class="tag">Документ</span><h3>Сертификат · PM (US) <span class="ext">PDF · 2 стр.</span></h3><p>«Project Management with a U.S. Perspective» — Yerevan American Corner при посольстве США, 21 июля – 21 августа 2026. Прикладывайте к отклику как подтверждение.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_PM_IT_EN.pdf" download><span class="tag">PM · EN</span><h3>CV · Project Manager <span class="ext">PDF · 2 стр.</span></h3><p>Координатор проектов в разработке ПО. Параллельная доставка, критерии приёмки, процессная документация.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_PM_IT_EN.pdf" download><span class="tag">PM · EN</span><h3>Letter · Project Manager <span class="ext">PDF · 1 стр.</span></h3><p>Честно про смену профессии: софт не выпускал, но шесть лет делал то, из чего состоит delivery.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_PM_IT_RU.pdf" download><span class="tag">PM · RU</span><h3>Резюме · Проджект-менеджер <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_PM_IT_RU.pdf" download><span class="tag">PM · RU</span><h3>Письмо · Проджект-менеджер <span class="ext">PDF · 1 стр.</span></h3><p>Русская версия письма.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Junior_Product_Manager_EN.pdf" download><span class="tag">Product · EN</span><h3>CV · Junior Product Manager <span class="ext">PDF · 2 стр.</span></h3><p>Discovery, требования, метрики. Несколько сотен интервью при приёме клиентов как главный аргумент.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_Junior_PM_EN.pdf" download><span class="tag">Product · EN</span><h3>Letter · Junior Product <span class="ext">PDF · 1 стр.</span></h3><p>Письмо: discovery и написание спек — только без этих названий.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Junior_Product_Manager_RU.pdf" download><span class="tag">Product · RU</span><h3>Резюме · Джуниор продакт <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_Junior_PM_RU.pdf" download><span class="tag">Product · RU</span><h3>Письмо · Джуниор продакт <span class="ext">PDF · 1 стр.</span></h3><p>Русская версия письма.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Junior_Business_Analyst_EN.pdf" download><span class="tag">BA · EN</span><h3>CV · Junior Business Analyst <span class="ext">PDF · 2 стр.</span></h3><p>Требования, документация, картирование процессов. Судебные акты и договоры как школа письменной точности.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_Junior_BA_EN.pdf" download><span class="tag">BA · EN</span><h3>Letter · Junior BA <span class="ext">PDF · 1 стр.</span></h3><p>Письмо: нов в софте, но не в анализе, требованиях и документации.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Junior_Business_Analyst_RU.pdf" download><span class="tag">BA · RU</span><h3>Резюме · Джуниор бизнес-аналитик <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_Junior_BA_RU.pdf" download><span class="tag">BA · RU</span><h3>Письмо · Джуниор бизнес-аналитик <span class="ext">PDF · 1 стр.</span></h3><p>Русская версия письма.</p></a>
 </div>
-<h2 class="section-title">Геймдев — скачать PDF</h2>
+<h2 class="section-title">Приоритет 2 — Геймдев</h2>
+<p class="lead-note">Продакшн-дисциплина плюс 20 лет реального игрового опыта и соревновательные результаты.</p>
 <div class="cards">
-<a class="card dl" href="Ishkhan_Khchoian_PM_Gamedev_EN.pdf" download><span class="tag">Gamedev · EN</span><h3>CV · PM Games (EN) <span class="ext">PDF · 2 стр.</span></h3><p>Продакшн-дисциплина плюс 20 лет игрового опыта и соревновательные результаты. Честно про отсутствие шипнутой игры.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_Gamedev_EN.pdf" download><span class="tag">Gamedev · EN</span><h3>Letter · PM Games (EN) <span class="ext">PDF · 1 стр.</span></h3><p>Письмо в студию: что есть и чего нет, без притворства. Мета, кривые прогрессии и баг-репорты без возвратов.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_PM_Gamedev_RU.pdf" download><span class="tag">Геймдев · RU</span><h3>Резюме · ПМ Геймдев (RU) <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски, для русскоязычных студий.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_Gamedev_RU.pdf" download><span class="tag">Геймдев · RU</span><h3>Письмо · ПМ Геймдев (RU) <span class="ext">PDF · 1 стр.</span></h3><p>Русская версия письма в студию.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_PM_Gamedev_EN.pdf" download><span class="tag">Gamedev · EN</span><h3>CV · PM Games <span class="ext">PDF · 2 стр.</span></h3><p>Честно про отсутствие шипнутой игры — и сильно про всё остальное.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_Gamedev_EN.pdf" download><span class="tag">Gamedev · EN</span><h3>Letter · PM Games <span class="ext">PDF · 1 стр.</span></h3><p>Письмо в студию: мета, кривые прогрессии и баг-репорты без возвратов.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_PM_Gamedev_RU.pdf" download><span class="tag">Геймдев · RU</span><h3>Резюме · ПМ Геймдев <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_Gamedev_RU.pdf" download><span class="tag">Геймдев · RU</span><h3>Письмо · ПМ Геймдев <span class="ext">PDF · 1 стр.</span></h3><p>Русская версия письма.</p></a>
 </div>
-<h2 class="section-title">iGaming — скачать PDF</h2>
+<h2 class="section-title">Приоритет 3 — Строительство и PropTech</h2>
+<p class="lead-note">Мало конкурентов: 15+ объектов, тендеры, подрядчики и договорное право в одном человеке.</p>
 <div class="cards">
-<a class="card dl" href="Ishkhan_Khchoian_PM_iGaming_EN.pdf" download><span class="tag">iGaming · EN</span><h3>CV · PM iGaming (EN) <span class="ext">PDF · 2 стр.</span></h3><p>Индустрия с двух сторон: маркетинг live-казино в Creedroomz и аффилиаты в Digital Caramel. Плюс лицензирование и CPA/RevShare.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_iGaming_EN.pdf" download><span class="tag">iGaming · EN</span><h3>Letter · PM iGaming (EN) <span class="ext">PDF · 1 стр.</span></h3><p>Письмо оператору или аффилиатной сети: бюджет как гипотезы, 60 партнёров, онбординг вдвое быстрее.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_PM_iGaming_RU.pdf" download><span class="tag">iGaming · RU</span><h3>Резюме · ПМ iGaming (RU) <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски, для русскоязычных операторов и партнёрских сетей.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_iGaming_RU.pdf" download><span class="tag">iGaming · RU</span><h3>Письмо · ПМ iGaming (RU) <span class="ext">PDF · 1 стр.</span></h3><p>Русская версия письма в iGaming-компанию.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_PM_PropTech_EN.pdf" download><span class="tag">PropTech · EN</span><h3>CV · PM Construction <span class="ext">PDF · 2 стр.</span></h3><p>Стройка вынесена наверх: объекты, закупки, тендеры, Ганты плюс договоры.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_PropTech_EN.pdf" download><span class="tag">PropTech · EN</span><h3>Letter · PM Construction <span class="ext">PDF · 1 стр.</span></h3><p>Письмо: это не отрасль, которую надо изучать, — с неё я начинал.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_PM_PropTech_RU.pdf" download><span class="tag">PropTech · RU</span><h3>Резюме · ПМ Стройка <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_PropTech_RU.pdf" download><span class="tag">PropTech · RU</span><h3>Письмо · ПМ Стройка <span class="ext">PDF · 1 стр.</span></h3><p>Русская версия письма.</p></a>
 </div>
-<h2 class="section-title">Резюме — английский</h2>
+<h2 class="section-title">Приоритет 4 — LegalTech</h2>
+<p class="lead-note">Самый сильный домен: шесть лет вы были именно тем пользователем, для которого этот софт делают.</p>
 <div class="cards">
-<a class="card" href="#cv-legaltech" data-go="cv-legaltech"><span class="tag">Главная ставка</span><h3>LegalTech</h3><p>Продукты для юрфирм, иммиграционные платформы, legal ops. Ваш домен здесь — квалификация, а не прошлое.</p></a>
-<a class="card" href="#cv-delivery" data-go="cv-delivery"><span class="tag">Массовые отклики</span><h3>IT Delivery</h3><p>Junior PM / Project Coordinator. Нейтральное, с ключевыми словами — для ATS, LinkedIn Easy Apply и аутсорса.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_PM_LegalTech_EN.pdf" download><span class="tag">LegalTech · EN</span><h3>CV · PM LegalTech <span class="ext">PDF · 2 стр.</span></h3><p>Иммиграционные платформы и продукты для юрфирм. O-1B, EB-3, E-2 и легал-опс изнутри.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_LegalTech_EN.pdf" download><span class="tag">LegalTech · EN</span><h3>Letter · PM LegalTech <span class="ext">PDF · 1 стр.</span></h3><p>Письмо: «шесть лет я был тем человеком, для которого ваш продукт и делается».</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_PM_LegalTech_RU.pdf" download><span class="tag">LegalTech · RU</span><h3>Резюме · ПМ LegalTech <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_LegalTech_RU.pdf" download><span class="tag">LegalTech · RU</span><h3>Письмо · ПМ LegalTech <span class="ext">PDF · 1 стр.</span></h3><p>Русская версия письма.</p></a>
+</div>
+<h2 class="section-title">Приоритет 5 — iGaming</h2>
+<p class="lead-note">Индустрия с двух сторон: маркетинг live-казино в Creedroomz и аффилиаты в Digital Caramel.</p>
+<div class="cards">
+<a class="card dl" href="Ishkhan_Khchoian_PM_iGaming_EN.pdf" download><span class="tag">iGaming · EN</span><h3>CV · PM iGaming <span class="ext">PDF · 2 стр.</span></h3><p>Плюс лицензирование в специфичных юрисдикциях и переговоры по CPA/RevShare.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_iGaming_EN.pdf" download><span class="tag">iGaming · EN</span><h3>Letter · PM iGaming <span class="ext">PDF · 1 стр.</span></h3><p>Письмо оператору или партнёрской сети: бюджет как гипотезы, 60 партнёров, онбординг вдвое быстрее.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_PM_iGaming_RU.pdf" download><span class="tag">iGaming · RU</span><h3>Резюме · ПМ iGaming <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_iGaming_RU.pdf" download><span class="tag">iGaming · RU</span><h3>Письмо · ПМ iGaming <span class="ext">PDF · 1 стр.</span></h3><p>Русская версия письма.</p></a>
+</div>
+<h2 class="section-title">Смежные направления и документы</h2>
+<p class="lead-note">Не основная линия, но готово и может пригодиться.</p>
+<div class="cards">
+<a class="card dl" href="Ishkhan_Khchoian_Product_Manager_Conversational_AI.pdf" download><span class="tag">Product · AI-чат</span><h3>CV · Product (conversational AI) <span class="ext">PDF · 2 стр.</span></h3><p>Под конкретную вакансию в chat-центричном AI-продукте: свой концепт AI-агентов и RAG наверху.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Cover_Letter_Conversational_AI.pdf" download><span class="tag">Product · AI-чат</span><h3>Letter · Product (AI) <span class="ext">PDF · 1 стр.</span></h3><p>Письмо основателю с пересечением по бэкграунду.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Sales_Manager.pdf" download><span class="tag">Продажи</span><h3>CV · Sales Manager (EN) <span class="ext">PDF · 2 стр.</span></h3><p>B2B-продажи, ключевые клиенты и тендеры.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_Legal_Counsel_Armenia.pdf" download><span class="tag">Юрист · in-house</span><h3>CV · Legal Counsel (EN) <span class="ext">PDF · 2 стр.</span></h3><p>Для международной компании в Армении: договоры, споры, иммиграция и релокация.</p></a>
+<a class="card dl" href="Ishkhan_Khchoian_PM_Certificate_US_Perspective.pdf" download><span class="tag">Документ</span><h3>Сертификат · PM (US) <span class="ext">PDF · 2 стр.</span></h3><p>«Project Management with a U.S. Perspective» — Yerevan American Corner при посольстве США, 21 июля – 21 августа 2026.</p></a>
+</div>
+<h2 class="section-title">Версии на сайте — для копирования текста</h2><p class="lead-note">Те же истории в виде страниц: удобно скопировать текст в форму отклика или распечатать.</p><h3 class="sub-title">Резюме — английский</h3>
+<div class="cards">
+<a class="card" href="#cv-legaltech" data-go="cv-legaltech"><span class="tag">Сильный домен</span><h3>LegalTech</h3><p>Продукты для юрфирм, иммиграционные платформы, legal ops. Ваш домен здесь — квалификация, а не прошлое.</p></a>
+<a class="card" href="#cv-delivery" data-go="cv-delivery"><span class="tag">Приоритет 1</span><h3>IT Delivery</h3><p>Junior PM / Project Coordinator. Нейтральное, с ключевыми словами — для ATS, LinkedIn Easy Apply и аутсорса.</p></a>
 <a class="card" href="#cv-contech" data-go="cv-contech"><span class="tag">Мало конкурентов</span><h3>Construction / PropTech</h3><p>15+ объектов, тендеры, подрядчики, Ганты плюс договорное право. Стройка вынесена наверх.</p></a>
 <a class="card" href="#cv-ops" data-go="cv-ops"><span class="tag">Operations</span><h3>Operations & Delivery</h3><p>Про объём и надёжность: 200+ дел, 30+ заседаний в неделю, события на 3000 человек, Highload++.</p></a>
 <a class="card" href="#cv-startup" data-go="cv-startup"><span class="tag">Ранние команды</span><h3>Startup / AI</h3><p>Живой тон от первого лица. HackNation, 42, Startup Seaside Summit и продуктовая идея — наверху.</p></a>
 </div>
-<h2 class="section-title">Резюме — русский</h2>
+<h3 class="sub-title">Резюме — русский</h3>
 <div class="cards">
 <a class="card" href="#cv-ru-it" data-go="cv-ru-it"><span class="tag">Универсальное</span><h3>Проектный менеджер в IT</h3><p>Сбалансированная версия: операционный опыт, процессы, инструменты, career break как аргумент.</p></a>
 <a class="card" href="#cv-ru-stroy" data-go="cv-ru-stroy"><span class="tag">Ниша</span><h3>Строительство и ремонт</h3><p>Объекты, подрядчики, закупки, тендеры, графики — и договорное право сверху.</p></a>
 </div>
-<h2 class="section-title">Сопроводительные письма</h2>
+<h3 class="sub-title">Сопроводительные письма</h3>
 <div class="cards">
 <a class="card" href="#let-insider" data-go="let-insider"><span class="tag">LegalTech</span><h3>«The Insider» · EN</h3><p>Для legaltech и продуктов для юристов. Козырь — вы шесть лет были пользователем такого софта.</p></a>
 <a class="card" href="#let-operator" data-go="let-operator"><span class="tag">Аутсорс</span><h3>«The Operator» · EN</h3><p>Для IT-аутсорса и сервисных компаний. Спокойный тон: объём, сроки, порядок.</p></a>
@@ -493,11 +543,11 @@ a.navlink:hover { color: var(--accent); }
 <a class="card" href="#let-perehod" data-go="let-perehod"><span class="tag">Универсальное</span><h3>«Переход» · RU</h3><p>Для русскоязычных IT-компаний. Строится вокруг честного объяснения career transition.</p></a>
 <a class="card" href="#let-stroyka" data-go="let-stroyka"><span class="tag">Стройка</span><h3>«Стройка» · RU</h3><p>Для строительных, ремонтных и девелоперских компаний и proptech-сервисов.</p></a>
 </div>
-<h2 class="section-title">Стратегия</h2>
+<h3 class="sub-title">Стратегия поиска</h3>
 <div class="cards">
 <a class="card" href="#strategy" data-go="strategy"><span class="tag">Прочитать первым</span><h3>Career break, ниши, LinkedIn</h3><p>Оценка career break и как его оформить, приоритет ниш, названия вакансий, настройка LinkedIn и чек-лист.</p></a>
 </div>
-<h2 class="section-title">Геймдев</h2>
+<h3 class="sub-title">Геймдев</h3>
 <div class="cards">
 <a class="card" href="#cv-gd-en" data-go="cv-gd-en"><span class="tag">Геймдев</span><h3>CV · Games (EN)</h3><p>Продакшн-дисциплина плюс 20 лет реального игрового опыта и соревновательные результаты.</p></a>
 <a class="card" href="#cv-gd-ru" data-go="cv-gd-ru"><span class="tag">Геймдев</span><h3>Резюме · Геймдев (RU)</h3><p>Та же версия по-русски, для русскоязычных студий.</p></a>
@@ -1401,14 +1451,16 @@ a.navlink:hover { color: var(--accent); }
 
   <p>На вакансию junior PM в обычную продуктовую компанию приходят сотни откликов, и вы там — «юрист без IT-опыта», то есть в нижней половине стопки. На вакансию PM в legaltech-продукт приходят те же сотни, но <b>вы там единственный, кто шесть лет работал внутри процесса, который этот продукт автоматизирует</b>. Это переворачивает вашу позицию: домен становится не биографией, а квалификацией. Слабость превращается в дефицитное преимущество ровно в тот момент, когда вы меняете тип компании, — при том же резюме.</p>
 
-  <h3>Приоритеты, по убыванию шансов</h3>
+  <h3>Приоритеты: ваш порядок и порядок шансов</h3>
+  <p>Вы выбрали такой порядок: <b>IT / софтвер → геймдев → стройка и PropTech → legaltech → iGaming</b>. Это порядок <i>желания</i>, и он правильный — работать надо там, где хочется. Но рыночные шансы для человека, меняющего профессию, выстраиваются иначе, и честно назвать это расхождение полезнее, чем сгладить.</p>
   <ol>
-    <li><b>LegalTech и иммиграционный tech.</b> Максимальный фит. Продукты для юрфирм, иммиграционные CRM и платформы, визовые сервисы, компании вокруг US immigration (их много, они удалённые и англоязычные). Вы знаете O-1B, EB-3, E-2 не по статье в блоге. Сюда — резюме «LegalTech» и письмо «The Insider».</li>
-    <li><b>IT-аутсорс и сервисные компании Еревана.</b> Не самый интересный, зато самый ёмкий рынок: у них постоянно открыты project coordinator и delivery coordinator, и они привыкли брать людей с сильными процессными навыками. Английский C1 здесь — прямое конкурентное преимущество, потому что клиент американский. Сюда — резюме «IT Delivery» и письмо «The Operator».</li>
-    <li><b>ConTech / PropTech / ремонтные маркетплейсы.</b> 15+ объектов, тендеры, подрядчики, Ганты — плюс умение читать договор подряда. Для такой компании это очень редкое сочетание. Рынок меньше legaltech, но и конкурентов почти нет. Сюда — резюме «Construction» и письмо «Стройка».</li>
-    <li><b>Стартапы и AI-продукты.</b> Ваша личная тяга и HackNation работают, но честно: junior PM в стартап берут редко — там ищут либо готового senior, либо основателя. Отклик сюда стоит дёшево, поэтому делать стоит, но не считайте это основным каналом. Сюда — резюме «Startup» и письмо «The Builder».</li>
-    <li><b>Обычные продуктовые SaaS без домена.</b> Самая высокая конкуренция и самый слабый ваш аргумент. Откликайтесь по остаточному принципу.</li>
+    <li><b>IT / разработка ПО.</b> Ваш приоритет №1. Самый ёмкий рынок: project coordinator и delivery coordinator открыты постоянно, а английский C1 — прямое преимущество, потому что клиент американский. Честная оговорка: в чистом софтвере вы приходите без доменного козыря и конкурируете с людьми, у которых уже есть релизы за спиной. Компенсируйте объёмом откликов и названиями вакансий из следующего блока.</li>
+    <li><b>Геймдев.</b> Ваш приоритет №2. Продакшн-дисциплина плюс 20 лет игрового опыта и соревновательные результаты — это настоящий аргумент, и студии его понимают. Минус: рынок узкий, а на junior-продакшн всегда очередь из людей, которые уже шипнули игру.</li>
+    <li><b>Строительство и PropTech.</b> Ваш приоритет №3, и по соотношению «шанс / конкуренция» — возможно, лучший в списке. 15+ объектов, тендеры, подрядчики, Ганты плюс умение читать договор подряда. Такое сочетание в одном человеке встречается редко, а конкурентов почти нет.</li>
+    <li><b>LegalTech и иммиграционный tech.</b> Ваш приоритет №4 — и здесь я бы поспорил. По вероятности первого оффера это, скорее всего, первое место: вы знаете O-1B, EB-3 и E-2 не по статье в блоге, а изнутри, и такого домена у конкурентов нет. Не двигайте legaltech вниз в <i>откликах</i>, даже если он четвёртый в <i>желаниях</i>: первый оффер в проджект-менеджменте открывает следующие два, и неважно, в какой он отрасли.</li>
+    <li><b>iGaming.</b> Ваш приоритет №5. Тут у вас есть реальный опыт с двух сторон — Creedroomz и Digital Caramel, — так что это не холодный отклик. Рынок в Ереване живой и платит хорошо; держите как рабочий запасной канал.</li>
   </ol>
+  <p><b>Практический вывод:</b> откликайтесь в своём порядке, но не вычёркивайте legaltech и PropTech — именно там ваш профиль читается как «эксперт с доменом», а не как «джун после курсов».</p>
 
   <h3>Важная поправка про названия вакансий</h3>
   <p>Не ищите только «Project Manager». Ваш реальный профиль сейчас точнее ложится на эти названия, и там конкуренция ниже:</p>
