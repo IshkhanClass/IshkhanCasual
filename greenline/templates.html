@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Greenline — шаблоны для печати</title>
+<style>
+/* Printable templates. Same tokens as index.html.
+   Type scale: 14 / 16 / 20 / 24 / 32 */
+
+:root {
+  --ink: #14181f;
+  --ink-soft: #444d5c;
+  --ink-faint: #6b7480;
+  --line: #dfe3e9;
+  --bg: #f6f7f9;
+  --paper: #ffffff;
+  --accent: #1f6b45;
+  --accent-dark: #17543a;
+  --accent-soft: #edf6f0;
+  --radius: 10px;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 24px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar .spacer { flex: 1 1 auto; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.btn:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary:hover { background: var(--accent-dark); color: #fff; }
+
+.wrap { max-width: 880px; margin: 0 auto; padding: 32px 24px 48px; }
+
+.intro h1 { font-family: var(--serif); font-size: 32px; line-height: 1.25; margin: 0 0 8px; }
+.intro p { max-width: 66ch; margin: 0 0 12px; color: var(--ink-soft); }
+
+.sheet {
+  margin-top: 32px;
+  padding: 32px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.sheet h2 { font-family: var(--serif); font-size: 24px; line-height: 1.3; margin: 0 0 4px; }
+.sheet h3 { font-family: var(--serif); font-size: 20px; line-height: 1.3; margin: 24px 0 8px; }
+.sheet .hint { margin: 0 0 16px; font-size: 14px; line-height: 1.5; color: var(--ink-faint); }
+
+.head-fields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px 16px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.head-fields div {
+  padding: 8px 0 4px;
+  border-bottom: 1px solid var(--ink-faint);
+  color: var(--ink-soft);
+}
+
+.scroll { overflow-x: auto; }
+
+table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.5; }
+
+th, td {
+  border: 1px solid #b9c0ca;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--bg); font-weight: 600; }
+td.blank { height: 40px; }
+tr.gate td { background: var(--accent-soft); font-weight: 600; }
+
+.lines { margin-top: 16px; font-size: 14px; color: var(--ink-soft); }
+.lines div { height: 32px; border-bottom: 1px solid #b9c0ca; }
+
+.legend-row { margin: 12px 0 0; font-size: 14px; color: var(--ink-soft); }
+
+@media (max-width: 640px) {
+  .wrap { padding: 24px 16px 32px; }
+  .topbar { padding: 8px 16px; }
+  .sheet { padding: 16px; }
+  .head-fields { grid-template-columns: 1fr 1fr; }
+  table { min-width: 560px; }
+}
+
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body { background: #fff; font-size: 11pt; }
+  .topbar, .intro { display: none; }
+  .wrap { max-width: none; padding: 0; }
+  .sheet { margin: 0; padding: 0; border: 0; border-radius: 0; break-after: page; }
+  .sheet:last-child { break-after: auto; }
+  table { font-size: 10pt; min-width: 0; }
+  th { background: #eee; }
+  tr.gate td { background: #e6f0ea; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="btn" href="index.html">← К плану</a>
+  <span class="spacer"></span>
+  <button class="btn primary" type="button" onclick="window.print()">Печать</button>
+</header>
+
+<main class="wrap">
+
+<section class="intro">
+  <h1>Шаблоны для печати</h1>
+  <p>Четыре листа формата A4. Каждый печатается на отдельной странице. Карточку прогресса кладут в прозрачный файл и вешают на лицевую сторону септика, график экструдера — рядом с экструдером.</p>
+</section>
+
+<section class="sheet">
+  <h2>Карточка прогресса септика</h2>
+  <p class="hint">Закончил стадию — впиши имя, время и распишись. Ничего не закрывать до подписи Мартина.</p>
+  <div class="head-fields">
+    <div>Септик №</div>
+    <div>Модель</div>
+    <div>Площадка</div>
+    <div>Старт</div>
+    <div>План вывоза</div>
+    <div>Заказ / клиент</div>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr><th>Стадия</th><th>Исполнитель</th><th>Помощник</th><th>Готово: дата, время</th><th>Подпись</th><th>Принял</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1. Четыре стены</td><td class="blank"></td><td></td><td></td><td></td><td>Мартин</td></tr>
+        <tr><td>2. Перегородки</td><td class="blank"></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>3. Упоры</td><td class="blank"></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>4. Аэраторы и сантехника</td><td class="blank"></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>5. Трубы</td><td class="blank"></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="gate"><td>Приёмка перед закрытием</td><td colspan="4" class="blank"></td><td>Мартин</td></tr>
+        <tr><td>6. Закрытие</td><td class="blank"></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>7. Бионагрузка, трубы</td><td class="blank"></td><td></td><td></td><td></td><td>Варуж</td></tr>
+        <tr><td>8. Вывоз</td><td class="blank"></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="lines">
+    Замечания, переделки, чего ждали (экструдер, детали, материал):
+    <div></div><div></div><div></div>
+  </div>
+</section>
+
+<section class="sheet">
+  <h2>График большого экструдера</h2>
+  <p class="hint">Слоты расписываются на утренней планёрке. Приоритет — септику, который ближе к вывозу. К слоту приходить готовым: шов зачищен, детали прижаты. Не начал через 10 минут — слот переходит следующему в очереди.</p>
+  <div class="head-fields">
+    <div>Экструдер №</div>
+    <div>Дата</div>
+    <div>Расписал</div>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr><th>Время</th><th>Площадка, септик №</th><th>Стадия, шов</th><th>Сварщик</th><th>Готов ✓</th><th>Начал</th><th>Закончил</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>9:00–10:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>10:00–11:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>11:00–12:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>12:00–13:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="gate"><td>13:00–14:00</td><td colspan="6">Обед</td></tr>
+        <tr><td>14:00–15:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>15:00–16:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>16:00–17:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>17:00–18:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Очередь на свободный слот</h3>
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr><th>Сварщик</th><th>Площадка, септик №</th><th>Записался во сколько</th><th>Получил слот</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="blank"></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sheet">
+  <h2>Журнал ЧПУ</h2>
+  <p class="hint">Заполняется перед обедом и в конце дня. Одна строка — одна деталь или комплект.</p>
+  <div class="head-fields">
+    <div>Оператор</div>
+    <div>Неделя</div>
+    <div>Лист</div>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr><th>Дата</th><th>Септик № / модель</th><th>Деталь</th><th>План, шт</th><th>Сделано, шт</th><th>Время, ч</th><th>Примечание</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sheet">
+  <h2>Матрица навыков</h2>
+  <p class="hint">Кто что умеет. Если по навыку меньше двух человек с оценкой 2–3, это риск: заболеет один — встанет стадия.</p>
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr><th>Сотрудник</th><th>Подготовка листа</th><th>Большой экструдер</th><th>Малый экструдер</th><th>Фен</th><th>Замеры, разметка</th><th>Сантехника, аэраторы</th><th>ЧПУ</th><th>Приёмка</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="legend-row">0 — не умеет · 1 — делает под присмотром · 2 — делает сам · 3 — может учить других</p>
+</section>
+
+</main>
+</body>
+</html>

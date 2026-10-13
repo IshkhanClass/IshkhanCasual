@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Greenline — оптимизация сборочного цеха</title>
+<style>
+/* Greenline — production optimisation plan
+   Same system as the main site, green accent.
+   Type scale: 14 / 16 / 20 / 24 / 32
+   Spacing scale: 4 / 8 / 12 / 16 / 24 / 32 / 48 */
+
+:root {
+  --ink: #14181f;
+  --ink-soft: #444d5c;
+  --ink-faint: #6b7480;
+  --line: #dfe3e9;
+  --line-soft: #eceff3;
+  --bg: #f6f7f9;
+  --paper: #ffffff;
+  --accent: #1f6b45;
+  --accent-dark: #17543a;
+  --accent-soft: #edf6f0;
+  --weld: #cfe5d6;
+  --plumb: #d6e4f5;
+  --temp: #f4e4c4;
+  --radius: 10px;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ---------- top bar ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 24px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar .home {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.topbar .spacer { flex: 1 1 auto; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.btn:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary:hover { background: var(--accent-dark); color: #fff; }
+
+/* ---------- layout ---------- */
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+}
+
+section { scroll-margin-top: 72px; }
+
+h1, h2, h3 { font-family: var(--serif); line-height: 1.3; }
+
+h1 { font-size: 32px; line-height: 1.25; margin: 0 0 12px; }
+h2 { font-size: 24px; margin: 48px 0 8px; }
+h3 { font-size: 20px; margin: 32px 0 8px; }
+
+p, li { max-width: 66ch; }
+p { margin: 0 0 12px; }
+ul, ol { margin: 0 0 12px; padding-left: 24px; }
+li { margin-bottom: 4px; }
+
+.lead { color: var(--ink-soft); }
+.small { font-size: 14px; line-height: 1.5; color: var(--ink-faint); }
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.callout {
+  margin: 16px 0;
+  padding: 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.callout p:last-child { margin-bottom: 0; }
+
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toc li { margin: 0; }
+
+.toc a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-size: 14px;
+  text-decoration: none;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+.toc a:hover { border-color: var(--accent); color: var(--accent); }
+
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+/* ---------- key points ---------- */
+
+.points {
+  counter-reset: pt;
+  display: grid;
+  gap: 12px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.points li {
+  counter-increment: pt;
+  position: relative;
+  max-width: none;
+  margin: 0;
+  padding: 16px 16px 16px 56px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.points li::before {
+  content: counter(pt);
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+}
+
+.points strong { display: block; }
+
+/* ---------- tables ---------- */
+
+.table-scroll {
+  overflow-x: auto;
+  margin: 16px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+th, td {
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+th {
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+tr:last-child td { border-bottom: 0; }
+
+.fit-yes { color: var(--accent); font-weight: 600; }
+.fit-no { color: #9a3412; font-weight: 600; }
+
+/* ---------- facts grid ---------- */
+
+.facts {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  margin: 16px 0;
+}
+
+.fact {
+  padding: 16px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.fact .num {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.fact p { margin: 4px 0 0; font-size: 14px; line-height: 1.5; color: var(--ink-soft); }
+
+/* ---------- stage flow ---------- */
+
+.stages {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stages li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  max-width: none;
+  margin: 0;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.stages .n {
+  flex: 0 0 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: center;
+}
+
+.stages .who { display: block; font-size: 14px; color: var(--ink-soft); }
+.stages .gate { border-style: dashed; border-color: var(--accent); }
+
+.c-weld { background: var(--weld); }
+.c-plumb { background: var(--plumb); }
+.c-temp { background: var(--temp); }
+.c-gate { background: var(--accent); color: #fff; }
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.legend li { display: flex; align-items: center; gap: 8px; margin: 0; }
+.legend i { display: inline-block; width: 16px; height: 16px; border-radius: 4px; }
+
+/* ---------- schedule chart ---------- */
+
+.gantt {
+  display: grid;
+  grid-template-columns: 72px repeat(12, minmax(0, 1fr));
+  gap: 4px;
+  margin: 16px 0 8px;
+  font-size: 14px;
+}
+
+.gantt .h, .gantt .lbl {
+  color: var(--ink-faint);
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.gantt .h { text-align: center; }
+
+.gantt .cell {
+  height: 32px;
+  border-radius: 4px;
+  background: var(--line-soft);
+  line-height: 32px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.gantt .sum {
+  line-height: 32px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ---------- idea cards ---------- */
+
+.ideas {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.idea {
+  padding: 16px 24px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.idea h3 { margin: 0 0 8px; }
+
+.verdict {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.verdict.warn { background: #fdf3e3; color: #8a4b08; }
+
+.idea p:last-child { margin-bottom: 0; }
+
+/* ---------- calculator ---------- */
+
+.calc-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.calc fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.calc legend {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.field label { font-size: 14px; line-height: 1.5; color: var(--ink-soft); }
+
+.field input[type="number"] {
+  flex: 0 0 88px;
+  width: 88px;
+  min-height: 44px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  text-align: right;
+  transition: border-color 160ms ease;
+}
+
+.field input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.toggle input { width: 24px; height: 24px; accent-color: var(--accent); flex: 0 0 auto; }
+
+.result {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.result .big {
+  font-family: var(--serif);
+  font-size: 32px;
+  line-height: 1.25;
+  margin: 0 0 4px;
+}
+
+.bars { display: grid; gap: 12px; margin: 16px 0; }
+
+.bar-row { display: grid; gap: 4px; }
+
+.bar-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.bar-track {
+  height: 12px;
+  border-radius: 999px;
+  background: var(--line-soft);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: #9aa3ae;
+  transition: width 320ms ease;
+}
+
+.bar-row.limit .bar-fill { background: var(--accent); }
+.bar-row.limit .bar-head { font-weight: 700; }
+
+.calc-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+
+/* ---------- plan timeline ---------- */
+
+.timeline {
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+  border-left: 2px solid var(--line);
+}
+
+.timeline li {
+  position: relative;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 24px 24px;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--accent);
+}
+
+.timeline .when {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.timeline h3 { margin: 0 0 4px; }
+.timeline ul { margin-top: 4px; }
+
+footer {
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 640px) {
+  .wrap { padding: 24px 16px 32px; }
+  .topbar { padding: 8px 16px; }
+  .calc-grid { grid-template-columns: 1fr; }
+  .panel { padding: 16px; }
+  .idea { padding: 16px; }
+  .gantt { grid-template-columns: 56px repeat(12, minmax(0, 1fr)); gap: 2px; }
+  .gantt .cell { font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="home" href="#top">Greenline · цех</a>
+  <span class="spacer"></span>
+  <a class="btn primary" href="templates.html">Шаблоны для печати</a>
+</header>
+
+<main class="wrap" id="top">
+
+<section>
+  <p class="eyebrow">Проект оптимизации производства</p>
+  <h1>Как собирать больше септиков на тех же семи площадках</h1>
+  <p class="lead">Предложение для сборочного цеха Greenline. Его автор — Ишхан Хчоян, сборщик цеха. Здесь собраны взгляд изнутри, разбор того, где теряется время, и пошаговый план на 10 недель с измеримым результатом.</p>
+  <div class="callout">
+    <p>Цифры с пометкой «пример» — заглушки. Первые две недели плана уходят на замеры. После них калькулятор и план пересчитываются на реальных данных цеха.</p>
+  </div>
+  <ul class="toc">
+    <li><a href="#main">Коротко</a></li>
+    <li><a href="#now">Как сейчас</a></li>
+    <li><a href="#flow">Новая организация</a></li>
+    <li><a href="#ideas">Разбор идей</a></li>
+    <li><a href="#card">Карточка септика</a></li>
+    <li><a href="#calc">Калькулятор</a></li>
+    <li><a href="#metrics">Показатели</a></li>
+    <li><a href="#plan">План на 10 недель</a></li>
+    <li><a href="#questions">Что узнать</a></li>
+  </ul>
+</section>
+
+<section id="main">
+  <h2>Коротко: пять решений</h2>
+  <ol class="points">
+    <li><strong>Сначала замерить, потом менять.</strong> Выпуск цеха ограничивает одно узкое место. Его находят замером, а не на глаз. Главный кандидат — рабочие экструдеры и время квалифицированных сварщиков.</li>
+    <li><strong>Квалифицированные делают только квалифицированную работу.</strong> Подачу листа, зачистку, переноску и уборку берут на себя временные рабочие. Каждый час сварщика, потраченный на подсобную работу, — это час, отнятый у септика.</li>
+    <li><strong>Площадки стартуют со сдвигом, бригады идут по кругу.</strong> Не все семь септиков на одной стадии, а каждый на своей. Тогда сварщики, сантехник и временные загружены ровно, без авралов и простоев.</li>
+    <li><strong>Септик начинается с полного комплекта.</strong> До старта ЧПУ вырезает и маркирует все детали по карточке модели, а сантехнические узлы собираются заранее на верстаке.</li>
+    <li><strong>Всё видно и всё измеримо.</strong> Карточка прогресса на каждом септике, доска у входа, пятиминутная планёрка. Из карточек сами собой получаются данные: кто, что и за сколько сделал.</li>
+  </ol>
+</section>
+
+<section id="now">
+  <h2>Как сейчас</h2>
+
+  <h3>Линейка и площадки</h3>
+  <p>Стандартная площадка вмещает септик 4 × 2 × 2 м. Это закрывает шесть моделей из одиннадцати. Пятиметровым моделям нужна удлинённая площадка, а большим станциям — отдельная зона.</p>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Модель</th><th>Человек</th><th>Размер, м</th><th>Объём</th><th>Цена</th><th>На площадку 4 × 2</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Debut</td><td>5–7</td><td>1,4 × 1,7</td><td>1,7 м³</td><td>от 900 000 ֏</td><td class="fit-yes">да, возможно две</td></tr>
+        <tr><td>Pawn</td><td>8–10</td><td>1,5 × 1,5 × 1,5</td><td>3,4 м³</td><td>от 1 450 000 ֏</td><td class="fit-yes">да, возможно две</td></tr>
+        <tr><td>Knight</td><td>16–20</td><td>3 × 1,5 × 1,5</td><td>6,8 м³</td><td>от 2 000 000 ֏</td><td class="fit-yes">да</td></tr>
+        <tr><td>Bishop</td><td>25–30</td><td>3 × 1,5 × 2</td><td>9 м³</td><td>—</td><td class="fit-yes">да</td></tr>
+        <tr><td>Rook</td><td>30–35</td><td>4 × 1,5 × 2</td><td>12 м³</td><td>—</td><td class="fit-yes">да</td></tr>
+        <tr><td>Queen</td><td>45–50</td><td>4 × 2 × 2</td><td>16 м³</td><td>—</td><td class="fit-yes">да, впритык</td></tr>
+        <tr><td>King</td><td>55–60</td><td>5 × 2 × 2</td><td>20 м³</td><td>—</td><td class="fit-no">нет, длиннее на 1 м</td></tr>
+        <tr><td>Master</td><td>70–80</td><td>5 × 2,5 × 2</td><td>25 м³</td><td>—</td><td class="fit-no">нет</td></tr>
+        <tr><td>Grandmaster</td><td>90–100</td><td>5 × 3 × 2</td><td>30 м³</td><td>—</td><td class="fit-no">нет</td></tr>
+        <tr><td>Castling</td><td>450–500</td><td>по месту</td><td>150 м³</td><td>—</td><td class="fit-no">отдельная зона</td></tr>
+        <tr><td>Promotion</td><td>950–1000</td><td>по месту</td><td>300 м³</td><td>—</td><td class="fit-no">отдельная зона</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">Отсюда первый вывод для планировки: держать одну-две площадки удлинёнными под модели длиной 5 м и ставить их ближе к воротам, чтобы крупный септик было проще вывозить. Два малых септика на одной площадке — гипотеза: её нужно проверить по проходам вокруг корпуса.</p>
+
+  <h3>Люди и оборудование</h3>
+  <div class="facts">
+    <div class="fact"><div class="num">6</div><p>постоянных квалифицированных: фен, экструдер, замеры. Андраник, Арсен, Артур, Нарек, Вардгес и ещё один сотрудник.</p></div>
+    <div class="fact"><div class="num">1–15</div><p>временных неквалифицированных, число меняется.</p></div>
+    <div class="fact"><div class="num">1–2 + 1–4</div><p>рабочих экструдеров: больших и малых. Часть может простаивать из-за поломок.</p></div>
+    <div class="fact"><div class="num">3 ключевых</div><p>Главный инженер Мартин (с подмастерьем Паркевом), сантехник Варуж (с подмастерьем), оператор ЧПУ Енок. Их некем заменить.</p></div>
+  </div>
+
+  <h3>Стадии сборки</h3>
+  <ol class="stages">
+    <li><span class="n c-weld">1</span><span>Сборка четырёх стен<span class="who">сварка</span></span></li>
+    <li><span class="n c-weld">2</span><span>Четыре перегородки<span class="who">сварка</span></span></li>
+    <li><span class="n c-weld">3</span><span>Упоры<span class="who">сварка</span></span></li>
+    <li><span class="n c-plumb">4</span><span>Аэраторы и сантехника<span class="who">сантехник</span></span></li>
+    <li><span class="n c-plumb">5</span><span>Трубы<span class="who">сантехник</span></span></li>
+    <li><span class="n c-weld">6</span><span>Закрытие<span class="who">сварка</span></span></li>
+    <li><span class="n c-temp">7</span><span>Бионагрузка, трубы<span class="who">временные под контролем сантехника</span></span></li>
+    <li><span class="n c-temp">8</span><span>Вывоз готового септика<span class="who">временные, транспорт</span></span></li>
+  </ol>
+
+  <h3>Где, вероятно, теряется время</h3>
+  <p>Это гипотезы, их проверят первые две недели замеров:</p>
+  <ul>
+    <li><strong>Ожидание экструдера.</strong> Сварщиков больше, чем исправных экструдеров.</li>
+    <li><strong>Подсобная работа у сварщиков.</strong> Квалифицированные люди сами носят лист, держат детали, убирают.</li>
+    <li><strong>Ожидание деталей.</strong> Детали с ЧПУ приходят не комплектом, а по мере необходимости.</li>
+    <li><strong>Поиск</strong> инструмента, прутка, насадок, удлинителей.</li>
+    <li><strong>Все вопросы идут к Мартину.</strong> Параметры и отступы есть только у него в голове, и пока он занят, ждут все.</li>
+    <li><strong>Переделки.</strong> Ошибку, найденную после закрытия, исправлять дороже всего.</li>
+    <li><strong>Площадки заняты, а септики стоят.</strong> Семь начатых корпусов, которые ждут сварщика или сантехника, дают меньше, чем пять движущихся.</li>
+  </ul>
+</section>
+
+<section id="flow">
+  <h2>Новая организация сборки</h2>
+
+  <h3>1. Сдвинутый старт: бригады идут по площадкам</h3>
+  <p>Если все площадки стартуют одновременно, в первые дни всем нужны сварщики, а сантехник ждёт. Через неделю — наоборот. Если запускать по одной площадке в день, каждая бригада каждый день получает ровно один септик своей стадии и переходит на соседнюю площадку, как поезд по станциям.</p>
+  <div class="panel">
+    <div class="gantt" id="gantt" role="img" aria-label="График: семь площадок стартуют со сдвигом в один день, каждая проходит стадии с первой по седьмую"></div>
+    <ul class="legend">
+      <li><i class="c-weld"></i>сварка (1, 2, 3, 6)</li>
+      <li><i class="c-plumb"></i>сантехник (4, 5)</li>
+      <li><i class="c-temp"></i>временные (7), вечером вывоз</li>
+    </ul>
+  </div>
+  <p class="small">Иллюстрация: каждая стадия условно занимает один день. В реальности стадии длятся по-разному, и темп всего цеха задаёт самая медленная.</p>
+  <div class="callout">
+    <p><strong>Что видно из графика.</strong> После разгона каждый день идут одновременно четыре сварочные стадии. Значит, для ровной работы нужно минимум <strong>четыре исправных экструдера</strong> и четыре–шесть сварщиков. Пока экструдеров меньше, именно они ограничивают выпуск, и докупать их стоит в первую очередь.</p>
+  </div>
+  <p>Правило запуска: новый септик стартует, только когда для его первой стадии свободна бригада. Число начатых септиков ограничено. Срок сборки = септиков в работе ÷ выпуск в день, поэтому лишние начатые корпуса не ускоряют цех, а только удлиняют срок каждого заказа.</p>
+
+  <h3>2. Кто что делает</h3>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Стадия</th><th>Делает</th><th>Помогает</th><th>Проверка</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1. Стены</td><td>2 сварщика</td><td>временные: подача и прижим листа, зачистка</td><td>Мартин: геометрия и диагонали</td></tr>
+        <tr><td>2. Перегородки</td><td>сварщик</td><td>временный</td><td>самопроверка по чек-листу</td></tr>
+        <tr><td>3. Упоры</td><td>сварщик</td><td>временный</td><td>самопроверка по чек-листу</td></tr>
+        <tr><td>4. Аэраторы, сантехника</td><td>Варуж и подмастерье</td><td>—</td><td>самопроверка по чек-листу</td></tr>
+        <tr><td>5. Трубы</td><td>Варуж и подмастерье</td><td>временный</td><td>самопроверка по чек-листу</td></tr>
+        <tr><td>Перед закрытием</td><td colspan="2">ничего не закрывать, пока не принято</td><td>Мартин: последний шанс увидеть всё внутри</td></tr>
+        <tr><td>6. Закрытие</td><td>2 сварщика</td><td>временные</td><td>самопроверка по чек-листу</td></tr>
+        <tr><td>7. Бионагрузка, трубы</td><td>временные</td><td>—</td><td>Варуж</td></tr>
+        <tr><td>8. Вывоз</td><td>временные</td><td>транспорт</td><td>документы и отгрузка</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Мартин проверяет только две точки: геометрию после стен и всё перед закрытием. Остальное принимают сами исполнители по чек-листу с подписью. Если всё проверяет главный инженер, он сам становится очередью.</p>
+
+  <h3>3. Предсборка: вынести работу с площадки</h3>
+  <p>Всё, что можно сделать заранее на верстаке, не должно занимать площадку и ждать своей очереди:</p>
+  <ul>
+    <li>Аэрационные коллекторы и трубные узлы. Варуж с подмастерьем собирают их, пока корпус проходит сварку.</li>
+    <li>Упоры и рёбра. Возможно, их удобнее приварить к листу, пока он лежит плоско. Варить в нижнем положении быстрее и качественнее, чем внутри короба.</li>
+    <li>Перегородки с рёбрами в сборе.</li>
+  </ul>
+  <p class="small">Что именно можно выносить, без ущерба для прочности решает Мартин.</p>
+
+  <h3>4. Комплект с ЧПУ до старта</h3>
+  <ul>
+    <li>Енок режет полный комплект деталей септика по карточке модели. Каждая деталь маркируется номером септика и номером детали.</li>
+    <li>Комплект кладётся на тележку или стеллаж нужной площадки за день до старта. Если комплекта нет, септик не стартует.</li>
+    <li>Отверстия под трубы и аэраторы режет ЧПУ, а не дрель на площадке: точнее и без ручной работы.</li>
+    <li>Раскрой нескольких комплектов на одном листе с плотной укладкой деталей даёт меньше обрезков.</li>
+  </ul>
+
+  <h3>5. Экструдеры, расходники, порядок</h3>
+  <ul>
+    <li><strong>Журнал экструдеров</strong>: какие исправны сегодня, что сломалось. Запас нагревателей и насадок, чтобы ремонт занимал часы, а не дни.</li>
+    <li><strong>Прогрев до начала смены.</strong> Один ответственный включает все экструдеры за 15 минут до старта, и в 9:00 все уже варят.</li>
+    <li><strong>Расходники по системе двух ящиков</strong>: прутки, скрепы, керич. Открыли второй ящик — сразу заказ.</li>
+    <li><strong>Порядок на площадке.</strong> У каждой площадки свой щит инструмента с контурами, пруток рядом, кабели сверху, а не под ногами. В конце дня 10 минут уборки.</li>
+    <li><strong>Струбцины и угловые шаблоны.</strong> Они держат стенку под 90° вместо человека.</li>
+  </ul>
+
+  <h3>6. График большого экструдера</h3>
+  <p>Большой экструдер — самый дефицитный инструмент цеха. Когда его берут «кто первый успел», он то простаивает, то за ним стоят двое. График с очередью решает обе проблемы и заодно показывает, нужен ли второй большой экструдер.</p>
+  <ul>
+    <li><strong>Слоты расписываются на утренней планёрке</strong> по часу на лист у экструдера: площадка, стадия, сварщик.</li>
+    <li><strong>Приоритет — септику, который ближе к вывозу.</strong> Закрытие идёт раньше стен: так быстрее освобождается площадка. Срочный заказ ставит вне очереди только Мартин.</li>
+    <li><strong>Большой — только там, где он нужен.</strong> Список таких швов есть в карточке модели, остальные швы варятся малыми экструдерами.</li>
+    <li><strong>К слоту приходят готовыми</strong>: шов зачищен, детали прижаты, пруток заправлен. Готовиться нужно до слота, пока экструдером работает другой.</li>
+    <li><strong>Правило 10 минут.</strong> Не начал через 10 минут — слот переходит к следующему в очереди.</li>
+    <li><strong>Передача из рук в руки</strong>: экструдер не выключают между слотами, чтобы не тратить время на остывание и новый прогрев.</li>
+    <li><strong>Отметки «начал / закончил»</strong>. Через две недели будет видна реальная загрузка. Если экструдер занят больше 85% времени и очередь не пустеет, это довод купить второй. Если загрузка около половины, проблема не в количестве экструдеров, а в подготовке к слоту.</li>
+  </ul>
+  <p class="small">Пример дня (условный):</p>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Время</th><th>Площадка</th><th>Стадия</th><th>Сварщик</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>9:00–10:00</td><td>Пл. 6</td><td>6. Закрытие</td><td>Арсен</td></tr>
+        <tr><td>10:00–11:00</td><td>Пл. 6</td><td>6. Закрытие</td><td>Арсен</td></tr>
+        <tr><td>11:00–12:00</td><td>Пл. 2</td><td>1. Стены, угловые швы</td><td>Нарек</td></tr>
+        <tr><td>12:00–13:00</td><td>Пл. 2</td><td>1. Стены, угловые швы</td><td>Нарек</td></tr>
+        <tr><td>14:00–15:00</td><td>Пл. 4</td><td>2. Перегородки</td><td>Артур</td></tr>
+        <tr><td colspan="4">Очередь: Вардгес (пл. 5) — ждёт освободившегося слота</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="ideas">
+  <h2>Разбор исходных идей</h2>
+  <p>Семь идей, с которых всё началось. Все рабочие. К каждой — как сделать её сильнее.</p>
+  <div class="ideas">
+    <article class="idea">
+      <span class="verdict">Да</span>
+      <h3>1. Пятиминутки утром и после обеда</h3>
+      <p>Утром 5 минут у доски, стоя, все. Три вопроса: что сделано вчера, какой план по площадкам сегодня, что мешает. После обеда — только Мартин, старшие бригад и координатор. Проблемы на планёрке не решаются, а записываются и разбираются сразу после неё с теми, кого они касаются.</p>
+    </article>
+    <article class="idea">
+      <span class="verdict">Да, это основа</span>
+      <h3>2. Карточка прогресса на каждом септике</h3>
+      <p>Стадии, исполнитель, дата и время окончания, подпись. Эта же карточка — главный источник данных для замеров: сколько длится каждая стадия у каждой модели. Писать ничего дважды не нужно. Шаблон уже готов на странице для печати.</p>
+    </article>
+    <article class="idea">
+      <span class="verdict warn">Да, с поправкой</span>
+      <h3>3. Ответственные по стадиям</h3>
+      <p>Подавать как авторство, а не поиск виноватого: подпись — это «моя работа» и основание для премии. Если люди почувствуют, что подпись нужна, чтобы найти крайнего, они начнут её избегать, и данные исчезнут.</p>
+    </article>
+    <article class="idea">
+      <span class="verdict warn">Да, с поправкой</span>
+      <h3>4. Инструкции от незаменимых людей</h3>
+      <p>Если попросить Мартина, Варужа и Енока писать инструкции две недели, скорее всего они их не напишут: нет времени и нет привычки. Надёжнее так: координатор 20 минут в день снимает их работу на телефон и задаёт вопросы, а затем сам пишет инструкцию. Автор проверяет, Мартин утверждает. Важно признать их вклад — поблагодарить или премировать, — чтобы передача знаний не выглядела как угроза их рабочему месту.</p>
+    </article>
+    <article class="idea">
+      <span class="verdict warn">Да, с поправкой</span>
+      <h3>5. Блокнот-дневник у каждого</h3>
+      <p>Если писать два раза в день, через неделю перестанут. Для сборщиков данные уже есть в карточке септика. Дневник стоит оставить Еноку (детали по номерам септиков) и Варужу (собранные узлы). Позже карточку можно дополнить QR-кодом с формой на телефоне. Премировать стоит за принятые стадии, а не за скорость, иначе пострадает качество.</p>
+    </article>
+    <article class="idea">
+      <span class="verdict">Да, после стандартов</span>
+      <h3>6. Онбординг новых сотрудников</h3>
+      <p>Две версии. Для временных: безопасность, инструмент, подготовка листа, чего нельзя делать. Для квалифицированных: стандарты по карточкам моделей. Рядом — матрица навыков (кто что умеет, по шкале 0–3): из неё видно, кого учить и кто подменит заболевшего. Писать онбординг стоит после карточек септиков, иначе учить будет не по чему.</p>
+    </article>
+    <article class="idea">
+      <span class="verdict">Да, по очереди</span>
+      <h3>7. Докупить расходники и экструдеры</h3>
+      <p>Дешёвое — сразу: узкая насадка для углов меньше 90°, скрепы, керич, струбцины. Дорогое — после двух недель журнала экструдеров. Если замер подтвердит, что они узкое место, просьба «+1 большой и +2 малых» будет подкреплена цифрами.</p>
+    </article>
+  </div>
+</section>
+
+<section id="card">
+  <h2>Карточка септика — паспорт модели</h2>
+  <p>Одна карточка на каждую модель. В ней всё, что сейчас знает только Мартин:</p>
+  <ul>
+    <li>Размеры, толщины листов, список деталей для ЧПУ.</li>
+    <li>Отступы, расстояния и параметры сварки: температура, пруток, насадка.</li>
+    <li>Комплект сантехники и аэраторов, схема труб.</li>
+    <li>Нормы времени по стадиям (появятся после замеров).</li>
+    <li>Чек-лист приёмки каждой стадии и фото эталонного септика.</li>
+  </ul>
+  <p>Начать стоит с двух самых продаваемых моделей, а остальные добавлять по одной в неделю.</p>
+  <p><a class="btn" href="templates.html">Открыть шаблоны для печати: карточка прогресса, график экструдера, журнал ЧПУ, матрица навыков</a></p>
+</section>
+
+<section id="calc">
+  <h2>Калькулятор мощности цеха</h2>
+  <p>Показывает, сколько септиков в неделю может выпускать цех и что именно его ограничивает. Часы указаны в человеко-часах на один эталонный септик (самую частую модель). Сейчас все значения — <strong>пример</strong>: замените их замерами, данные сохранятся в этом браузере.</p>
+
+  <form class="panel calc" id="calc-form" autocomplete="off">
+    <div class="calc-grid">
+      <fieldset>
+        <legend>Ресурсы</legend>
+        <div class="field"><label for="welders">Квалифицированных сварщиков</label><input type="number" id="welders" min="0" step="1"></div>
+        <div class="field"><label for="extBig">Исправных больших экструдеров</label><input type="number" id="extBig" min="0" step="1"></div>
+        <div class="field"><label for="extSmall">Исправных малых экструдеров</label><input type="number" id="extSmall" min="0" step="1"></div>
+        <div class="field"><label for="temps">Временных рабочих</label><input type="number" id="temps" min="0" step="1"></div>
+        <div class="field"><label for="plumbTeams">Сантехнических бригад</label><input type="number" id="plumbTeams" min="0" step="1"></div>
+        <div class="field"><label for="bays">Площадок</label><input type="number" id="bays" min="0" step="1"></div>
+        <div class="field"><label for="hours">Рабочих часов в день</label><input type="number" id="hours" min="0" step="0.5"></div>
+        <div class="field"><label for="days">Рабочих дней в неделю</label><input type="number" id="days" min="0" step="1"></div>
+        <div class="field"><label for="waste">Доля подсобной работы у сварщиков, %</label><input type="number" id="waste" min="0" max="90" step="5"></div>
+        <label class="toggle"><input type="checkbox" id="shift"> Подсобную работу сварщиков делают временные</label>
+      </fieldset>
+      <fieldset>
+        <legend>Часы на один септик</legend>
+        <div class="field"><label for="hWalls">1. Стены — сварка</label><input type="number" id="hWalls" min="0" step="0.5"></div>
+        <div class="field"><label for="hParts">2. Перегородки — сварка</label><input type="number" id="hParts" min="0" step="0.5"></div>
+        <div class="field"><label for="hRibs">3. Упоры — сварка</label><input type="number" id="hRibs" min="0" step="0.5"></div>
+        <div class="field"><label for="hAer">4. Аэраторы, сантехника</label><input type="number" id="hAer" min="0" step="0.5"></div>
+        <div class="field"><label for="hPipes">5. Трубы — сантехник</label><input type="number" id="hPipes" min="0" step="0.5"></div>
+        <div class="field"><label for="hClose">6. Закрытие — сварка</label><input type="number" id="hClose" min="0" step="0.5"></div>
+        <div class="field"><label for="hBio">7–8. Бионагрузка, вывоз — временные</label><input type="number" id="hBio" min="0" step="0.5"></div>
+        <div class="field"><label for="hCnc">Комплект деталей — ЧПУ</label><input type="number" id="hCnc" min="0" step="0.5"></div>
+        <div class="field"><label for="bayDays">Дней септик стоит на площадке</label><input type="number" id="bayDays" min="0" step="0.5"></div>
+      </fieldset>
+    </div>
+
+    <div class="result" aria-live="polite">
+      <p class="big" id="out-week">—</p>
+      <p id="out-limit" class="lead">—</p>
+      <div class="bars" id="bars"></div>
+      <p id="out-tip"></p>
+      <p class="small">Упрощения: один сварщик работает одним экструдером; сантехническая бригада (мастер с подмастерьем) считается как одна единица; ЧПУ работает в одну смену.</p>
+    </div>
+    <div class="calc-actions">
+      <button type="button" class="btn" id="reset">Вернуть пример</button>
+    </div>
+  </form>
+</section>
+
+<section id="metrics">
+  <h2>Как понять, что стало лучше</h2>
+  <p>Шесть показателей на доске у входа, обновлять раз в неделю:</p>
+  <div class="facts">
+    <div class="fact"><div class="num">Выпуск</div><p>Септиков в неделю. Разные модели переводятся в единую единицу по нормо-часам: Queen ≠ Pawn.</p></div>
+    <div class="fact"><div class="num">Срок</div><p>Дней от старта до вывоза. Берётся из карточки прогресса.</p></div>
+    <div class="fact"><div class="num">В работе</div><p>Сколько септиков начато одновременно. Должно быть меньше или равно числу площадок.</p></div>
+    <div class="fact"><div class="num">С первого раза</div><p>Доля стадий, принятых без переделки.</p></div>
+    <div class="fact"><div class="num">Экструдеры</div><p>Сколько исправных каждый день, по журналу.</p></div>
+    <div class="fact"><div class="num">Простои</div><p>Часы ожидания по причинам: экструдер, детали, Мартин, материал.</p></div>
+  </div>
+</section>
+
+<section id="plan">
+  <h2>План внедрения на 10 недель</h2>
+  <ol class="timeline">
+    <li>
+      <div class="when">Неделя 0</div>
+      <h3>Договориться</h3>
+      <ul>
+        <li>Показать этот план сыну собственника и Мартину. Мартин — соавтор плана, а не его объект.</li>
+        <li>Согласовать пилот на двух площадках, а не на всём цехе сразу.</li>
+      </ul>
+    </li>
+    <li>
+      <div class="when">Недели 1–2</div>
+      <h3>Замерить</h3>
+      <ul>
+        <li>Карточки прогресса на пилотных септиках, журнал ЧПУ, журнал экструдеров.</li>
+        <li>Утренние пятиминутки у доски.</li>
+        <li>Фото «как есть» каждой площадки.</li>
+        <li>Дешёвые закупки: насадка, скрепы, керич, струбцины.</li>
+      </ul>
+    </li>
+    <li>
+      <div class="when">Недели 3–4</div>
+      <h3>Записать стандарты</h3>
+      <ul>
+        <li>Карточки двух главных моделей.</li>
+        <li>Инструкции Мартина, Варужа и Енока, записанные с их слов.</li>
+        <li>Матрица навыков.</li>
+        <li>Комплект с ЧПУ до старта, порядок на пилотных площадках.</li>
+      </ul>
+    </li>
+    <li>
+      <div class="when">Недели 5–6</div>
+      <h3>Перестроить поток</h3>
+      <ul>
+        <li>Бригады по стадиям, сдвинутый старт площадок.</li>
+        <li>Подсобная работа — временным, предсборка узлов на верстаке.</li>
+        <li>Закупка экструдеров, если замер подтвердил, что они узкое место.</li>
+      </ul>
+    </li>
+    <li>
+      <div class="when">Недели 7–8</div>
+      <h3>Масштабировать</h3>
+      <ul>
+        <li>Все семь площадок.</li>
+        <li>Онбординг по карточкам, набор временных под график.</li>
+      </ul>
+    </li>
+    <li>
+      <div class="when">Недели 9–10</div>
+      <h3>Закрепить</h3>
+      <ul>
+        <li>Премии за принятые стадии.</li>
+        <li>Отчёт «было / стало» по шести показателям, план на следующий квартал.</li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<section id="questions">
+  <h2>Что нужно узнать</h2>
+  <h3>У сына собственника</h3>
+  <ul>
+    <li>Сколько заказов в месяц и по каким моделям? Есть ли сезонность?</li>
+    <li>Какой срок обещают клиенту и часто ли его срывают?</li>
+    <li>Можно ли зимой собирать на склад самые ходовые модели, чтобы не перегружаться летом?</li>
+    <li>Какой бюджет на оборудование и как принимаются решения о покупке?</li>
+  </ul>
+  <h3>У Мартина</h3>
+  <ul>
+    <li>Сколько часов занимает каждая стадия у главных моделей?</li>
+    <li>Что можно сварить заранее на столе, не теряя прочности?</li>
+    <li>Как проверяется герметичность и где чаще всего бывают переделки?</li>
+    <li>Как сейчас собирают пятиметровые модели и большие станции?</li>
+  </ul>
+  <h3>У Енока и Варужа</h3>
+  <ul>
+    <li>Сколько времени уходит на комплект деталей? Бывает ли, что ЧПУ простаивает или, наоборот, не успевает?</li>
+    <li>Какие узлы можно собирать заранее на верстаке?</li>
+  </ul>
+  <h3>По цеху</h3>
+  <ul>
+    <li>Сколько экструдеров реально работает каждый день и что ломается чаще всего?</li>
+    <li>Где хранятся лист и пруток и сколько метров их носят до площадки?</li>
+    <li>Как вывозят готовый септик и сколько это занимает?</li>
+  </ul>
+</section>
+
+<footer>
+  Проект оптимизации сборочного цеха Greenline · Ишхан Хчоян · октябрь 2026
+</footer>
+
+</main>
+
+<script>
+/* ---------- staggered schedule ---------- */
+(function () {
+  var el = document.getElementById('gantt');
+  var DAYS = 12, BAYS = 7;
+  var crew = function (s) { return s === 4 || s === 5 ? 'c-plumb' : s === 7 ? 'c-temp' : 'c-weld'; };
+  var html = '<div class="lbl">День</div>';
+  for (var d = 1; d <= DAYS; d++) html += '<div class="h">' + d + '</div>';
+  var weldPerDay = new Array(DAYS + 1).fill(0);
+  for (var b = 1; b <= BAYS; b++) {
+    html += '<div class="lbl">Пл. ' + b + '</div>';
+    for (var day = 1; day <= DAYS; day++) {
+      if (day < b) { html += '<div class="cell"></div>'; continue; }
+      var stage = ((day - b) % 7) + 1;
+      if (crew(stage) === 'c-weld') weldPerDay[day]++;
+      html += '<div class="cell ' + crew(stage) + '">' + stage + '</div>';
+    }
+  }
+  html += '<div class="lbl">Сварка</div>';
+  for (var k = 1; k <= DAYS; k++) html += '<div class="sum">' + weldPerDay[k] + '</div>';
+  el.innerHTML = html;
+})();
+
+/* ---------- capacity calculator ---------- */
+(function () {
+  var KEY = 'greenline-calc-v1';
+  var EXAMPLE = {
+    welders: 6, extBig: 1, extSmall: 2, temps: 4, plumbTeams: 1, bays: 7, hours: 8, days: 6, waste: 25, shift: false,
+    hWalls: 16, hParts: 12, hRibs: 6, hAer: 6, hPipes: 4, hClose: 8, hBio: 6, hCnc: 6, bayDays: 7
+  };
+  var form = document.getElementById('calc-form');
+  var ids = Object.keys(EXAMPLE);
+
+  function load() {
+    try { return Object.assign({}, EXAMPLE, JSON.parse(localStorage.getItem(KEY)) || {}); }
+    catch (e) { return Object.assign({}, EXAMPLE); }
+  }
+
+  function fill(v) {
+    ids.forEach(function (id) {
+      var input = document.getElementById(id);
+      if (input.type === 'checkbox') input.checked = !!v[id]; else input.value = v[id];
+    });
+  }
+
+  function read() {
+    var v = {};
+    ids.forEach(function (id) {
+      var input = document.getElementById(id);
+      v[id] = input.type === 'checkbox' ? input.checked : Math.max(0, parseFloat(input.value) || 0);
+    });
+    return v;
+  }
+
+  function fmt(n) { return (Math.round(n * 10) / 10).toLocaleString('ru-RU'); }
+
+  function tanks(n) {
+    var r = Math.round(n * 10) / 10;
+    if (r % 1) return fmt(r) + ' септика';
+    var m10 = r % 10, m100 = r % 100;
+    if (m10 === 1 && m100 !== 11) return fmt(r) + ' септик';
+    if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return fmt(r) + ' септика';
+    return fmt(r) + ' септиков';
+  }
+
+  function render() {
+    var v = read();
+    try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {}
+
+    var weldH = v.hWalls + v.hParts + v.hRibs + v.hClose;
+    var plumbH = v.hAer + v.hPipes;
+    var share = Math.min(v.waste, 90) / 100;
+    var prepH = share < 1 ? weldH * share / (1 - share) : 0;   // unskilled hours hidden in welders' time
+    var weldersFree = v.shift ? v.welders : v.welders * (1 - share);
+    var extruders = v.extBig + v.extSmall;
+    var posts = Math.min(weldersFree, extruders);
+    var tempH = v.hBio + (v.shift ? prepH : 0);
+
+    var res = [
+      { key: 'weld', name: extruders < weldersFree ? 'Сварка — не хватает экструдеров' : 'Сварка — не хватает сварщиков',
+        cap: weldH ? posts * v.hours / weldH : Infinity },
+      { key: 'plumb', name: 'Сантехник', cap: plumbH ? v.plumbTeams * v.hours / plumbH : Infinity },
+      { key: 'temp', name: 'Временные рабочие', cap: tempH ? v.temps * v.hours / tempH : Infinity },
+      { key: 'cnc', name: 'ЧПУ', cap: v.hCnc ? v.hours / v.hCnc : Infinity },
+      { key: 'bays', name: 'Площадки', cap: v.bayDays ? v.bays / v.bayDays : Infinity }
+    ];
+
+    var limit = res.reduce(function (a, b) { return b.cap < a.cap ? b : a; });
+    var perDay = isFinite(limit.cap) ? limit.cap : 0;
+    var maxCap = Math.max.apply(null, res.map(function (r) { return isFinite(r.cap) ? r.cap : 0; })) || 1;
+
+    document.getElementById('out-week').textContent = '≈ ' + tanks(perDay * v.days) + ' в неделю';
+    document.getElementById('out-limit').textContent = 'Узкое место: ' + limit.name.toLowerCase() + '. Это ' + tanks(perDay) + ' в день.';
+
+    document.getElementById('bars').innerHTML = res.map(function (r) {
+      var cap = isFinite(r.cap) ? r.cap : 0;
+      var w = Math.max(2, cap / maxCap * 100);
+      return '<div class="bar-row' + (r === limit ? ' limit' : '') + '">' +
+        '<div class="bar-head"><span>' + r.name + '</span><span>' + fmt(cap * v.days) + ' в неделю</span></div>' +
+        '<div class="bar-track"><div class="bar-fill" style="width:' + w + '%"></div></div></div>';
+    }).join('');
+
+    var tips = {
+      weld: extruders < weldersFree
+        ? 'Что делать: починить и докупить экструдеры. Каждый исправный экструдер сразу добавляет выпуск.'
+        : 'Что делать: снять со сварщиков подсобную работу (галочка выше) и обучить сварке одного-двух временных.',
+      plumb: 'Что делать: собирать узлы заранее на верстаке и обучить подмастерье, чтобы получилась вторая бригада.',
+      temp: 'Что делать: нанять временных под график. Это самый дешёвый рычаг.',
+      cnc: 'Что делать: резать комплекты заранее, раскладывать детали на листе плотнее, добавить вторую смену ЧПУ.',
+      bays: 'Что делать: сократить дни на площадке — комплект до старта, предсборка, сдвинутый старт без простоев.'
+    };
+    document.getElementById('out-tip').textContent = tips[limit.key];
+  }
+
+  fill(load());
+  render();
+  form.addEventListener('input', render);
+  form.addEventListener('change', render);
+  form.addEventListener('submit', function (e) { e.preventDefault(); });
+  document.getElementById('reset').addEventListener('click', function () {
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    fill(EXAMPLE);
+    render();
+  });
+})();
+</script>
+
+</body>
+</html>
