@@ -118,6 +118,8 @@ th, td {
 th { background: var(--bg); font-weight: 600; }
 td.blank { height: 40px; }
 tr.gate td { background: var(--accent-soft); font-weight: 600; }
+.sheet.compact td { padding: 4px 8px; height: 32px; }
+.sheet.compact td.blank { height: 32px; }
 
 .lines { margin-top: 16px; font-size: 14px; color: var(--ink-soft); }
 .lines div { height: 32px; border-bottom: 1px solid #b9c0ca; }
@@ -158,7 +160,7 @@ tr.gate td { background: var(--accent-soft); font-weight: 600; }
 
 <section class="intro">
   <h1>Шаблоны для печати</h1>
-  <p>Четыре листа формата A4. Каждый печатается на отдельной странице. Карточку прогресса кладут в прозрачный файл и вешают на лицевую сторону септика, график экструдера — рядом с экструдером.</p>
+  <p>Шесть листов формата A4, каждый печатается на отдельной странице. Карточку прогресса кладут в прозрачный файл и вешают на лицевую сторону септика. График экструдера — на общую доску, чек-лист приёмки — Мартину на планшет с зажимом, комплект площадки — на склад.</p>
 </section>
 
 <section class="sheet">
@@ -196,9 +198,9 @@ tr.gate td { background: var(--accent-soft); font-weight: 600; }
   </div>
 </section>
 
-<section class="sheet">
+<section class="sheet compact">
   <h2>График большого экструдера</h2>
-  <p class="hint">Слоты расписываются на утренней планёрке. Приоритет — септику, который ближе к вывозу. К слоту приходить готовым: шов зачищен, детали прижаты. Не начал через 10 минут — слот переходит следующему в очереди.</p>
+  <p class="hint">Слоты по полчаса расписываются на утренней пятиминутке. Длинная работа — несколько слотов подряд. Приоритет — септику, который ближе к вывозу. К слоту приходить готовым: шов зачищен, детали прижаты. Не начал через 10 минут — слот переходит следующему в очереди.</p>
   <div class="head-fields">
     <div>Экструдер №</div>
     <div>Дата</div>
@@ -210,15 +212,23 @@ tr.gate td { background: var(--accent-soft); font-weight: 600; }
         <tr><th>Время</th><th>Площадка, септик №</th><th>Стадия, шов</th><th>Сварщик</th><th>Готов ✓</th><th>Начал</th><th>Закончил</th></tr>
       </thead>
       <tbody>
-        <tr><td>9:00–10:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>10:00–11:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>11:00–12:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>12:00–13:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>9:00–9:30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>9:30–10:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>10:00–10:30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>10:30–11:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>11:00–11:30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>11:30–12:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>12:00–12:30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>12:30–13:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
         <tr class="gate"><td>13:00–14:00</td><td colspan="6">Обед</td></tr>
-        <tr><td>14:00–15:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>15:00–16:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>16:00–17:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>17:00–18:00</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>14:00–14:30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>14:30–15:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>15:00–15:30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>15:30–16:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>16:00–16:30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>16:30–17:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>17:00–17:30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>17:30–18:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
       </tbody>
     </table>
   </div>
@@ -232,7 +242,82 @@ tr.gate td { background: var(--accent-soft); font-weight: 600; }
         <tr><td class="blank"></td><td></td><td></td><td></td></tr>
         <tr><td class="blank"></td><td></td><td></td><td></td></tr>
         <tr><td class="blank"></td><td></td><td></td><td></td></tr>
-        <tr><td class="blank"></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sheet">
+  <h2>Приёмка перед закрытием</h2>
+  <p class="hint">Как шеф-повар перед подачей блюда: Мартин смотрит каждый отсек. Ставь ✓ или ✗ в колонке отсека, лишние колонки зачеркни. Пока нет подписи «можно закрывать», септик не закрывают.</p>
+  <div class="head-fields">
+    <div>Септик №</div>
+    <div>Модель</div>
+    <div>Площадка</div>
+    <div>Дата</div>
+    <div>Проверил</div>
+    <div>Подпись</div>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr><th>Проверка</th><th>Отсек 1</th><th>Отсек 2</th><th>Отсек 3</th><th>Отсек 4</th><th>Отсек 5</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Швы сплошные: без пропусков, пор и прожогов</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Перегородки на месте, подгонка (+4 см) зачищена</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Упоры и полки приварены, не шатаются</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Аэраторы закреплены и подключены</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Трубы и переливы — по карточке модели, закреплены</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Отверстия — на месте и по размеру, края зачищены</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Внутри чисто: нет обрезков, стружки, прутка, инструмента</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Фото отсека сделано</td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="lines">
+    Решение: ☐ можно закрывать &nbsp; ☐ переделать — что и кому:
+    <div></div><div></div><div></div>
+  </div>
+</section>
+
+<section class="sheet compact">
+  <h2>Комплект площадки и расходники</h2>
+  <p class="hint">Комплект закреплён за площадкой и не уходит на соседние. В конце дня отметь ✓, если всё на месте.</p>
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr><th>Предмет</th><th>Норма</th><th>Пл. 1</th><th>Пл. 2</th><th>Пл. 3</th><th>Пл. 4</th><th>Пл. 5</th><th>Пл. 6</th><th>Пл. 7</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Удлинитель</td><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Фен</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Керич</td><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Рулон ПП-прутка (нарезанный)</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Угловой фиксатор</td><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Расходники на складе</h3>
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr><th>Расходник</th><th>Есть сейчас</th><th>Заканчивается ✓</th><th>Отметил</th><th>Дата</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Рулоны ПП-прутка</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Пруток для фена (нарезан)</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Мотки для экструдера (по 20 витков)</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Скрепы</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Керич</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Насадки для экструдера</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Диски для болгарки</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Пилки для лобзика</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td></tr>
       </tbody>
     </table>
   </div>
