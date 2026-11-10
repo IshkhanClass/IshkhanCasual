@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI phone assistant for a law firm · Ishkhan Khchoian</title>
+<link rel="stylesheet" href="../assets/portfolio.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../">Ishkhan Khchoian</a>
+    <a class="back" href="../">← All projects</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="prose">
+      <p class="kicker">Voice AI · no-code</p>
+      <h1>AI phone assistant for a law firm</h1>
+      <p class="lead">"Justus" answers calls for a small law firm (employment, family and traffic law), takes intake details and books consultations. Built on a no-code voice-AI platform (Suisse Line) and tested with scripted calls.</p>
+
+      <div class="facts">
+        <div class="fact"><b>Hypothesis</b><span>Firms lose urgent clients when every call lands in one queue.</span></div>
+        <div class="fact"><b>My feature</b><span>Urgency triage with separate routing for urgent calls.</span></div>
+        <div class="fact"><b>Result</b><span>Urgent calls reach the lawyer on duty; bookings land in Outlook.</span></div>
+      </div>
+
+      <h2>What it does</h2>
+      <ul>
+        <li>Answers in English, switches language if the caller does, and never gives legal advice on the phone.</li>
+        <li>Takes intake details one by one — area of law, deadline, preferred time, name, phone — and reads numbers back digit by digit.</li>
+        <li>Checks availability and books the consultation straight into the connected Outlook calendar.</li>
+      </ul>
+
+      <h2>My feature: urgency triage</h2>
+      <ul>
+        <li>The assistant always asks whether there is a court date, filing deadline or police summons.</li>
+        <li>Within 7 days, or a pending court or criminal case without a known date, or an arrest, or a risk to a child → the request is marked <b>URGENT</b>.</li>
+        <li>An email rule sends URGENT summaries to a separate "lawyer on duty" address; everything else goes to the general inbox.</li>
+        <li>Every summary follows one format: Priority, Area of law, Deadline, Preferred time, Name, Phone, Summary.</li>
+      </ul>
+    </div>
+
+    <figure>
+      <a href="img/assistant-instructions.webp"><img src="img/assistant-instructions.webp" width="1468" height="769" loading="lazy" alt="Assistant settings with the urgency-triage block in the instructions"></a>
+      <figcaption>Assistant instructions with my urgency-triage block. Tap any screenshot to open it full size.</figcaption>
+    </figure>
+    <figure>
+      <a href="img/urgent-rule.webp"><img src="img/urgent-rule.webp" width="1458" height="758" loading="lazy" alt="Email routing rule that sends urgent calls to a separate address"></a>
+      <figcaption>Routing rule: urgent calls go to a separate address, in addition to the general inbox.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <h2>How I tested it</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Test call</th><th>Expected</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Criminal case, hearing in about 4 days, exact date unknown</td><td>URGENT, email to the urgent address</td><td>Passed</td></tr>
+          <tr><td>Employment issue, no deadline; 12:00 slot busy</td><td>NORMAL, other slots offered, booking in Outlook</td><td>Passed — booked 10 Nov, 13:30</td></tr>
+          <tr><td>Divorce and property, caller pushes hard for legal advice</td><td>Polite refusal, call-back offered, slot booked</td><td>Passed — refused twice, booked 12 Nov</td></tr>
+          <tr><td>Phone numbers digit by digit, in groups, with corrections</td><td>Read back correctly</td><td>Passed</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure>
+      <a href="img/email-summaries.webp"><img src="img/email-summaries.webp" width="1514" height="381" loading="lazy" alt="Inbox with call summaries marked Priority URGENT and NORMAL"></a>
+      <figcaption>Call summaries in the inbox: one URGENT, the rest NORMAL, all in the same format.</figcaption>
+    </figure>
+    <figure>
+      <a href="img/outlook-bookings.webp"><img src="img/outlook-bookings.webp" width="1534" height="769" loading="lazy" alt="Outlook calendar with two consultations booked by the assistant"></a>
+      <figcaption>Consultations booked by the assistant in Outlook (shown in Yerevan time, 3 hours ahead of Swiss time).</figcaption>
+    </figure>
+    <figure>
+      <a href="img/call-log.webp"><img src="img/call-log.webp" width="1533" height="810" loading="lazy" alt="Call log transcript where the assistant refuses legal advice and books a slot"></a>
+      <figcaption>Call log: the assistant refuses legal advice twice, checks availability and books the slot.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <h2>What I found and fixed</h2>
+      <ul>
+        <li><b>The urgent rule didn't fire at first.</b> Test runs use unsaved rules, but real emails follow saved ones, and my first condition was too narrow. I widened it and the instructions — it worked.</li>
+        <li><b>Time zones.</b> Bookings are made in Swiss time: 13:30 for the assistant showed as 16:30 in Yerevan. Callers abroad should confirm their time zone when booking.</li>
+        <li><b>Double booking risk.</b> After a corrected phone number the booking tool was called a second time. The calendar kept one event, but I added a rule: book only after all details are confirmed.</li>
+        <li><b>Phone validation.</b> A 19-digit number was accepted (E.164 allows 15), so I added a length check.</li>
+        <li><b>Next step:</b> a webhook to Make that emails the caller their consultation time and logs every request in a sheet.</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Ishkhan Khchoian · <a href="mailto:ishxanxchoyan@gmail.com">ishxanxchoyan@gmail.com</a> · <a href="https://t.me/sparkLe_Ishkhan">@sparkLe_Ishkhan</a></div>
+</footer>
+</body>
+</html>

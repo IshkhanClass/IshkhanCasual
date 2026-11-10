@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client-acquisition funnel model · Ishkhan Khchoian</title>
+<link rel="stylesheet" href="../assets/portfolio.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../">Ishkhan Khchoian</a>
+    <a class="back" href="../">← All projects</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="prose">
+      <p class="kicker">Growth · Python</p>
+      <h1>Client-acquisition funnel model</h1>
+      <p class="lead">For a B2B consultancy entering the U.S. market I designed a 12-week outbound pilot and built a Python model that calculates it and generates the report and slide decks. The client and its numbers stay confidential; this page shows how the model works.</p>
+
+      <div class="facts">
+        <div class="fact"><b>Question</b><span>Which buying signal brings the most calls per dollar spent?</span></div>
+        <div class="fact"><b>Built with</b><span>Claude Code, Python; report and decks generated from one model.</span></div>
+        <div class="fact"><b>Key finding</b><span>One mid-size sale pays back the whole pilot, so quality of each touch beats volume.</span></div>
+      </div>
+
+      <h2>How the model works</h2>
+      <ol>
+        <li><b>Signals:</b> three buying triggers — a fresh funding round, hiring in sales, a new sales or marketing leader — scored on volume, detectability, intent and fit.</li>
+        <li><b>Accounts and tiers:</b> weekly accounts per trigger; tiers decide how personal each touch is.</li>
+        <li><b>Funnel:</b> contacts → positive replies → calls → first sale → larger engagement, with conversion rates per stage.</li>
+        <li><b>Scenarios:</b> conservative, base and optimistic, so the spread is visible before anyone commits money.</li>
+        <li><b>Costs and payback:</b> tools and people, cost per call, cost per client and the break-even point.</li>
+        <li><b>Decision gates:</b> checks at weeks 3, 6, 8 and 12 — keep, fix, replace the trigger or stop.</li>
+      </ol>
+
+      <h2>Example of the scenario logic</h2>
+      <p class="small muted">Illustrative assumptions only — not the client's data.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Stage</th><th>Conservative</th><th>Base</th><th>Optimistic</th></tr></thead>
+        <tbody>
+          <tr><td>Positive replies per contact</td><td>1.2–1.8%</td><td>2.5–3.5%</td><td>4.2–5.8%</td></tr>
+          <tr><td>Positive reply → call held</td><td>50%</td><td>60%</td><td>70%</td></tr>
+          <tr><td>Call → first paid product</td><td>20%</td><td>25%</td><td>35%</td></tr>
+          <tr><td>First product → larger engagement</td><td>15%</td><td>25%</td><td>35%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <h2>What it produced</h2>
+      <ul>
+        <li>A calculation document with every assumption marked as fact, price, decision or assumption — and what will replace each assumption with real data.</li>
+        <li>Slide decks in two languages, generated from the same numbers.</li>
+        <li>A weekly reporting format and a sensitivity table showing which lever moves revenue most.</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Ishkhan Khchoian · <a href="mailto:ishxanxchoyan@gmail.com">ishxanxchoyan@gmail.com</a> · <a href="https://t.me/sparkLe_Ishkhan">@sparkLe_Ishkhan</a></div>
+</footer>
+</body>
+</html>

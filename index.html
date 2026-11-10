@@ -1,539 +1,63 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ishkhan Khchoian — резюме</title>
-<style>
-/* IshkhanCasual — resume site
-   Type scale: 14 / 16 / 20 / 24 / 32
-   Spacing scale: 4 / 8 / 12 / 16 / 24 / 32 / 48 */
-
-:root {
-  --ink: #14181f;
-  --ink-soft: #444d5c;
-  --ink-faint: #6b7480;
-  --line: #dfe3e9;
-  --line-soft: #eceff3;
-  --bg: #f6f7f9;
-  --paper: #ffffff;
-  --accent: #1b4d8f;
-  --accent-soft: #eef3fa;
-  --radius: 10px;
-  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
-}
-
-* { box-sizing: border-box; }
-
-html { -webkit-text-size-adjust: 100%; }
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* ---------- top bar ---------- */
-
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
-}
-
-.topbar a.home {
-  font-weight: 600;
-  color: var(--ink);
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.topbar a.home:hover { color: var(--accent); }
-
-.topbar .spacer { flex: 1 1 auto; }
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 8px 16px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-  font: inherit;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
-}
-
-.btn:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
-.btn:active { transform: translateY(1px); }
-.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-.btn.primary:hover { background: #16407a; color: #fff; }
-
-/* ---------- layout ---------- */
-
-.wrap {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 32px 24px 48px;
-}
-
-.paper {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 32px;
-}
-
-/* ---------- hub ---------- */
-
-.hero h1 {
-  font-family: var(--serif);
-  font-size: 32px;
-  line-height: 1.25;
-  margin: 0 0 8px;
-}
-
-.hero p {
-  margin: 0 0 8px;
-  max-width: 62ch;
-  color: var(--ink-soft);
-}
-
-.section-title {
-  font-family: var(--serif);
-  font-size: 24px;
-  line-height: 1.3;
-  margin: 48px 0 4px;
-}
-
-.lead-note {
-  margin: 0 0 16px;
-  max-width: 62ch;
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--ink-soft);
-}
-
-.nav-note {
-  margin: 8px 12px 16px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--ink-faint);
-}
-
-.sub-title {
-  font-family: var(--serif);
-  font-size: 20px;
-  line-height: 1.3;
-  margin: 32px 0 12px;
-}
-
-.section-note {
-  margin: 0 0 16px;
-  color: var(--ink-faint);
-  font-size: 14px;
-  max-width: 62ch;
-}
-
-.cards {
-  display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-}
-
-a.card {
-  display: block;
-  padding: 16px;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  text-decoration: none;
-  color: inherit;
-  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
-}
-
-a.card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(20, 24, 31, 0.07);
-}
-
-a.card .tag {
-  display: inline-block;
-  margin-bottom: 8px;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-size: 14px;
-  font-weight: 600;
-}
-
-a.card h3 {
-  font-family: var(--serif);
-  font-size: 20px;
-  line-height: 1.3;
-  margin: 0 0 4px;
-}
-
-a.card p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--ink-soft);
-}
-
-a.card.dl h3::before {
-  content: "↓";
-  display: inline-block;
-  margin-right: 8px;
-  color: var(--accent);
-  font-family: var(--sans);
-  font-weight: 700;
-}
-
-a.card.dl .ext {
-  display: inline-block;
-  margin-left: 8px;
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ink-faint);
-  white-space: nowrap;
-}
-
-/* ---------- prose ---------- */
-
-.prose h2 {
-  font-family: var(--serif);
-  font-size: 24px;
-  line-height: 1.3;
-  margin: 32px 0 8px;
-}
-
-.prose h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 24px 0 4px;
-}
-
-.prose p, .prose li { max-width: 66ch; }
-.prose p { margin: 0 0 12px; }
-.prose ul, .prose ol { margin: 0 0 12px; padding-left: 24px; }
-.prose li { margin-bottom: 4px; }
-
-.callout {
-  margin: 16px 0;
-  padding: 16px;
-  border-left: 3px solid var(--accent);
-  background: var(--accent-soft);
-  border-radius: 0 var(--radius) var(--radius) 0;
-}
-
-.callout p:last-child { margin-bottom: 0; }
-
-/* ---------- document (CV) ---------- */
-
-.doc {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 40px;
-  color: var(--ink);
-}
-
-.doc h1 {
-  font-family: var(--serif);
-  font-size: 32px;
-  line-height: 1.2;
-  margin: 0 0 4px;
-  letter-spacing: 0.01em;
-}
-
-.doc .role {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--accent);
-  margin: 0 0 8px;
-}
-
-.doc .contact {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--ink-soft);
-  margin: 0 0 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--line);
-}
-
-.doc h2 {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  margin: 24px 0 12px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid var(--line-soft);
-}
-
-.doc p { margin: 0 0 12px; max-width: 72ch; }
-
-.job { margin-bottom: 16px; }
-
-.job-top {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 12px;
-  margin-bottom: 4px;
-}
-
-.job-top .who { font-weight: 600; font-size: 16px; }
-.job-top .when { margin-left: auto; font-size: 14px; color: var(--ink-faint); white-space: nowrap; }
-.job .sub { font-size: 14px; color: var(--ink-soft); margin: 0 0 4px; }
-
-.doc ul { margin: 0 0 4px; padding-left: 20px; }
-.doc li { margin-bottom: 4px; max-width: 72ch; }
-
-.skills { font-size: 16px; margin: 0 0 8px; max-width: 72ch; }
-.skills b { font-weight: 600; }
-
-
-.docnav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.docnav a {
-  font-size: 14px;
-  padding: 4px 12px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--paper);
-  color: var(--ink-soft);
-  text-decoration: none;
-}
-
-.docnav a:hover, .docnav a.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
-
-code {
-  font-family: var(--sans);
-  font-size: 14px;
-  padding: 2px 4px;
-  border-radius: 4px;
-  background: var(--line-soft);
-}
-
-.todo {
-  background: #fff5d6;
-  border-bottom: 1px dashed #b3891f;
-  padding: 0 2px;
-}
-
-/* ---------- mobile ---------- */
-
-@media (max-width: 640px) {
-  .wrap { padding: 24px 16px 32px; }
-  .paper, .doc { padding: 24px 16px; }
-  .topbar { padding: 8px 16px; gap: 8px; }
-  .doc h1, .hero h1 { font-size: 24px; }
-  .job-top .when { margin-left: 0; width: 100%; }
-}
-
-/* ---------- print ---------- */
-
-@media print {
-  :root { --line: #cfd4dc; --line-soft: #e2e6eb; }
-  body { background: #fff; font-size: 10.5pt; line-height: 1.45; }
-  .topbar, .docnav, .no-print { display: none !important; }
-  .wrap { max-width: none; padding: 0; }
-  .doc, .paper { border: 0; border-radius: 0; padding: 0; }
-  .doc h1 { font-size: 20pt; }
-  .doc h2 { margin: 14pt 0 6pt; }
-  .job { margin-bottom: 10pt; page-break-inside: avoid; }
-  a { color: inherit; text-decoration: none; }
-}
-
-/* ---------- single-file layout ---------- */
-.layout { max-width: 1180px; margin: 0 auto; padding: 24px; display: flex; gap: 24px; align-items: flex-start; }
-.sidenav { flex: 0 0 260px; position: sticky; top: 72px; }
-.sidenav .grp { font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-  color: var(--ink-faint); margin: 16px 0 8px; }
-.sidenav .grp:first-child { margin-top: 0; }
-.navbtn { display: block; width: 100%; text-align: left; min-height: 44px; padding: 8px 12px; margin-bottom: 4px;
-  border: 1px solid transparent; border-radius: var(--radius); background: transparent; color: var(--ink-soft);
-  font: inherit; font-size: 16px; line-height: 1.4; cursor: pointer;
-  transition: background 160ms ease, color 160ms ease, border-color 160ms ease; }
-.navbtn:hover { background: var(--paper); color: var(--ink); border-color: var(--line); }
-a.navlink { display: flex; align-items: center; box-sizing: border-box; text-decoration: none; color: var(--accent); font-weight: 600; }
-a.navlink:hover { color: var(--accent); }
-.navbtn.on { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); font-weight: 600; }
-.content { flex: 1 1 auto; min-width: 0; }
-.pane { display: none; }
-.pane.active { display: block; animation: fade 220ms ease both; }
-@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-.pane > .doc, .pane > .paper { background: var(--paper); border: 1px solid var(--line);
-  border-radius: var(--radius); padding: 40px; }
-@media (max-width: 860px) {
-  .layout { display: block; padding: 16px; }
-  .sidenav { position: static; margin-bottom: 24px; }
-  .pane > .doc, .pane > .paper { padding: 24px 16px; }
-}
-@media print {
-  .layout { display: block; padding: 0; max-width: none; }
-  .sidenav { display: none !important; }
-  .pane { display: none !important; }
-  .pane.active { display: block !important; animation: none; }
-  .pane > .doc, .pane > .paper { border: 0; padding: 0; }
-}
-
-</style>
+<title>Ishkhan Khchoian — AI projects</title>
+<meta name="description" content="Projects I built with AI tools: voice agents, an AI phone assistant, a production-planning tool and a funnel model.">
+<link rel="stylesheet" href="assets/portfolio.css">
 </head>
 <body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./">Ishkhan Khchoian</a>
+    <span class="small muted">Yerevan, Armenia</span>
+  </div>
+</header>
 
-<div class="topbar">
-  <span class="home">Ishkhan Khchoian</span>
-  <span class="spacer"></span>
-</div>
+<main>
+  <div class="wrap">
+    <p class="kicker">Projects</p>
+    <h1>Things I built with AI</h1>
+    <p class="lead prose">I'm a project and product manager who builds hands-on: I take an idea, put together a working version with AI tools, test it on real scenarios and decide from the results. Below are four recent projects.</p>
 
-<div class="layout">
-<nav class="sidenav no-print">
-  <button class="navbtn on" data-go="start">Обзор</button>
-  <div class="grp">Скачать PDF — по приоритету</div>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_IT_EN.pdf?v=20261108" download="Ishkhan_Khchoian_PM_IT_EN.pdf">↓ 1. PM IT (EN)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_IT_RU.pdf?v=20261108" download="Ishkhan_Khchoian_PM_IT_RU.pdf">↓ 1. ПМ IT (RU)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_Operations_Process_Improvement_EN.pdf?v=20261108" download="Ishkhan_Khchoian_Operations_Process_Improvement_EN.pdf">↓ Operations (EN)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_Operations_Process_Improvement_RU.pdf?v=20261108" download="Ishkhan_Khchoian_Operations_Process_Improvement_RU.pdf">↓ Операции (RU)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_Gamedev_EN.pdf?v=20261108" download="Ishkhan_Khchoian_PM_Gamedev_EN.pdf">↓ 2. Games (EN)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_Gamedev_RU.pdf?v=20261108" download="Ishkhan_Khchoian_PM_Gamedev_RU.pdf">↓ 2. Геймдев (RU)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_PropTech_EN.pdf?v=20261108" download="Ishkhan_Khchoian_PM_PropTech_EN.pdf">↓ 3. PropTech (EN)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_PropTech_RU.pdf?v=20261108" download="Ishkhan_Khchoian_PM_PropTech_RU.pdf">↓ 3. Стройка (RU)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_LegalTech_EN.pdf?v=20261108" download="Ishkhan_Khchoian_PM_LegalTech_EN.pdf">↓ 4. LegalTech (EN)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_LegalTech_RU.pdf?v=20261108" download="Ishkhan_Khchoian_PM_LegalTech_RU.pdf">↓ 4. LegalTech (RU)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_iGaming_EN.pdf?v=20261108" download="Ishkhan_Khchoian_PM_iGaming_EN.pdf">↓ 5. iGaming (EN)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_iGaming_RU.pdf?v=20261108" download="Ishkhan_Khchoian_PM_iGaming_RU.pdf">↓ 5. iGaming (RU)</a>
-  <a class="navbtn navlink" href="Ishkhan_Khchoian_PM_Certificate_US_Perspective.pdf?v=20261108" download="Ishkhan_Khchoian_PM_Certificate_US_Perspective.pdf">↓ Сертификат PM (US)</a>
-  <p class="nav-note">Каждое резюме проджект-менеджера есть на двух языках. Продакт и бизнес-аналитик — в «Обзоре».</p>
-</nav>
+    <div class="contacts">
+      <a href="mailto:ishxanxchoyan@gmail.com">ishxanxchoyan@gmail.com</a>
+      <a href="https://t.me/sparkLe_Ishkhan">Telegram: @sparkLe_Ishkhan</a>
+      <a href="https://www.linkedin.com/in/ishkhan-khchoian-2419182b3">LinkedIn</a>
+    </div>
 
-<div class="content">
-<section class="pane active" id="pane-start">
-<div class="paper">
-<div class="hero"><h1>Резюме</h1>
-<p>Резюме под конкретные роли и отрасли — готовыми PDF, можно скачать и приложить к отклику. Разделы идут в порядке приоритета поиска: цель — проектный менеджер, смежные варианты — продакт и бизнес-аналитик.</p>
-<p><b>Главное правило: одно резюме на все вакансии не работает.</b> Выбирайте версию под нишу компании — первые три строки должны совпадать с тем, что человек ищет.</p></div>
-<h2 class="section-title">Приоритет 1 — IT и разработка ПО</h2>
-<p class="lead-note">Основная ставка. Проджект-менеджер — главная цель, продакт и бизнес-аналитик — смежные варианты.</p>
-<div class="cards">
-<a class="card dl" href="Ishkhan_Khchoian_PM_IT_EN.pdf?v=20261108" download="Ishkhan_Khchoian_PM_IT_EN.pdf"><span class="tag">PM · EN</span><h3>CV · Project Manager <span class="ext">PDF · 2 стр.</span></h3><p>Координатор проектов в разработке ПО. Параллельная доставка, критерии приёмки, процессная документация.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_PM_IT_RU.pdf?v=20261108" download="Ishkhan_Khchoian_PM_IT_RU.pdf"><span class="tag">PM · RU</span><h3>Резюме · Проджект-менеджер <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Product_Manager_EN.pdf?v=20261108" download="Ishkhan_Khchoian_Product_Manager_EN.pdf"><span class="tag">Product · EN</span><h3>CV · Product Manager <span class="ext">PDF · 2 стр.</span></h3><p>Discovery, требования, метрики. Несколько сотен интервью при приёме клиентов как главный аргумент.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Product_Manager_RU.pdf?v=20261108" download="Ishkhan_Khchoian_Product_Manager_RU.pdf"><span class="tag">Product · RU</span><h3>Резюме · Продакт-менеджер <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Product_Manager_Startup_EN.pdf?v=20261108" download="Ishkhan_Khchoian_Product_Manager_Startup_EN.pdf"><span class="tag">Product · вариант 2 · EN</span><h3>CV · Product Manager (стартап) <span class="ext">PDF · 2 стр.</span></h3><p>Второй вариант: через реальную продуктовую работу — COO в SayWhen.am (AI-голосовые агенты) и самостоятельные проекты. Первый вариант строится на переносимых навыках, этот — на том, что делается сейчас.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Product_Manager_Startup_RU.pdf?v=20261108" download="Ishkhan_Khchoian_Product_Manager_Startup_RU.pdf"><span class="tag">Product · вариант 2 · RU</span><h3>Резюме · Продакт-менеджер (стартап) <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски — под русскоязычные компании.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Business_Analyst_EN.pdf?v=20261108" download="Ishkhan_Khchoian_Business_Analyst_EN.pdf"><span class="tag">BA · EN</span><h3>CV · Business Analyst <span class="ext">PDF · 2 стр.</span></h3><p>Требования, документация, картирование процессов. Судебные акты и договоры как школа письменной точности.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Business_Analyst_RU.pdf?v=20261108" download="Ishkhan_Khchoian_Business_Analyst_RU.pdf"><span class="tag">BA · RU</span><h3>Резюме · Бизнес-аналитик <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
-</div>
-<h2 class="section-title">Смежная ниша — операции и улучшение процессов</h2>
-<p class="lead-note">Рядом с IT, но не вместо него. Для вакансий, где в описании есть operations, process improvement, production или поддержка ERP.</p>
-<div class="cards">
-<a class="card dl" href="Ishkhan_Khchoian_Operations_Process_Improvement_EN.pdf?v=20261108" download="Ishkhan_Khchoian_Operations_Process_Improvement_EN.pdf"><span class="tag">Operations · EN</span><h3>CV · Operations / Process Improvement Coordinator <span class="ext">PDF · 2 стр.</span></h3><p>Узкие места, стандарты, обучение людей. Стройка, события и большой объём работы как операционный опыт.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Operations_Process_Improvement_RU.pdf?v=20261108" download="Ishkhan_Khchoian_Operations_Process_Improvement_RU.pdf"><span class="tag">Операции · RU</span><h3>Резюме · Координатор операций и процессов <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
-</div>
-<h2 class="section-title">Приоритет 2 — Геймдев</h2>
-<p class="lead-note">Продакшн-дисциплина плюс 20 лет реального игрового опыта и соревновательные результаты.</p>
-<div class="cards">
-<a class="card dl" href="Ishkhan_Khchoian_PM_Gamedev_EN.pdf?v=20261108" download="Ishkhan_Khchoian_PM_Gamedev_EN.pdf"><span class="tag">Gamedev · EN</span><h3>CV · PM Games <span class="ext">PDF · 2 стр.</span></h3><p>Продакшн-дисциплина, жёсткие сроки и 20 лет игрового опыта.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_PM_Gamedev_RU.pdf?v=20261108" download="Ishkhan_Khchoian_PM_Gamedev_RU.pdf"><span class="tag">Геймдев · RU</span><h3>Резюме · ПМ Геймдев <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
-</div>
-<h2 class="section-title">Приоритет 3 — Строительство и PropTech</h2>
-<p class="lead-note">Мало конкурентов: 15+ объектов, тендеры, подрядчики и договорное право в одном человеке.</p>
-<div class="cards">
-<a class="card dl" href="Ishkhan_Khchoian_PM_PropTech_EN.pdf?v=20261108" download="Ishkhan_Khchoian_PM_PropTech_EN.pdf"><span class="tag">PropTech · EN</span><h3>CV · PM Construction <span class="ext">PDF · 2 стр.</span></h3><p>Стройка вынесена наверх: объекты, закупки, тендеры, Ганты плюс договоры.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_PM_PropTech_RU.pdf?v=20261108" download="Ishkhan_Khchoian_PM_PropTech_RU.pdf"><span class="tag">PropTech · RU</span><h3>Резюме · ПМ Стройка <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
-</div>
-<h2 class="section-title">Приоритет 4 — LegalTech</h2>
-<p class="lead-note">Самый сильный домен: три года в американском иммиграционном праве — изнутри, как пользователь такого софта.</p>
-<div class="cards">
-<a class="card dl" href="Ishkhan_Khchoian_PM_LegalTech_EN.pdf?v=20261108" download="Ishkhan_Khchoian_PM_LegalTech_EN.pdf"><span class="tag">LegalTech · EN</span><h3>CV · PM LegalTech <span class="ext">PDF · 2 стр.</span></h3><p>Иммиграционные платформы и продукты для юрфирм. O-1B, EB-3, E-2 и легал-опс изнутри.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_PM_LegalTech_RU.pdf?v=20261108" download="Ishkhan_Khchoian_PM_LegalTech_RU.pdf"><span class="tag">LegalTech · RU</span><h3>Резюме · ПМ LegalTech <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
-</div>
-<h2 class="section-title">Приоритет 5 — iGaming</h2>
-<p class="lead-note">Индустрия с двух сторон: маркетинг у оператора live-казино (название под NDA) и аффилиаты в Digital Caramel.</p>
-<div class="cards">
-<a class="card dl" href="Ishkhan_Khchoian_PM_iGaming_EN.pdf?v=20261108" download="Ishkhan_Khchoian_PM_iGaming_EN.pdf"><span class="tag">iGaming · EN</span><h3>CV · PM iGaming <span class="ext">PDF · 2 стр.</span></h3><p>Плюс лицензирование в специфичных юрисдикциях и переговоры по CPA/RevShare.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_PM_iGaming_RU.pdf?v=20261108" download="Ishkhan_Khchoian_PM_iGaming_RU.pdf"><span class="tag">iGaming · RU</span><h3>Резюме · ПМ iGaming <span class="ext">PDF · 2 стр.</span></h3><p>Та же версия по-русски.</p></a>
-</div>
-<h2 class="section-title">Смежные направления и документы</h2>
-<p class="lead-note">Не основная линия, но готово и может пригодиться.</p>
-<div class="cards">
-<a class="card dl" href="Ishkhan_Khchoian_Product_Manager_Conversational_AI.pdf?v=20261108" download="Ishkhan_Khchoian_Product_Manager_Conversational_AI.pdf"><span class="tag">Product · AI-чат</span><h3>CV · Product (conversational AI) <span class="ext">PDF · 2 стр.</span></h3><p>Под конкретную вакансию в chat-центричном AI-продукте: свой концепт AI-агентов и RAG наверху.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Sales_Manager.pdf?v=20261108" download="Ishkhan_Khchoian_Sales_Manager.pdf"><span class="tag">Продажи</span><h3>CV · Sales Manager (EN) <span class="ext">PDF · 2 стр.</span></h3><p>B2B-продажи, ключевые клиенты и тендеры.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_Legal_Counsel_Armenia.pdf?v=20261108" download="Ishkhan_Khchoian_Legal_Counsel_Armenia.pdf"><span class="tag">Юрист · in-house</span><h3>CV · Legal Counsel (EN) <span class="ext">PDF · 2 стр.</span></h3><p>Для международной компании в Армении: договоры, споры, иммиграция и релокация.</p></a>
-<a class="card dl" href="Ishkhan_Khchoian_PM_Certificate_US_Perspective.pdf?v=20261108" download="Ishkhan_Khchoian_PM_Certificate_US_Perspective.pdf"><span class="tag">Документ</span><h3>Сертификат · PM (US) <span class="ext">PDF · 2 стр.</span></h3><p>«Project Management with a U.S. Perspective» — Yerevan American Corner программа посольства США в Ереване, 21 июля – 21 августа 2026.</p></a>
-</div>
-</div>
-</section>
+    <div class="cards">
+      <a class="card" href="work/saywhen.html">
+        <span class="tag">Voice AI · startup</span>
+        <h3>SayWhen.am — AI voice agents</h3>
+        <p>Phone agents for different business verticals, with their own models and modules. COO, vibe-coder and feature builder.</p>
+        <span class="more">Read more →</span>
+      </a>
+      <a class="card" href="work/law-firm-assistant.html">
+        <span class="tag">Voice AI · no-code</span>
+        <h3>AI phone assistant for a law firm</h3>
+        <p>Urgency triage, routing of urgent calls, bookings into Outlook — built and stress-tested with scripted calls.</p>
+        <span class="more">Read more →</span>
+      </a>
+      <a class="card" href="work/workshop-planner.html">
+        <span class="tag">Operations · web tool</span>
+        <h3>Production planner for a workshop</h3>
+        <p>A web tool built with Claude Code for a septic-tank workshop: capacity calculator, stage cards, equipment schedule.</p>
+        <span class="more">Read more →</span>
+      </a>
+      <a class="card" href="work/funnel-model.html">
+        <span class="tag">Growth · Python</span>
+        <h3>Client-acquisition funnel model</h3>
+        <p>A Python model for a B2B consultancy that calculates a 12-week pilot in three scenarios and generates the report.</p>
+        <span class="more">Read more →</span>
+      </a>
+    </div>
+  </div>
+</main>
 
-
-
-
-
-
-
-
-
-
-
-</div>
-</div>
-
-<script>
-(function () {
-  var panes = document.querySelectorAll('.pane');
-  var btns  = document.querySelectorAll('.navbtn');
-
-  function show(id) {
-    var found = false;
-    panes.forEach(function (p) {
-      var on = (p.id === 'pane-' + id);
-      p.classList.toggle('active', on);
-      if (on) found = true;
-    });
-    if (!found) { show('start'); return; }
-    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-go') === id); });
-    if (history.replaceState) history.replaceState(null, '', '#' + id);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  document.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-go]');
-    if (t) { e.preventDefault(); show(t.getAttribute('data-go')); }
-  });
-
-  show((location.hash || '#start').slice(1));
-})();
-</script>
+<footer>
+  <div class="wrap">Ishkhan Khchoian · Yerevan, Armenia · Armenian, Russian (native), English (C1)</div>
+</footer>
 </body>
 </html>
